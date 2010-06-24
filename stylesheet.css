@@ -1,0 +1,73 @@
+/*
+@font-face {
+	font-family: "Fontin Sans";
+	src: url('http://lxneng.com/fonts/Fontin_Sans_R_45b.otf');
+}
+
+@font-face {
+	font-family: "Fontin Sans";
+	font-weight: bold;
+	src: url('http://lxneng.com/fonts/Fontin_Sans_B_45b.otf');
+}
+
+@font-face {
+	font-family: "Fontin Sans";
+	font-style: italic;
+	src: url('http://lxneng.com/fonts/Fontin_Sans_I_45b.otf');
+}
+
+@font-face {
+	font-family: "Fontin Sans";
+	font-weight: bold;
+	font-style: italic;
+	src: url('http://lxneng.com/fonts/Fontin_Sans_BI_45b.otf');
+}
+/*
+body {
+    background-color: #f6f6f6;
+    color: #555;
+    font-family: "Fontin Sans", "Myriad Pro", "Lucida Grande", sans-serif;
+}
+*/
+body {
+    background-color: #f6f6f6;
+    color: #555;
+    font-family: 'IM Fell DW Pica', arial, serif;
+    text-shadow: 4px 4px 4px #aaa;
+}
+div.container {
+    margin-left: 2em;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    margin-top: 3%;
+    font-size: 350%;
+}
+
+h2 {
+    margin-top: 1.5em;
+}
+
+a:link, a:visited {
+    color: #000;
+    text-decoration: none;
+    -webkit-transition: color 0.2s linear;
+}
+
+a:hover {
+    color: #999;
+}
+
+ul {
+    /* list-style: square; */
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 0.3em;
+    font-size: 110%;
+}
