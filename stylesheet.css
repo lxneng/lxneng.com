@@ -6,7 +6,7 @@ body {
 }
 div.container {
 	width: 960px;
-    margin-left: 2em;
+	margin:0 auto;
 }
 
 h1, h2, h3 {
