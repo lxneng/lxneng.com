@@ -9,15 +9,15 @@ div.container {
 	margin:0 auto;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .h1{
     color: #333;
 }
 
-h1 {
+h1, .h1{
     margin-top: 3%;
-    font-size: 350%;
+    font-size: 300%;
 }
-
+#header{font-size: 150%;}
 h2 {
     margin-top: 1.5em;
 }
