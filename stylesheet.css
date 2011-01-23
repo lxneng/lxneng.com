@@ -1,34 +1,3 @@
-/*
-@font-face {
-	font-family: "Fontin Sans";
-	src: url('http://lxneng.com/fonts/Fontin_Sans_R_45b.otf');
-}
-
-@font-face {
-	font-family: "Fontin Sans";
-	font-weight: bold;
-	src: url('http://lxneng.com/fonts/Fontin_Sans_B_45b.otf');
-}
-
-@font-face {
-	font-family: "Fontin Sans";
-	font-style: italic;
-	src: url('http://lxneng.com/fonts/Fontin_Sans_I_45b.otf');
-}
-
-@font-face {
-	font-family: "Fontin Sans";
-	font-weight: bold;
-	font-style: italic;
-	src: url('http://lxneng.com/fonts/Fontin_Sans_BI_45b.otf');
-}
-/*
-body {
-    background-color: #f6f6f6;
-    color: #555;
-    font-family: "Fontin Sans", "Myriad Pro", "Lucida Grande", sans-serif;
-}
-*/
 body {
     background-color: #f6f6f6;
     color: #555;
@@ -36,6 +5,7 @@ body {
     text-shadow: 4px 4px 4px #aaa;
 }
 div.container {
+	width: 960px;
     margin-left: 2em;
 }
 
@@ -70,4 +40,12 @@ ul {
 ul li {
     margin-bottom: 0.3em;
     font-size: 110%;
+}
+#left {
+    float: left;
+	width: 450px;
+}
+#right {
+	float: right;
+	width: 500px;
 }
