@@ -13,6 +13,7 @@ requires = [
     'pyramid_jinja2',
     'SQLAlchemy',
     'zope.sqlalchemy',
+    's4u.sqlalchemy',
     ]
 
 setup(name='lxneng',
