@@ -11,6 +11,8 @@ requires = [
     'pyramid',
     'pyramid_debugtoolbar',
     'pyramid_jinja2',
+    'SQLAlchemy',
+    'zope.sqlalchemy',
     ]
 
 setup(name='lxneng',
