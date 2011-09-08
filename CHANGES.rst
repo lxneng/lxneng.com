@@ -1,6 +1,8 @@
 Sept. 8, 2011
 ---------------
 
-- serving robots.txt from the root
+- Serving favicon.ico from the root
 
--  Initial version
+- Serving robots.txt from the root
+
+- Initial version
