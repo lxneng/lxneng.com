@@ -1,3 +1,8 @@
+Sept. 9, 2011
+---------------
+
+- add requirements.txt, support ``pip install -r requirements.txt` and setup.py
+
 Sept. 8, 2011
 ---------------
 
