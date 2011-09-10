@@ -16,7 +16,7 @@ def robotstxt_view(context, request):
 
 
 @view_config(name='favicon.ico')
-def robotstxt_view(context, request):
+def favicon_view(context, request):
     return _favicon_response
 
 

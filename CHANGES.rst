@@ -1,3 +1,8 @@
+Sept. 10, 2011
+---------------
+
+- fix reduplicate function name
+
 Sept. 9, 2011
 ---------------
 
