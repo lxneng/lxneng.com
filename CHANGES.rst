@@ -1,6 +1,8 @@
 Sept. 10, 2011
 ---------------
 
+- add sqlalchemy logger
+
 - fix reduplicate function name
 
 Sept. 9, 2011
