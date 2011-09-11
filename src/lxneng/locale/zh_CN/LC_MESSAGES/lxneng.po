@@ -1,0 +1,58 @@
+# Chinese (China) translations for lxneng.
+# Copyright (C) 2011 ORGANIZATION
+# This file is distributed under the same license as the lxneng project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxneng 0.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2011-09-11 12:21+0800\n"
+"PO-Revision-Date: 2011-09-11 17:18+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+msgid "Hi, I'm Eric Lo."
+msgstr "你好！我是罗小能。"
+
+msgid "Home"
+msgstr "首页"
+
+msgid "Blog"
+msgstr "博客"
+
+msgid "Photo"
+msgstr "照片"
+
+msgid "Bio"
+msgstr "关于我"
+
+msgid "My Blog"
+msgstr "我的博客"
+
+msgid "Elsewhere"
+msgstr "其他网络"
+
+msgid "Douban.com"
+msgstr "豆瓣"
+
+msgid "Flickr.com"
+msgstr "我的相册"
+
+msgid "Delicious.com"
+msgstr "美味书签"
+
+msgid "GoogleReader"
+msgstr "阅读分享"
+
+msgid "Github.com"
+msgstr "我的项目"
+
+msgid "renren.com"
+msgstr "人人主页"
+

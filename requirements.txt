@@ -5,3 +5,7 @@ SQLAlchemy
 zope.sqlalchemy
 s4u.sqlalchemy
 -f http://dist.simplon.biz/
+
+# i18n
+Babel
+lingua

@@ -21,6 +21,11 @@ def favicon_view(context, request):
 
 
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
-@view_config(route_name='home', renderer='home.html')
 def static_view(request):
-    return {'name': 'Eric'}
+    return {}
+    
+@view_config(route_name='home', renderer='home.html')
+def home(request):
+    locale_name = request.params.get('lang', 'en')
+    request.locale_name = locale_name
+    return {}
