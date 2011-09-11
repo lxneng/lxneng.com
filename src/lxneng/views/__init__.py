@@ -16,6 +16,7 @@ class BaseHandler(object):
     def __init__(self, request):
         self.request = request
         self.request.locale_name = request.params.get('lang', 'en')
+
     def __call__(self):
         return {}
 
@@ -34,7 +35,8 @@ def favicon_view(context, request):
 class Error(BaseHandler):
     pass
 
-    
+
 @view_config(route_name='home', renderer='home.html')
+@view_config(route_name='about', renderer='home.html')
 class Home(BaseHandler):
     pass

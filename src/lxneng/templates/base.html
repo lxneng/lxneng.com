@@ -1,33 +1,33 @@
 <!DOCTYPE html> 
 <html id="home" lang="en"> 
-<head> 
-<meta charset=utf-8 /> 
-<meta name="viewport" content="width=620" /> 
-<title>{% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
-<link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}">
-</head> 
-<body>
-	<div id="header">
-		<ul id="nav">
-				<li><a href="{{request.application_url}}" class="active" title="Home" id="Home">{{gettext('Home')}}</a></li>
-				<li><a href="#" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
-				<li><a href="#" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
-				<li><a href="#" title="Bio" id="Bio">{{gettext('Bio')}}</a></li>
-		</ul>
-		<span class="localeSwitch">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
-	</div>
-	<div id="main">
-	    {% block body %}{% endblock %}
-	</div>	
-	<!-- JiaThis Button BEGIN -->
-	<script type="text/javascript">var jiathis_config = {data_track_clickback:true};</script>
-	<script type="text/javascript" src="http://v2.jiathis.com/code/jiathis_r.js?move=0&amp;uid=1535613" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-	<script>
-	    var _gaq=[['_setAccount','UA-15032003-1'],['_trackPageview'],['_trackPageLoadTime']];
-	    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	    s.parentNode.insertBefore(g,s)}(document,'script'));
-	  </script>
-</body> 
+    <head> 
+        <meta charset=utf-8 /> 
+        <meta name="viewport" content="width=620" /> 
+        <title>{% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
+        <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}">
+    </head> 
+    <body>
+        <div id="header">
+            <ul id="nav">
+                <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
+                <li><a href="#" class="{{'active' if request.path=='/blog' else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
+                <li><a href="#" class="{{'active' if request.path=='/photos' else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
+                <li><a href="{{request.route_url('about')}}" class="{{'active' if request.path=='/about' else ''}}" title="Bio" id="Bio">{{gettext('Bio')}}</a></li>
+            </ul>
+            <span class="localeSwitch">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
+        </div>
+        <div id="main">
+            {% block body %}{% endblock %}
+        </div>	
+        <!-- JiaThis Button BEGIN -->
+        <script type="text/javascript">var jiathis_config = {data_track_clickback:true};</script>
+        <script type="text/javascript" src="http://v2.jiathis.com/code/jiathis_r.js?move=0&amp;uid=1535613" charset="utf-8"></script>
+        <!-- JiaThis Button END -->
+        <script>
+            var _gaq=[['_setAccount','UA-15032003-1'],['_trackPageview'],['_trackPageLoadTime']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+                g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body> 
 </html>
