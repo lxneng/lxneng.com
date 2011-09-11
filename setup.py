@@ -54,7 +54,7 @@ setup(name='lxneng',
       test_suite="lxneng",
       message_extractors={'src': [
                     ('**.py', 'lingua_python', None),
-                    ('**.html', 'lingua_xml', None),
+                    ('**.html', 'lingua_jinja2', None),
                 ]},
       entry_points="""\
       [paste.app_factory]

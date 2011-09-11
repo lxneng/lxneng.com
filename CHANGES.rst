@@ -1,3 +1,8 @@
+Sept. 11, 2011
+---------------
+
+- setup i18n and design new layout
+
 Sept. 10, 2011
 ---------------
 
