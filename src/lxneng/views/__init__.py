@@ -10,6 +10,16 @@ _robots_response = Response(content_type='text/plain', body=_robots)
 _favicon = open(os.path.join(_here, '../static', 'favicon.ico')).read()
 _favicon_response = Response(content_type='image/x-icon', body=_favicon)
 
+
+class BaseHandler(object):
+
+    def __init__(self, request):
+        self.request = request
+        self.request.locale_name = request.params.get('lang', 'en')
+    def __call__(self):
+        return {}
+
+
 @view_config(name='robots.txt')
 def robotstxt_view(context, request):
     return _robots_response
@@ -21,11 +31,10 @@ def favicon_view(context, request):
 
 
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
-def static_view(request):
-    return {}
+class Error(BaseHandler):
+    pass
+
     
 @view_config(route_name='home', renderer='home.html')
-def home(request):
-    locale_name = request.params.get('lang', 'en')
-    request.locale_name = locale_name
-    return {}
+class Home(BaseHandler):
+    pass
