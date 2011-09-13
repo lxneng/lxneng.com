@@ -64,19 +64,18 @@ a img { border: none; }
 /* Remember to define your own focus styles! */
 :focus { outline: 0; }
 
-#header,#footer{width:100%;color:#ffffff;height:35px;position:absolute;text-align:center;line-height:30px;overflow:hidden;font-size:12px;}
-#header{background-color:#58808A;top:0;font-size:14px; border-top: 4px solid #3A545A; clear:both; position: fixed;}
+#header,#footer{width:100%;color:#ffffff;height:30px;position:absolute;text-align:center;line-height:30px;overflow:hidden;font-size:12px;}
+#header{background-color:#58808A;top:0;font-size:14px; border-top: 4px solid #3A545A; border-bottom: 1px solid #3A545A;clear:both; position: fixed;}
 #footer{background-color:#e88f00;bottom:0;position: relative;margin-top:100px;}
 
 ul#nav {
     display: block;
-    height: 35px;
-    width:90%;
-    float:left;
+    height: 30px;
+    width: 30%;
+    float: left;
     border: 0;
     padding: 0;
     list-style-type: none;
-    border-bottom: 1px solid #3A545A;
     background: #58808A;
 
 }
@@ -86,7 +85,7 @@ ul#nav li { display: inline; }
 ul#nav li a, .localeSwitch a {
     display: block;
     float: left;
-    height: 33px;
+    height: 28px;
     margin: 0;
     background: no-repeat 9px 5px;
     padding: 5px 15px 0px 15px;
@@ -109,7 +108,7 @@ ul#nav img {
 ul#nav li a:hover, .localeSwitch a:hover {
     background-color: #96090A;
     color: #fff;
-    height: 35px;
+    height: 28px;
     text-decoration: underline;
 }
 
@@ -125,4 +124,4 @@ ul#nav li a.active:after { content: "\00A0\00BB" attr(cite); }
 .localeSwitch {float:right; padding-right:20px;}
 
 #main {width: 800px; margin: 45px auto 0; background:#eee; height:1000px;}
-
+#site_name {float:left; padding: 0 20% 0 20%; font-size: 16px; font-style:italic;}

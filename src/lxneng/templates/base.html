@@ -8,6 +8,7 @@
     </head> 
     <body>
         <div id="header">
+            <span id="site_name">{% trans %}Hi, I'm Eric Lo.{% endtrans %}</span>
             <ul id="nav">
                 <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
                 <li><a href="#" class="{{'active' if request.path=='/blog' else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
