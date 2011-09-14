@@ -1,6 +1,10 @@
 from pyramid.config import Configurator
 from pyramid_jinja2 import renderer_factory
 from s4u.sqlalchemy import includeme
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 def main(global_config, **settings):

@@ -1,25 +1,32 @@
 <!DOCTYPE html> 
 <html id="home" lang="en"> 
     <head> 
-        <meta charset=utf-8 /> 
-        <meta name="viewport" content="width=620" /> 
+        <meta charset="utf-8">
+		<meta name="description" content="Eric Lo's page"> 
+		<meta name="author" content="Eric Lo">
         <title>{% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
         <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}">
     </head> 
     <body>
-        <div id="header">
+        <header>
             <span id="site_name">{% trans %}Hi, I'm Eric Lo.{% endtrans %}</span>
             <ul id="nav">
                 <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
-                <li><a href="#" class="{{'active' if request.path=='/blog' else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
-                <li><a href="#" class="{{'active' if request.path=='/photos' else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
+                <li><a href="http://blog.lxneng.com/" class="{{'active' if request.path=='/blog' else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
+                <li><a href="http://www.flickr.com/photos/lxneng" class="{{'active' if request.path=='/photos' else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
                 <li><a href="{{request.route_url('about')}}" class="{{'active' if request.path=='/about' else ''}}" title="Bio" id="Bio">{{gettext('Bio')}}</a></li>
             </ul>
-            <span class="localeSwitch">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
-        </div>
+            <span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
+        </header>
         <div id="main">
             {% block body %}{% endblock %}
-        </div>	
+			<footer>
+			<p>© <a title="lxneng.com" href="http://lxneng.org">lxneng.com</a> 2011., All rights reserved.<p>
+				<a href="http://pylonsproject.org" target="_blank"><img src="https://docs.pylonsproject.org/_images/pyramid_powered_148x45.png" alt="Pyramid web framework" title="Pyramid web framework" border="0" /></a>
+			</footer>
+        </div>
+		
+		
         <!-- JiaThis Button BEGIN -->
         <script type="text/javascript">var jiathis_config = {data_track_clickback:true};</script>
         <script type="text/javascript" src="http://v2.jiathis.com/code/jiathis_r.js?move=0&amp;uid=1535613" charset="utf-8"></script>

@@ -1,4 +1,14 @@
 {% extends "base.html" %}
 {% block body %}
-home
+
+<div id="posts">
+	{% for (year, month), posts in result %}
+	<h1>{{year}}-{{month}}</h1>
+	<ul>
+	{% for post in posts %}
+	<li><a href="http://blog.lxneng.com/?p={{ post.id }}" target="_blank">{{ post.post_title }}</a></li>
+	{% endfor %}
+	</ul>
+	{% endfor %}
+</div>
 {% endblock %}
