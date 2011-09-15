@@ -1,6 +1,11 @@
 Sept. 14, 2011
 ---------------
 
+- add charset to sqlalchemy.url 
+
+Sept. 14, 2011
+---------------
+
 - modify layout
 
 Sept. 11, 2011
