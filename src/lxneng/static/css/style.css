@@ -16,7 +16,7 @@ ul {list-style-type: none;}
 
 #main {
     -webkit-box-shadow: 0 0 30px #000;
-    background: #eee;
+    background: #fff;
     margin: 45px auto 40px auto;
     padding: 40px 60px;
     text-align: left;
@@ -27,6 +27,7 @@ div#main > footer {
     margin-top:40px;
     border-top:1px solid #006400;
     font-size:16px;
+    margin-left:23px;
 }
 
 a {
@@ -48,6 +49,7 @@ header {
     font-size:14px; 
     position: fixed;
     background-color:rgba(0,0,0,.8);
+    z-index:2;    
 }
 
 ul#nav {
@@ -57,9 +59,7 @@ ul#nav {
     float: left;
     border: 0;
     padding: 0;
-    list-style-type: none;
-
-
+    list-style: none;
 }
 
 ul#nav li { display: inline; }
@@ -102,11 +102,27 @@ ul#nav li a.active, ul#nav li a.active:hover {
     font-weight: bold;
 }
 ul#nav li a.active:after { content: "\00A0\00BB" attr(cite); }
-
+#posts {padding-left:23px;}
 #language {float:right; padding-right:20px;}
-
 #site_name {float:left; padding: 0 20% 0 20%; font-size: 16px; font-style:italic; color:#3D515C; font-weight:bold;}
 
+ul.slideshow img {display:block; padding: 0 23px;background:url('shadow.jpg') no-repeat top left;}
+ul.slideshow {
+    list-style:none;
+    width:686px;
+    height:420px;
+    overflow:hidden;
+    position:relative;
+    margin:0;
+    padding:0;
+}   
+ul.slideshow li {
+    position:absolute;
+    left:0;
+    right:0;
+}
 
-
+ul.slideshow li.showit {
+    z-index:1;    
+}
 

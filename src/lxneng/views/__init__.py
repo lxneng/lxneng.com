@@ -38,17 +38,26 @@ class Error(BaseHandler):
     pass
 
 
-@view_config(route_name='home', renderer='home.html')
-@view_config(route_name='about', renderer='home.html')
-class Home(BaseHandler):
+@view_config(route_name='about', renderer='blog.html')
+@view_config(route_name='blog', renderer='blog.html')
+class Blog(BaseHandler):
     def __call__(self):
 
         def grouper(item):
             return item.post_date.year, item.post_date.month
 
         posts = meta.Session.query(Post)\
-                    .filter(Post.post_status == 'publish')\
-                    .order_by(Post.id.desc()).all()
+                .filter(Post.post_status == 'publish')\
+                .order_by(Post.id.desc()).all()
         result = groupby(posts, grouper)
 
         return {'result': result}
+
+
+@view_config(route_name='home', renderer='home.html')
+class Home(BaseHandler):
+    def __call__(self):
+        posts = meta.Session.query(Post)\
+                .filter(Post.post_status == 'publish')\
+                .order_by(Post.id.desc()).limit(10)
+        return {'posts': posts}
