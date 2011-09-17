@@ -32,6 +32,12 @@ msgstr "照片"
 msgid "Bio"
 msgstr "关于我"
 
+msgid "Latest Posts"
+msgstr "最新文章"  
+
+msgid "Find Me On The Web"
+msgstr "其他网络"  
+
 msgid "My Blog"
 msgstr "我的博客"
 

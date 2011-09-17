@@ -6,7 +6,7 @@
     <li><a href="http://farm4.static.flickr.com/3208/2957010068_2a0f153bbc_z.jpg"><img src="{{request.static_url('lxneng:static/images/2957010068_2a0f153bbc_z.jpg')}}" /></a></li>		
 </ul>
 <div id="posts">
-    <h1>Latest Posts</h1>
+    <h1>{{gettext('Latest Posts')}}</h1>
     <ul>
         {% for post in posts %}
         <li><a href="http://blog.lxneng.com/?p={{ post.id }}" target="_blank">{{ post.post_title }}</a></li>
