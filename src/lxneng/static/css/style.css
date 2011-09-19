@@ -13,7 +13,7 @@ body,ul, li {
     vertical-align: baseline;
 }
 ul {list-style-type: none;}
-
+h1 {line-height: 120%;}
 #main {
     -webkit-box-shadow: 0 0 30px #000;
     background: #fff;

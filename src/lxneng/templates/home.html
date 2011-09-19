@@ -9,12 +9,21 @@
     <h1>{{gettext('Latest Posts')}}</h1>
     <ul>
         {% for post in posts %}
-        <li><a href="http://blog.lxneng.com/?p={{ post.id }}" target="_blank">{{ post.post_title }}</a></li>
+        <li><a href="{{ request.route_url('post', id=post.id) }}" target="_blank">{{ post.post_title }}</a></li>
         {% endfor %}
     </ul>
 </div>
 {% endblock %}
+{% block footer %}
+<h4>{% trans %}Find Me On The Web{% endtrans %}</h4>
+<ul>
+    <li>
+    <a href="http://www.douban.com/people/lxneng/" target="_blank"><img src="http://www.douban.com/favicon.ico" height="16" width="16" border="0" alt="豆瓣">&nbsp;我的豆瓣</a>
+    </li>
+</ul>
+{% endblock %}
 {% block javascript %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-<script src="{{request.static_url('lxneng:static/js/slideshow.js')}}" type="text/javascript"></script>
-{% endblock %}
+<script>window.jQuery || document.write('<script src="{{request.static_url('lxneng:static/js/jquery-1.6.4.min.js')}}"><\/script>')</script>
+    <script src="{{request.static_url('lxneng:static/js/slideshow.js')}}" type="text/javascript"></script>
+    {% endblock %}

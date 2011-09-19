@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{context.post_title}}{% endblock %}
+{% block body %}
+<div id="posts">
+    <h1>{{context.post_title}}</h1>
+    <p>{{context.post_content|safe}}</p>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script src="http://balupton.github.com/jquery-syntaxhighlighter/scripts/jquery.syntaxhighlighter.min.js" type="text/javascript"></script>
+<script type="text/javascript">$.SyntaxHighlighter.init({'lineNumbers':false});
+</script>
+{% endblock %}
