@@ -12,13 +12,13 @@ body,ul, li {
     border: 0;
     vertical-align: baseline;
 }
-ul {list-style-type: none;}
+ul {list-style: none;}
 h1 {line-height: 120%;}
 #main {
     -webkit-box-shadow: 0 0 30px #000;
     background: #fff;
     margin: 45px auto 40px auto;
-    padding: 30px;
+    padding: 30px 30px 5px;
     text-align: left;
     max-width: 700px;
 }
@@ -59,7 +59,6 @@ ul#nav {
     float: left;
     border: 0;
     padding: 0;
-    list-style: none;
 }
 
 ul#nav li { display: inline; }
@@ -108,7 +107,6 @@ ul#nav li a.active:after { content: "\00A0\00BB" attr(cite); }
 
 ul.slideshow img {display:block; padding: 0 23px;background:url('shadow.jpg') no-repeat top left;}
 ul.slideshow {
-    list-style:none;
     width:686px;
     height:420px;
     overflow:hidden;
@@ -125,4 +123,6 @@ ul.slideshow li {
 ul.slideshow li.showit {
     z-index:1;    
 }
-
+footer h4 {margin: 5px 0;}
+ul#links{height:20px;}
+ul#links li{float:left; width: 30px;}

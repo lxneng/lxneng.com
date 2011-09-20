@@ -16,9 +16,33 @@
 {% endblock %}
 {% block footer %}
 <h4>{% trans %}Find Me On The Web{% endtrans %}</h4>
-<ul>
+<ul id="links">
+	<li>
+    <a href="http://twitter.com/#!/lxneng" target="_blank"><img src="{{request.static_url('lxneng:static/images/icons/twitter.ico')}}" height="16" width="16" border="0" alt="twitter.com"></a>
+    </li>
+	<li>
+    <a href="http://www.facebook.com/lxneng" target="_blank"><img src="{{request.static_url('lxneng:static/images/icons/facebook.ico')}}" height="16" width="16" border="0" alt="facebook.com"></a>
+    </li>
+	<li>
+    <a href="http://www.flickr.com/photos/lxneng" target="_blank"><img src="{{request.static_url('lxneng:static/images/icons/flickr.ico')}}" height="16" width="16" border="0" alt="flickr.com"></a>
+    </li>
+	<li>
+    <a href="http://www.linkedin.com/in/lxneng" target="_blank"><img src="http://www.linkedin.com/favicon.ico" height="16" width="16" border="0" alt="linkedin.com"></a>
+    </li>
+	<li>
+    <a href="http://delicious.com/lxneng" target="_blank"><img src="http://delicious.com/favicon.ico" height="16" width="16" border="0" alt="delicious.com"></a>
+    </li>
+	<li>
+    <a href="http://github.com/lxneng" target="_blank"><img src="http://github.com/favicon.ico" height="16" width="16" border="0" alt="github.com"></a>
+    </li>
     <li>
-    <a href="http://www.douban.com/people/lxneng/" target="_blank"><img src="http://www.douban.com/favicon.ico" height="16" width="16" border="0" alt="豆瓣">&nbsp;我的豆瓣</a>
+    <a href="http://www.douban.com/people/lxneng/" target="_blank"><img src="http://www.douban.com/favicon.ico" height="16" width="16" border="0" alt="douban.com"></a>
+    </li>
+	<li>
+    <a href="http://weibo.com/lxneng" target="_blank"><img src="http://weibo.com/favicon.ico" height="16" width="16" border="0" alt="weibo.com"></a>
+    </li>
+	<li>
+    <a href="http://t.qq.com/luoxiaoneng" target="_blank"><img src="http://t.qq.com/favicon.ico" height="16" width="16" border="0" alt="http://t.qq.com"></a>
     </li>
 </ul>
 {% endblock %}
