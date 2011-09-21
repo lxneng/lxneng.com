@@ -16,11 +16,11 @@ ul {list-style: none;}
 h1 {line-height: 120%;}
 #main {
     -webkit-box-shadow: 0 0 30px #000;
-    background: #fff;
+    background: #f4f4f4;
     margin: 45px auto 40px auto;
     padding: 30px 30px 5px;
     text-align: left;
-    max-width: 700px;
+    max-width: 648px;
     -moz-border-radius: 5px;
     -khtml-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -31,7 +31,6 @@ div#main > footer {
     margin-top:40px;
     border-top:1px solid #006400;
     font-size:16px;
-    margin-left:23px;
 }
 
 a {
@@ -105,18 +104,19 @@ ul#nav li a.active, ul#nav li a.active:hover {
     font-weight: bold;
 }
 ul#nav li a.active:after { content: "\00A0\00BB" attr(cite); }
-#posts {padding-left:23px;}
+#posts {}
 #language {float:right; padding-right:20px;}
 #site_name {float:left; padding: 0 20% 0 20%; font-size: 16px; font-style:italic; color:#3D515C; font-weight:bold;}
 
-ul.slideshow img {display:block; padding: 0 23px;background:url('shadow.jpg') no-repeat top left;}
+ul.slideshow img {display:block;}
 ul.slideshow {
-    width:686px;
+    width:640px;
     height:420px;
     overflow:hidden;
     position:relative;
     margin:0;
-    padding:0;
+    border-radius: 3px 5px 5px 5px;
+    border: 4px solid #cecdcd;
 }   
 ul.slideshow li {
     position:absolute;
@@ -130,3 +130,10 @@ ul.slideshow li.showit {
 footer h4 {margin: 5px 0;}
 ul#links{height:20px;}
 ul#links li{float:left; width: 30px;}
+.box_shadow {
+    -moz-box-shadow: 2px 3px 3px #999;
+    -webkit-box-shadow: 2px 3px 4px #999;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999')";
+    box-shadow: 2px 3px 3px #999;
+}
