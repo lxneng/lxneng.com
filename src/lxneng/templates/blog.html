@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}{{gettext('Blog')}}{% endblock %}
 {% block body %}
 <div id="posts">
     {% for (year, month), posts in result %}

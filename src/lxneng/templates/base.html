@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="description" content="Eric Lo's page"> 
         <meta name="author" content="Eric Lo">
-        <title>{% block title %}{% trans %}Hi, I'm Eric Lo.{% endtrans %}{% endblock %}--lxneng.com</title> 
+        <title>{% block title %}{{gettext('Home')}}{% endblock %} — {% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
         <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}">
     </head> 
     <body>
