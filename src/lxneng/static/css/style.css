@@ -137,3 +137,12 @@ ul#links li{float:left; width: 30px;}
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999')";
     box-shadow: 2px 3px 3px #999;
 }
+.clear{ clear:both; height:0px; overflow:hidden; }
+#avatar { 
+    display: block;
+    background: #f4f4f4;
+    border: 2px solid #cecdcd;
+    border-radius: 3px 5px 5px 5px;
+    float: right;
+    padding: 10px;
+}

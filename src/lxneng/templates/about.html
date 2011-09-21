@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+<div id="posts">
+    <h1>{{gettext('Bio')}}</h1>
+	<hr />
+	<div id="avatar">
+    <img src="{{request.static_url('lxneng:static/images/avatar-160x161.jpg')}}" alt="Eric Lo">
+	</div>
+	{% if request.locale_name=='en' %}
+	<h3>Eric Lo</h3>
+	<table>
+	    <tr>
+	        <th>Gmail/Gtalk:</th>
+	        <td><a href="mailto:lxneng@gmail.com">lxneng@gmail.com</a></td>
+	    </tr>
+	    <tr>
+	        <th>HomePage:</th>
+	        <td><a href="http://lxneng.com/">lxneng.com</a></td>
+	    </tr>
+		<tr>
+	        <th>QQ:</th>
+	        <td>6890839</td>
+	    </tr>
+	</table>
+	{% endif %}
+	{% if request.locale_name=='zh_CN' %}
+	<h3>罗小能</h3>
+	<table>
+	    <tr>
+	        <th>Gmail/Gtalk:</th>
+	        <td><a href="mailto:lxneng@gmail.com">lxneng@gmail.com</a></td>
+	    </tr>
+	    <tr>
+	        <th>主页:</th>
+	        <td><a href="http://lxneng.com/">lxneng.com</a></td>
+	    </tr>
+		<tr>
+	        <th>QQ:</th>
+	        <td>6890839</td>
+	    </tr>
+	</table>
+	{% endif %}
+	<div class="clear"></div>
+</div>
+{% endblock %}

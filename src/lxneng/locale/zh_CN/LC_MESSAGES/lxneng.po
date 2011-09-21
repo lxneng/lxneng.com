@@ -36,29 +36,4 @@ msgid "Latest Posts"
 msgstr "最新文章"  
 
 msgid "Find Me On The Web"
-msgstr "其他网络"  
-
-msgid "My Blog"
-msgstr "我的博客"
-
-msgid "Elsewhere"
 msgstr "其他网络"
-
-msgid "Douban.com"
-msgstr "豆瓣"
-
-msgid "Flickr.com"
-msgstr "我的相册"
-
-msgid "Delicious.com"
-msgstr "美味书签"
-
-msgid "GoogleReader"
-msgstr "阅读分享"
-
-msgid "Github.com"
-msgstr "我的项目"
-
-msgid "renren.com"
-msgstr "人人主页"
-
