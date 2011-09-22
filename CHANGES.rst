@@ -1,6 +1,10 @@
 Sept. 22, 2011
 ---------------
 
+- store locale_name in session
+
+- using pyramid_beaker as session factory
+
 - add bio page 
   
 Sept. 19, 2011

@@ -10,3 +10,4 @@ mysql-python
 # i18n
 Babel
 lingua
+pyramid_beaker

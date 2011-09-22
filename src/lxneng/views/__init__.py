@@ -19,7 +19,13 @@ class BaseHandler(object):
     def __init__(self, context, request):
         self.request = request
         self.context = context
-        self.request.locale_name = request.params.get('lang', 'en')
+        locale_name = request.params.get('lang', False)
+        session = request.session
+        if locale_name:
+            session['lang'] = locale_name
+            self.request.locale_name = locale_name
+        else:
+            self.request.locale_name = session.get('lang', 'en')
 
     def __call__(self):
         return {'context': self.context}

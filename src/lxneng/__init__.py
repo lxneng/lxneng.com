@@ -2,13 +2,13 @@ from pyramid.config import Configurator
 from pyramid_jinja2 import renderer_factory
 from s4u.sqlalchemy import includeme
 from lxneng import factories
-
+from pyramid_beaker import session_factory_from_settings
 
 def main(global_config, **settings):
-    settings = dict(settings)
-    settings.setdefault('jinja2.i18n.domain', 'lxneng')
     config = Configurator(settings=settings)
     includeme(config)
+    session_factory = session_factory_from_settings(settings)
+    config.set_session_factory(session_factory)
     config.add_translation_dirs('lxneng:locale')
     config.add_renderer('.html', renderer_factory)
     config.add_static_view('static', 'lxneng:static', cache_max_age=3600)
