@@ -13,7 +13,7 @@
         <ul id="nav">
             <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
             <li><a href="{{request.route_url('blog')}}" class="{{'active' if request.path=='/blog' else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
-            <li><a href="http://www.flickr.com/photos/lxneng" class="{{'active' if request.path=='/photos' else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
+            <li><a href="{{request.route_url('photos')}}" class="{{'active' if request.path=='/photos' else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
             <li><a href="{{request.route_url('about')}}" class="{{'active' if request.path=='/about' else ''}}" title="Bio" id="Bio">{{gettext('Bio')}}</a></li>
         </ul>
         <span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>

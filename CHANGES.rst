@@ -1,6 +1,8 @@
 Sept. 22, 2011
 ---------------
 
+- add photos page
+
 - store locale_name in session
 
 - using pyramid_beaker as session factory
