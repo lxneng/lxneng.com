@@ -10,4 +10,5 @@ mysql-python
 # i18n
 Babel
 lingua
+supervisor
 pyramid_beaker
