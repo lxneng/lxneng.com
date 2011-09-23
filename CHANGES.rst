@@ -1,3 +1,8 @@
+Sept. 23, 2011
+---------------
+
+- using pygments for code syntax hightlight 
+
 Sept. 22, 2011
 ---------------
 
