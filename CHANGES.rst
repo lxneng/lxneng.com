@@ -1,6 +1,8 @@
 Sept. 23, 2011
 ---------------
 
+- markdown the post content
+
 - using pygments for code syntax hightlight 
 
 Sept. 22, 2011

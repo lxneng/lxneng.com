@@ -12,4 +12,4 @@ Babel
 lingua
 supervisor
 pyramid_beaker
-pygments
+Markdown
