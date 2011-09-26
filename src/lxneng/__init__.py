@@ -3,8 +3,10 @@ from pyramid_jinja2 import renderer_factory
 from s4u.sqlalchemy import includeme
 from lxneng import factories
 from pyramid_beaker import session_factory_from_settings
+from pyramid_beaker import set_cache_regions_from_settings
 
 def main(global_config, **settings):
+    set_cache_regions_from_settings(settings)
     config = Configurator(settings=settings)
     includeme(config)
     session_factory = session_factory_from_settings(settings)
