@@ -1,5 +1,4 @@
 pyramid
-pyramid_debugtoolbar
 pyramid_jinja2
 SQLAlchemy
 zope.sqlalchemy
@@ -7,9 +6,21 @@ s4u.sqlalchemy
 -f http://dist.simplon.biz/
 mysql-python
 
+# for development
+pyramid_debugtoolbar
+
 # i18n
 Babel
 lingua
+
+# for deploy
 supervisor
+
+# for session store and cache store
 pyramid_beaker
+
+# for markdown content and hightlight code syntax
 Markdown
+
+# for DB migration
+s4u.upgrade
