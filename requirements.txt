@@ -5,6 +5,7 @@ zope.sqlalchemy
 s4u.sqlalchemy
 -f http://dist.simplon.biz/
 mysql-python
+py-bcrypt
 
 # for development
 pyramid_debugtoolbar
