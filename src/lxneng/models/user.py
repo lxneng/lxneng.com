@@ -4,12 +4,8 @@ from sqlalchemy.sql import functions
 from sqlalchemy.orm import synonym
 from s4u.sqlalchemy.meta import BaseObject
 from s4u.sqlalchemy import meta
-import cryptacular.bcrypt
+import bcrypt
 
-crypt = cryptacular.bcrypt.BCRYPTPasswordManager()
-
-def hash_password(password):
-    return unicode(crypt.encode(password))
 
 class User(BaseObject):
     __tablename__ = 'users'
@@ -18,29 +14,36 @@ class User(BaseObject):
     username = schema.Column(types.Unicode(32), nullable=False, unique=True)
     email = schema.Column(types.String(256), nullable=False)
     _password = schema.Column('password', types.Unicode(255), nullable=False)
-    created = schema.Column(types.DateTime(), nullable=False, default=functions.now())
+    created = schema.Column(types.DateTime(),
+            nullable=False, default=functions.now())
 
     def _get_password(self):
         return self._password
 
     def _set_password(self, password):
-        self._password = hash_password(password)
+        self._password = bcrypt.hashpw(password, bcrypt.gensalt())
 
     password = property(_get_password, _set_password)
-    password = synonym('_password', descriptor=password) 
+    password = synonym('_password', descriptor=password)
+
+    def authenticate(self, password):
+        return bcrypt.hashpw(password, self.password) == self.password
 
     @classmethod
     def check_emailpassword(cls, email, password):
-        user = meta.Session.query(cls).filter(cls.email==email).first()
+        user = meta.Session.query(cls).filter(cls.email == email).first()
         if user:
-            return crypt.check(user.password, password)
+            return bcrypt.hashpw(password, user.password) == user.password
         else:
             return False
 
     @classmethod
     def check_usernamepassword(cls, username, password):
-        user = meta.Session.query(cls).filter(cls.username==username).first()
+        user = meta.Session.query(cls).filter(cls.username == username).first()
         if user:
-            return crypt.check(user.password, password)
+            return bcrypt.hashpw(password, user.password) == user.password
         else:
             return False
+
+
+# INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`) VALUES (1, 'admin', 'lxneng@gmail.com', '$2a$12$fHqI1/S3Fq8Ot/xBRaDIse0YpQRB/EWTV1U07qJU6M1CKVvHbKNFC', '2011-09-28 15:11:08');
