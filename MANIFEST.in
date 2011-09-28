@@ -1,2 +1,8 @@
-include *.txt *.ini *.cfg *.rst
-recursive-include lxneng *.ico *.png *.css *.gif *.jpg *.pt *.txt *.mak *.mako *.js *.html *.xml
+include *.txt
+include *.ini
+include *.cfg
+include *.rst
+recursive-include src/lxneng/locale *.mo
+recursive-include src/lxneng/locale *.po
+graft src/lxneng/static
+graft src/lxneng/templates
