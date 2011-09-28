@@ -1,6 +1,9 @@
 from pyramid.exceptions import NotFound
 from s4u.sqlalchemy import meta
 from lxneng.models import Post
+from pyramid.security import Everyone
+from pyramid.security import Authenticated
+from pyramid.security import Allow
 
 
 def SimpleTypeFactory(cls):
@@ -20,3 +23,13 @@ def SimpleTypeFactory(cls):
 
 
 PostFactory = SimpleTypeFactory(Post)
+
+
+class RootFactory(object):
+    __acl__ = [
+            (Allow, Everyone, 'view'),
+            (Allow, Authenticated, 'auth')
+    ]
+
+    def __init__(self, request):
+        pass
