@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ gettext('Login') }}{% endblock %}
+{% block body %}
+<form method="POST" action="{{request.route_url('login')}}">
+      <fieldset>
+        <input type="hidden" name="next" value="{{ request.url }}">
+        <input type="text" name="login">
+        <input type="password" name="password">
+        <input type="submit" value="Login">
+      </fieldset>
+    </form>    
+{% endblock %}
