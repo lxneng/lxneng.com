@@ -42,7 +42,6 @@ def favicon_view(context, request):
     return _favicon_response
 
 
-
 @view_config(route_name='blog', renderer='blog.html')
 class Blog(BaseHandler):
     def __call__(self):
