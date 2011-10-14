@@ -1,5 +1,7 @@
-import re
 import markdown
+from pyramid.security import authenticated_userid
+from s4u.sqlalchemy import meta
+from lxneng.models import User
 
 
 class Tools(object):
@@ -10,3 +12,10 @@ class Tools(object):
         
     def markdown_content(self, content):
         return markdown.markdown(content, ['codehilite'])
+
+
+def get_user(request):
+    username = authenticated_userid(request)
+    user = meta.Session.query(User).filter(User.username ==
+            username).first()
+    return user
