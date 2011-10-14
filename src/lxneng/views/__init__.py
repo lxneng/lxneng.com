@@ -3,13 +3,16 @@ import logging
 from pyramid.view import view_config
 from pyramid.response import Response
 from pyramid.security import remember
-from pyramid.security import forget 
+from pyramid.security import forget
 from s4u.sqlalchemy import meta
 from lxneng.models import Post
 from lxneng.models import User
 from itertools import groupby
 from pyramid.url import route_url
 from pyramid.httpexceptions import HTTPFound
+from flatland import Form, String
+from flatland.validation import Present
+from lxneng.utils import get_user
 
 log = logging.getLogger(__name__)
 
@@ -25,7 +28,7 @@ _favicon_response = Response(content_type='image/x-icon', body=_favicon)
 @view_config(route_name='post', renderer='post.html')
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
 @view_config(context='pyramid.exceptions.HTTPForbidden', renderer='403.html')
-class BaseHandler(object):
+class BasicView(object):
 
     def __init__(self, context, request):
         self.request = request
@@ -42,6 +45,28 @@ class BaseHandler(object):
         return {'context': self.context}
 
 
+class BasicFormView(BasicView):
+
+    form_class = None
+
+    def __init__(self, context, request):
+        super(BasicFormView, self).__init__(context, request)
+        if self.request.method == 'POST':
+            self.form = self.form_class.from_flat(self.request.POST)
+        else:
+            self.form = self.form_class()
+
+    def do_post(self):
+        raise NotImplementedError()
+
+    def __call__(self):
+        if self.request.method == 'POST':
+            response = self.do_post()
+            if response is not None:
+                return response
+        return {'form': self.form}
+
+
 @view_config(name='robots.txt')
 def robotstxt_view(context, request):
     return _robots_response
@@ -52,33 +77,53 @@ def favicon_view(context, request):
     return _favicon_response
 
 
+class LoginForm(Form):
+    login = String.using(label='Login', validators=[Present()])
+    password = String.using(label='Password', validators=[Present()])
+    came_from = String
+
+
 @view_config(route_name='login', renderer='login.html')
-class Login(BaseHandler):
-    def login(self):
+class Login(BasicFormView):
+
+    form_class = LoginForm
+
+    def do_post(self):
+        if not self.form.validate():
+            return None
+        data = self.form.value
         login_url = route_url('login', self.request)
-        referrer = self.request.url
-        if referrer == login_url:
-            referrer = route_url('home', self.request)
-        came_from = self.request.params.get('came_from', referrer)
+        came_from = data.pop('came_from')
+        if came_from == login_url:
+            came_from = route_url('home', self.request)
 
         session = meta.Session()
-        login = self.request.POST['login']
-        password = self.request.POST['password']
+        login = data.pop('login')
+        password = data.pop('password')
         query = session.query(User)
         user = query.filter(User.username == login).first()\
                 or query.filter(User.email == login).first()
         if user is not None and user.authenticate(password):
             log.info('%s login' % user.username)
             headers = remember(self.request, user.username)
-            return HTTPFound(location=route_url('home', self.request),
-                             headers=headers)
+            self.request.session.flash('Login Success!')
+            return HTTPFound(location=came_from, headers=headers)
         else:
-            return HTTPFound(localtion=came_from)
+            self.form.errors.append('username or password error, please try \
+                    again')
+            return None
 
     def __call__(self):
+        user = get_user(self.request)
+        if user is not None:
+            self.request.session.flash('You are already login')
+            return HTTPFound(self.request.route_url('home'))
         if self.request.method == 'POST':
-            return self.login()
-        return {}
+            response = self.do_post()
+            if response is not None:
+                return response
+        return {'form': self.form}
+
 
 @view_config(route_name='logout')
 def logout(request):
@@ -88,8 +133,9 @@ def logout(request):
     headers = forget(request)
     return HTTPFound(location=came_from, headers=headers)
 
+
 @view_config(route_name='blog', renderer='blog.html')
-class Blog(BaseHandler):
+class Blog(BasicView):
     def __call__(self):
 
         def grouper(item):
@@ -103,7 +149,7 @@ class Blog(BaseHandler):
 
 
 @view_config(route_name='home', renderer='home.html')
-class Home(BaseHandler):
+class Home(BasicView):
     def __call__(self):
         posts = meta.Session.query(Post)\
                 .filter(Post.post_status == 'publish')\
