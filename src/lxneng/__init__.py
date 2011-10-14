@@ -1,6 +1,7 @@
 from pyramid.config import Configurator
 from pyramid_jinja2 import renderer_factory
-from s4u.sqlalchemy import includeme
+import s4u.sqlalchemy
+import s4u.image
 from lxneng import factories
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
@@ -15,7 +16,8 @@ def main(global_config, **settings):
             authentication_policy=AuthTktAuthenticationPolicy('secret'),
             authorization_policy=ACLAuthorizationPolicy()
     )
-    includeme(config)
+    s4u.sqlalchemy.includeme(config)
+    s4u.image.includeme(config)
     config.add_translation_dirs('lxneng:locale')
     config.add_renderer('.html', renderer_factory)
     config.add_static_view('static', 'lxneng:static', cache_max_age=3600)
