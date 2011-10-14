@@ -1,3 +1,43 @@
+Oct. 14, 2011
+---------------
+
+- add fabric config file
+- add paster command template
+- modify login view
+- modify event
+- modify PO file
+- add models Album, Photo, and using s4u.image for image scale
+
+Oct. 10, 2011
+---------------
+
+- fix config error 
+
+
+Sept. 28, 2011
+---------------
+
+- add user Model 
+- add HTTPForbidden page
+- add login page
+- db migration script
+- using py-bcrypt for password hashing
+- Authentication settings
+- add RootFactory for auth
+
+Sept. 27, 2011
+---------------
+
+- fix MANIFEST.ini file
+- using s4u.upgrade for migration 
+    ``upgrade --scan lxneng --db-uri mysql://root@localhost/lxneng``
+
+Sept. 26, 2011
+---------------
+
+- using pyramid_beaker for cache
+
+
 Sept. 23, 2011
 ---------------
 
@@ -15,6 +55,9 @@ Sept. 22, 2011
 - using pyramid_beaker as session factory
 
 - add bio page 
+
+- using supervisor control gunicorn_paster
+  ``supervisorctl restart gunicorn``
   
 Sept. 19, 2011
 ---------------
@@ -39,7 +82,7 @@ Sept. 14, 2011
 Sept. 11, 2011
 ---------------
 
-- add BaseHandler
+- add BaseView 
 
 - setup i18n and design new layout
 
