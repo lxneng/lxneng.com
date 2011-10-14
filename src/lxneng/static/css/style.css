@@ -56,6 +56,9 @@ header {
     top:0;
     font-size:14px; 
     position: fixed;
+    -moz-box-shadow:0 1px 3px rgba(0,0,0,0.25),0 -1px 0 rgba(0,0,0,0.1) inset;
+    -webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25),0 -1px 0 rgba(0,0,0,0.1) inset;
+    box-shadow:0 1px 3px rgba(0,0,0,0.25),0 -1px 0 rgba(0,0,0,0.1) inset;
     background-color:rgba(0,0,0,.8);
     z-index:999;    
 }
