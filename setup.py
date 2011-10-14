@@ -59,6 +59,9 @@ setup(name='lxneng',
       entry_points="""\
       [paste.app_factory]
       main = lxneng:main
+
+      [paste.paster_command]
+      demo_script = lxneng.commands:DemoCommand
       """,
       paster_plugins=['pyramid'],
       )
