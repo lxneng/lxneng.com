@@ -1,12 +1,29 @@
 {% extends "base.html" %}
 {% block title %}{{ gettext('Login') }}{% endblock %}
 {% block body %}
-<form method="POST" action="{{request.route_url('login')}}">
-      <fieldset>
-        <input type="hidden" name="next" value="{{ request.url }}">
-        <input type="text" name="login">
-        <input type="password" name="password">
-        <input type="submit" value="Login">
-      </fieldset>
-    </form>    
+<form method="POST" action="">
+    <fieldset>
+        <legend>Login</legend>
+        {{form.errors[0]}}
+        {{html.input(name='_csrf', type='hidden', value=request.session.get_csrf_token())}}
+        {{html.input(name='came_from', type='hidden', value=request.url)}}
+        <p>
+        <label>Username/Email<br />
+            {{html.input(form['login'], placeholder='username or email',
+            autofocus='autofocus')}}
+            {{form['login'].errors[0]}}
+        </label>
+        </p>
+        <p>
+        <label>Password<br />
+            {{html.input(form['password'], type='password',
+            placeholder='password')}}
+            {{form['password'].errors[0]}}
+        </label>
+        </p>
+        <p>
+        {{html.input(type='submit', value='Submit')}}
+        </p>
+    </fieldset>
+</form>    
 {% endblock %}

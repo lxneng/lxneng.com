@@ -16,9 +16,22 @@
             <li><a href="{{request.route_url('photos')}}" class="{{'active' if request.path=='/photos' else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
             <li><a href="{{request.route_url('about')}}" class="{{'active' if request.path=='/about' else ''}}" title="Bio" id="Bio">{{gettext('Bio')}}</a></li>
         </ul>
-        <span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
+        <span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}
+            {% if user %}<a
+                href="{{request.route_url('logout')}}">{{gettext('Logout')}}</a> {% endif %} 
+            {% if not user %}<a
+                href="{{request.route_url('login')}}">{{gettext('Login')}}</a> {% endif %} 
+        </span>
         </header>
         <div id="main">
+            {% if request.session.peek_flash() %}
+            <div id="flash">
+                {% set flash = request.session.pop_flash() %}
+                {% for message in flash %}
+                {{message}}<br>
+                {% endfor %}
+            </div>
+            {% endif %}
             {% block body %}{% endblock %}
             <footer>
             {% block footer %}{% endblock %}
