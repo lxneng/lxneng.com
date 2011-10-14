@@ -37,3 +37,9 @@ msgstr "最新文章"
 
 msgid "Find Me On The Web"
 msgstr "其他网络"
+
+msgid "Login"
+msgstr "登录"
+
+msgid "Logout"
+msgstr "登出"
