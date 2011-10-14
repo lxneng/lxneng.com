@@ -12,6 +12,11 @@ body,ul, li {
     border: 0;
     vertical-align: baseline;
 }
+button, input {
+    font-size: 16px;
+    padding: 3px;
+    margin-left: 5px;
+}
 ul {list-style: none;}
 h1 {line-height: 120%;}
 #main {
@@ -145,4 +150,10 @@ ul#links li{float:left; width: 30px;}
     border-radius: 3px 5px 5px 5px;
     float: right;
     padding: 10px;
+}
+#flash {
+    margin: 0 auto 15px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #e1ecfe;
 }
