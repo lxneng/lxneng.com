@@ -47,6 +47,7 @@ class SyncFlickr(PyramidCommand):
         import json
         import transaction
         import os
+        import urllib2
         self.setupPyramid()
 
         user_id = '37212768@N05'
@@ -97,11 +98,13 @@ class SyncFlickr(PyramidCommand):
                 file_path = os.path.join(image_dir, photo_path)
                 url = url_tmpl % (photo['farm'], photo['server'],
                         photo['id'], photo['secret'])
-                try:
-                    os.system("wget -O %s %s" % (file_path, url))
-                except IOError, e:
-                    print e
-                entry = Photo(path=photo['id'],
+                img = urllib2.urlopen(url).read()
+                f = open(file_path, 'wb')
+                f.write(img)
+                f.close()
+                print photo['id']
+
+                entry = Photo(path=photo_path,
                         description=photo['title'].encode('utf8'),
                         flickr_photo_id=photo['id'],
                         album_id=album.id)
