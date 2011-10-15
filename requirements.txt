@@ -26,5 +26,5 @@ Markdown
 # for DB migration
 s4u.upgrade
 
-s4u.image
 flatland
+flickrapi

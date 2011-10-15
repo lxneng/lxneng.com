@@ -61,7 +61,7 @@ setup(name='lxneng',
       main = lxneng:main
 
       [paste.paster_command]
-      demo_script = lxneng.commands:DemoCommand
+      sync_flickr = lxneng.commands:SyncFlickr
       """,
       paster_plugins=['pyramid'],
       )
