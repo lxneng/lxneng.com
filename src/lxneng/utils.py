@@ -16,6 +16,9 @@ class Tools(object):
 
 def get_user(request):
     username = authenticated_userid(request)
-    user = meta.Session.query(User).filter(User.username ==
+    if username is None:
+        return None
+    else:
+        user = meta.Session.query(User).filter(User.username ==
             username).first()
-    return user
+        return user

@@ -21,7 +21,7 @@ ul {list-style: none;}
 h1 {line-height: 120%;}
 #main {
     -webkit-box-shadow: 0 0 30px #000;
-    background: #f4f4f4;
+    background: #F2F2F2 url('../images/noise.png') top left;
     margin: 45px auto 40px auto;
     padding: 30px 30px 5px;
     text-align: left;
@@ -159,4 +159,20 @@ ul#links li{float:left; width: 30px;}
     font-size: 16px;
     text-align: center;
     background-color: #e1ecfe;
+}
+.photo {
+    display: inline-block;
+    margin: 0 auto 20px;
+}
+.photo img {
+    display: block;
+    box-sizing: border-box;
+    border: white 0.5em solid;
+}
+.photo .caption{
+    background: white;
+    text-align: center;
+    font-size: .8em;
+    color: #666;
+    display: block;
 }

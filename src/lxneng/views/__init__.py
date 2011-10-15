@@ -7,6 +7,7 @@ from pyramid.security import forget
 from s4u.sqlalchemy import meta
 from lxneng.models import Post
 from lxneng.models import User
+from lxneng.models.photo import Photo
 from itertools import groupby
 from pyramid.url import route_url
 from pyramid.httpexceptions import HTTPFound
@@ -23,7 +24,6 @@ _favicon = open(os.path.join(_here, '../static', 'favicon.ico')).read()
 _favicon_response = Response(content_type='image/x-icon', body=_favicon)
 
 
-@view_config(route_name='photos', renderer='photos.html')
 @view_config(route_name='about', renderer='about.html')
 @view_config(route_name='post', renderer='post.html')
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
@@ -155,3 +155,10 @@ class Home(BasicView):
                 .filter(Post.post_status == 'publish')\
                 .order_by(Post.id.desc()).limit(10)
         return {'posts': posts}
+
+
+@view_config(route_name='photos', renderer='photos.html')
+class PhotosView(BasicView):
+    def __call__(self):
+        photos = meta.Session.query(Photo).limit(10)
+        return {'photos': photos}
