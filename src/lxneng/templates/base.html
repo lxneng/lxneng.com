@@ -17,10 +17,12 @@
             <li><a href="{{request.route_url('about')}}" class="{{'active' if request.path=='/about' else ''}}" title="Bio" id="Bio">{{gettext('Bio')}}</a></li>
         </ul>
         <span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}
+            {# disable login and logout
             {% if user %}<a
                 href="{{request.route_url('logout')}}">{{gettext('Logout')}}</a> {% endif %} 
             {% if not user %}<a
                 href="{{request.route_url('login')}}">{{gettext('Login')}}</a> {% endif %} 
+            #}
         </span>
         </header>
         <div id="main">
