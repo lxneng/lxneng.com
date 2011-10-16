@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block title %}{{gettext('Blog')}}{% endblock %}
-{% block body %}
+{% block body -%}
 <div id="posts">
-    {% for (year, month), posts in result %}
+    {%- for (year, month), posts in result %}
     <h1>{{year}}-{{month}}</h1>
     <ul>
-        {% for post in posts %}
+        {%- for post in posts %}
         <li><a href="{{ request.route_url('post', id=post.id) }}">{{ post.post_title }}</a></li>
-        {% endfor %}
+        {%- endfor %}
     </ul>
-    {% endfor %}
+    {% endfor -%}
 </div>
-{% endblock %}
+{%- endblock %}
