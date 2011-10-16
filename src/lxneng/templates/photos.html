@@ -2,7 +2,7 @@
 {% block title %}{{gettext('Photo')}}{% endblock %}
 {% block body %}
 {% for album in albums %}
-<h2>{{album.title}}</h2>
+<h2><a href="{{request.route_url('photos+album', id=album.id)}}">{{album.title}}</a></h2>
 <p>{{album.description}}</p>
 {% for photo in album.photos %}
 <div class="photo">

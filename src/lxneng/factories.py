@@ -1,6 +1,7 @@
 from pyramid.exceptions import NotFound
 from s4u.sqlalchemy import meta
 from lxneng.models import Post
+from lxneng.models.photo import Album
 from pyramid.security import Everyone
 from pyramid.security import Authenticated
 from pyramid.security import Allow
@@ -23,6 +24,7 @@ def SimpleTypeFactory(cls):
 
 
 PostFactory = SimpleTypeFactory(Post)
+AlbumFactory = SimpleTypeFactory(Album)
 
 
 class RootFactory(object):

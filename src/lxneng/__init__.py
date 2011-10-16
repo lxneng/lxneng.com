@@ -28,6 +28,8 @@ def main(global_config, **settings):
     config.add_route("about", "/about")
     config.add_route("blog", "/blog")
     config.add_route("photos", "/photos")
+    config.add_route("photos+album", "/photos/albums/:id",
+            factory=factories.AlbumFactory)
     config.add_route("post", "/posts/:id", factory=factories.PostFactory)
     config.scan()
     return config.make_wsgi_app()

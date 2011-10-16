@@ -24,6 +24,7 @@ _favicon = open(os.path.join(_here, '../static', 'favicon.ico')).read()
 _favicon_response = Response(content_type='image/x-icon', body=_favicon)
 
 
+@view_config(route_name='photos+album', renderer='album.html')
 @view_config(route_name='about', renderer='about.html')
 @view_config(route_name='post', renderer='post.html')
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
