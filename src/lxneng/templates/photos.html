@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% block title %}{{gettext('Photo')}}{% endblock %}
 {% block body %}
-{% for photo in photos %}
+{% for album in albums %}
+<h2>{{album.title}}</h2>
+<h3>{{album.description}}</h3>
+{% for photo in album.photos %}
 <div class="photo">
     <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
     <span class="caption">{{photo.description}}</span>
 </div>
+{% endfor %}
 {% endfor %}
 {% endblock %}

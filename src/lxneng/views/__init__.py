@@ -7,7 +7,7 @@ from pyramid.security import forget
 from s4u.sqlalchemy import meta
 from lxneng.models import Post
 from lxneng.models import User
-from lxneng.models.photo import Photo
+from lxneng.models.photo import Album
 from itertools import groupby
 from pyramid.url import route_url
 from pyramid.httpexceptions import HTTPFound
@@ -158,7 +158,7 @@ class Home(BasicView):
 
 
 @view_config(route_name='photos', renderer='photos.html')
-class PhotosView(BasicView):
+class AlbumsView(BasicView):
     def __call__(self):
-        photos = meta.Session.query(Photo).limit(10)
-        return {'photos': photos}
+        albums = meta.Session.query(Album)
+        return {'albums': albums}
