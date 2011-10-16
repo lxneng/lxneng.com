@@ -161,5 +161,5 @@ class Home(BasicView):
 @view_config(route_name='photos', renderer='photos.html')
 class AlbumsView(BasicView):
     def __call__(self):
-        albums = meta.Session.query(Album)
+        albums = meta.Session.query(Album).order_by(Album.updated_at.desc())
         return {'albums': albums}

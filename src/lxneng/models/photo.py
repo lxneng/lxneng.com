@@ -14,8 +14,10 @@ class Album(BaseObject):
     description = schema.Column(types.Text, nullable=False)
     flickr_set_id = schema.Column(types.String(32), index=True)
     photos = orm.relationship("Photo", backref="photos")
-    created = schema.Column(types.DateTime(),
+    created_at = schema.Column(types.DateTime(),
             nullable=False, default=functions.now())
+    updated_at = schema.Column(types.DateTime(),
+            nullable=False, default=functions.now(), index=True)
 
 
 class Photo(BaseObject):
@@ -25,9 +27,11 @@ class Photo(BaseObject):
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     path = schema.Column(types.String(128), nullable=False, unique=True)
     description = schema.Column(types.String(256), nullable=False)
-    is_cover = schema.Column(types.Boolean(), default=False)
+    is_primary = schema.Column(types.Boolean(), default=False)
     flickr_photo_id = schema.Column(types.String(32), index=True)
     album_id = schema.Column(types.Integer(), schema.ForeignKey(Album.id))
     album = orm.relationship(Album, backref='albums')
-    created = schema.Column(types.DateTime(),
+    created_at = schema.Column(types.DateTime(),
             nullable=False, default=functions.now())
+    updated_at = schema.Column(types.DateTime(),
+            nullable=False, default=functions.now(), index=True)

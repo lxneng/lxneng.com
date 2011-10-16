@@ -48,6 +48,7 @@ class SyncFlickr(PyramidCommand):
         import transaction
         import os
         import urllib2
+        from datetime import datetime
         self.setupPyramid()
 
         user_id = '37212768@N05'
@@ -90,6 +91,7 @@ class SyncFlickr(PyramidCommand):
                 if entry is not None:
                     continue
 
+                album.updated_at = datetime.now()
                 photo_dir = os.path.join(image_dir, str(album.id))
                 if not os.path.isdir(photo_dir):
                     os.mkdir(photo_dir)
@@ -106,6 +108,7 @@ class SyncFlickr(PyramidCommand):
 
                 entry = Photo(path=photo_path,
                         description=photo['title'].encode('utf8'),
+                        is_primary=photo['isprimary'],
                         flickr_photo_id=photo['id'],
                         album_id=album.id)
                 session.add(entry)
