@@ -4,11 +4,12 @@
 {% for album in albums %}
 <h2><a href="{{request.route_url('photos+album', id=album.id)}}">{{album.title}}</a></h2>
 <p>{{album.description}}</p>
-{% for photo in album.photos %}
+{% set photo = album.primary_photo %}
+{% if photo %}
 <div class="photo">
     <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
     <span class="caption">{{photo.description}}</span>
 </div>
-{% endfor %}
+{% endif %}
 {% endfor %}
 {% endblock %}

@@ -14,11 +14,15 @@ class Album(BaseObject):
     description = schema.Column(types.Text, nullable=False)
     flickr_set_id = schema.Column(types.String(32), index=True)
     photos = orm.relationship("Photo", backref="photos",
-            order_by="Photo.id.desc()")
+            order_by="Photo.id.desc()", lazy="dynamic")
     created_at = schema.Column(types.DateTime(),
             nullable=False, default=functions.now())
     updated_at = schema.Column(types.DateTime(),
             nullable=False, default=functions.now(), index=True)
+
+    @property
+    def primary_photo(self):
+        return self.photos.filter(Photo.is_primary==True).first()
 
 
 class Photo(BaseObject):
