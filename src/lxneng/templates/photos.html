@@ -7,7 +7,9 @@
 {% set photo = album.primary_photo %}
 {% if photo %}
 <div class="photo">
-    <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
+    <a href="{{request.route_url('photos+album', id=album.id)}}">
+        <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
+    </a>
     <span class="caption">{{photo.description}}</span>
 </div>
 {% endif %}
