@@ -3,7 +3,7 @@
 {% block body -%}
 <div id="posts">
     {%- for (year, month), posts in result %}
-    <h1>{{year}}-{{month}}</h1>
+    <h2>{{year}}-{{month}}</h2>
     <ul>
         {%- for post in posts %}
         <li><a href="{{ request.route_url('post', id=post.id) }}">{{ post.post_title }}</a></li>
