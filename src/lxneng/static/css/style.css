@@ -25,6 +25,8 @@ h2 {
 }
 #main {
     -webkit-box-shadow: 0 0 30px #000;
+    -moz-box-shadow: 0 0 30px #000;
+    box-shadow: 0 0 30px #000;
     background: #F2F2F2 url('../images/noise.png') top left;
     margin: 45px auto 40px auto;
     padding: 30px 30px 5px;
