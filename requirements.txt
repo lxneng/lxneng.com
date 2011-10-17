@@ -16,6 +16,7 @@ lingua
 
 # for deploy
 supervisor
+gunicorn
 
 # for session store and cache store
 pyramid_beaker
