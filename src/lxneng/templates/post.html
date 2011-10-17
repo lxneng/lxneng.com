@@ -2,7 +2,7 @@
 {% block title %}{{context.post_title}}{% endblock %}
 {% block body %}
 <div id="posts">
-    <h1>{{context.post_title}}</h1>
+    <h2>{{context.post_title}}</h2>
     <p>{{tools.markdown_content(context.post_content)|safe}}</p>
 </div>
 {% endblock %}

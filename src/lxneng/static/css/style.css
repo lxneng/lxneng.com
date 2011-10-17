@@ -18,7 +18,10 @@ button, input {
     margin-left: 5px;
 }
 ul {list-style: none;}
-h1 {line-height: 120%;}
+h1 {
+    border-bottom: 1px dashed #DDD;
+    line-height: 120%;
+}
 h2 {
     border-bottom: 1px dashed #DDD;
     padding-bottom: 10px;
