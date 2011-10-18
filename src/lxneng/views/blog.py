@@ -34,7 +34,10 @@ class PostView(BasicFormView):
     
     @view_config(route_name='posts_show', renderer='posts/show.html')
     def show(self):
-        return {'context': self.context}
+        session = meta.Session()
+        prev = session.query(Post).filter(Post.id < self.context.id).order_by(Post.id.desc()).first()
+        next = session.query(Post).filter(Post.id > self.context.id).order_by(Post.id).first()
+        return {'context': self.context, 'prev': prev, 'next': next}
 
     @view_config(route_name='posts_new', permission='auth',
             renderer='posts/edit.html')

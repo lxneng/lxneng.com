@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block title %}{{context.title}}{% endblock %}
 {% block body %}
-<div id="posts">
-    <h2>{{context.title}}</h2>
-    <p>{{tools.markdown_content(context.content)|safe}}</p>
-</div>
+<h2>{{context.title}}</h2>
+<p>{{tools.markdown_content(context.content)|safe}}</p>
+<p>
+{% if prev %}<a href="{{ request.route_url('posts_show', id=prev.id) }}">« Previous</a>{% endif %}
+{% if next %}<a href="{{ request.route_url('posts_show', id=next.id) }}">Next »</a>{% endif %}
+</p>
 {% if user %}
 <a href="{{ request.route_url('posts_edit', id=context.id) }}">Edit</a>
 {% endif %}
