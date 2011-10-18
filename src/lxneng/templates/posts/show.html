@@ -5,6 +5,10 @@
     <h2>{{context.title}}</h2>
     <p>{{tools.markdown_content(context.content)|safe}}</p>
 </div>
+{% if user %}
+<a href="{{ request.route_url('posts_edit', id=context.id) }}">Edit</a>
+{% endif %}
+
 {% endblock %}
 
 {% block javascript %}

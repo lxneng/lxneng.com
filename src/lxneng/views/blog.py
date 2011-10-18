@@ -53,6 +53,7 @@ class PostView(BasicFormView):
             data = self.form.value
             for k, v in data.items():
                 setattr(self.context, k, v)
+            return HTTPFound(route_url('posts_show', id=self.context.id, request=self.request))
         return {'form': self.form, 'title': 'Edit Post'}
 
     @view_config(route_name='posts_delete', request_method='DELETE',
