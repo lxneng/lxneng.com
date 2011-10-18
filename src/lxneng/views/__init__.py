@@ -8,7 +8,6 @@ from s4u.sqlalchemy import meta
 from lxneng.models import Post
 from lxneng.models import User
 from lxneng.models.photo import Album
-from itertools import groupby
 from pyramid.url import route_url
 from pyramid.httpexceptions import HTTPFound
 from flatland import Form, String
@@ -24,9 +23,8 @@ _favicon = open(os.path.join(_here, '../static', 'favicon.ico')).read()
 _favicon_response = Response(content_type='image/x-icon', body=_favicon)
 
 
-@view_config(route_name='photos+album', renderer='album.html')
+@view_config(route_name='photos_album', renderer='photos/album.html')
 @view_config(route_name='about', renderer='about.html')
-@view_config(route_name='post', renderer='post.html')
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
 @view_config(context='pyramid.exceptions.HTTPForbidden', renderer='403.html')
 class BasicView(object):
@@ -55,7 +53,18 @@ class BasicFormView(BasicView):
         if self.request.method == 'POST':
             self.form = self.form_class.from_flat(self.request.POST)
         else:
-            self.form = self.form_class()
+            self.form = self.form_class(self.default_data())
+
+    def default_data(self):
+        if self.context is None:
+            return {}
+        defaults = {}
+        fields = list(self.form_class())
+        for key in self.context.__dict__:
+            if key not in fields:
+                continue
+            defaults[key] = getattr(self.context, key)
+        return defaults
 
     def do_post(self):
         raise NotImplementedError()
@@ -106,7 +115,7 @@ class Login(BasicFormView):
                 or query.filter(User.email == login).first()
         if user is not None and user.authenticate(password):
             log.info('%s login' % user.username)
-            headers = remember(self.request, user.username)
+            headers = remember(self.request, user.id)
             self.request.session.flash('Login Success!')
             return HTTPFound(location=came_from, headers=headers)
         else:
@@ -135,30 +144,16 @@ def logout(request):
     return HTTPFound(location=came_from, headers=headers)
 
 
-@view_config(route_name='blog', renderer='blog.html')
-class Blog(BasicView):
-    def __call__(self):
-
-        def grouper(item):
-            return item.post_date.year, item.post_date.month
-
-        posts = meta.Session.query(Post)\
-                .filter(Post.post_status == 'publish')\
-                .order_by(Post.id.desc()).all()
-        result = groupby(posts, grouper)
-        return {'result': result}
-
-
 @view_config(route_name='home', renderer='home.html')
 class Home(BasicView):
     def __call__(self):
         posts = meta.Session.query(Post)\
-                .filter(Post.post_status == 'publish')\
+                .filter(Post.status == 'publish')\
                 .order_by(Post.id.desc()).limit(10)
         return {'posts': posts}
 
 
-@view_config(route_name='photos', renderer='photos.html')
+@view_config(route_name='photos', renderer='photos/index.html')
 class AlbumsView(BasicView):
     def __call__(self):
         albums = meta.Session.query(Album).order_by(Album.updated_at.desc())

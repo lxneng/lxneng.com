@@ -8,6 +8,35 @@ from pyramid_beaker import session_factory_from_settings
 from pyramid_beaker import set_cache_regions_from_settings
 
 
+class HttpMethodOverrideMiddleware(object):
+    '''WSGI middleware for overriding HTTP Request Method for RESTful support
+    '''
+    def __init__(self, application):
+        self.application = application
+
+    def __call__(self, environ, start_response):
+        if 'POST' == environ['REQUEST_METHOD']:
+            override_method = ''
+
+            # First check the "_method" form parameter
+            if 'form-urlencoded' in environ['CONTENT_TYPE']:
+                from webob import Request
+                request = Request(environ)
+                override_method = request.POST.get('_method', '').upper()
+
+            # If not found, then look for "X-HTTP-Method-Override" header
+            if not override_method:
+                override_method = environ.get('HTTP_X_HTTP_METHOD_OVERRIDE', '').upper()
+
+            if override_method in ('PUT', 'DELETE', 'OPTIONS', 'PATCH'):
+                # Save the original HTTP method
+                environ['http_method_override.original_method'] = environ['REQUEST_METHOD']
+                # Override HTTP method
+                environ['REQUEST_METHOD'] = override_method
+
+        return self.application(environ, start_response)
+
+
 def main(global_config, **settings):
     set_cache_regions_from_settings(settings)
     config = Configurator(settings=settings,
@@ -26,10 +55,13 @@ def main(global_config, **settings):
     config.add_route("login", "/login")
     config.add_route("logout", "/logout")
     config.add_route("about", "/about")
-    config.add_route("blog", "/blog")
     config.add_route("photos", "/photos")
-    config.add_route("photos+album", "/photos/albums/:id",
+    config.add_route("photos_album", "/photos/albums/:id",
             factory=factories.AlbumFactory)
-    config.add_route("post", "/posts/:id", factory=factories.PostFactory)
+    config.add_route("posts_index", "/posts")
+    config.add_route("posts_new", "/posts/new")
+    config.add_route("posts_show", "/posts/:id", factory=factories.PostFactory)
+    config.add_route("posts_edit", "/posts/:id/edit", factory=factories.PostFactory)
+    config.add_route("posts_delete", "/posts/:id/delete")
     config.scan()
-    return config.make_wsgi_app()
+    return HttpMethodOverrideMiddleware(config.make_wsgi_app())

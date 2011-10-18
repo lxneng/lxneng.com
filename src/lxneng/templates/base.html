@@ -12,7 +12,8 @@
         <span id="site_name">{% trans %}Hi, I'm Eric Lo.{% endtrans %}</span>
         <ul id="nav">
             <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
-            <li><a href="{{request.route_url('blog')}}" class="{{'active' if request.path=='/blog' else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
+            <li><a href="{{request.route_url('posts_index')}}"
+                class="{{'active' if request.path.startswith('/posts') else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
             <li><a href="{{request.route_url('photos')}}"
                 class="{{'active' if
                 request.path.startswith('/photos') else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>

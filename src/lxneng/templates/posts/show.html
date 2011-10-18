@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{context.title}}{% endblock %}
+{% block body %}
+<div id="posts">
+    <h2>{{context.title}}</h2>
+    <p>{{tools.markdown_content(context.content)|safe}}</p>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<link rel="stylesheet" href="{{request.static_url('lxneng:static/css/syntax.css')}}">
+{% endblock %}

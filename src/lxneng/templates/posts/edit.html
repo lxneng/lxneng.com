@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block body %}
+<form method="POST" action="">
+    <fieldset>
+        <legend>{{title}}</legend>
+        {{html.input(name='_csrf', type='hidden', value=request.session.get_csrf_token())}}
+        {{html.input(name='came_from', type='hidden', value=request.url)}}
+        <p>
+        <label>Title<br />
+            {{html.input(form['title'], autofocus='autofocus', size='75')}}
+        </label>
+        </p>
+        <p>
+        <label>Content<br />
+            {{html.textarea(form['content'], cols='80', rows='40')}}
+        </label>
+        </p>
+        <p>
+        {{html.input(type='submit', value='Submit')}}
+        </p>
+    </fieldset>
+</form>    
+{% endblock %}

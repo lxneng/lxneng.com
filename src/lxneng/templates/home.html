@@ -9,7 +9,7 @@
     <h2>{{gettext('Latest Posts')}}</h2>
     <ul>
         {%- for post in posts %}
-        <li><a href="{{ request.route_url('post', id=post.id) }}" target="_blank">{{ post.post_title }}</a></li>
+        <li><a href="{{ request.route_url('posts_show', id=post.id) }}" target="_blank">{{ post.title }}</a></li>
         {%- endfor %}
     </ul>
 </div>

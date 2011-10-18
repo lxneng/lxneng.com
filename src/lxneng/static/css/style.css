@@ -191,3 +191,6 @@ ul#links li{float:left; width: 30px;}
     bottom: 30px;
     right: 30px;
 }
+.posts_delete {
+    display: inline;
+}

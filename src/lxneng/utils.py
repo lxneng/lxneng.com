@@ -15,10 +15,13 @@ class Tools(object):
 
 
 def get_user(request):
-    username = authenticated_userid(request)
-    if username is None:
-        return None
-    else:
-        user = meta.Session.query(User).filter(User.username ==
-            username).first()
-        return user
+
+    user = getattr(request, '_user', [])
+    if not user:
+        user_id = authenticated_userid(request)
+        if user_id is None:
+            return None
+        else:
+            user = meta.Session.query(User).get(user_id)
+            request._user = user
+    return user
