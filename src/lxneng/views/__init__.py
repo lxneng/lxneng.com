@@ -152,7 +152,6 @@ class Home(BasicView):
                 .filter(Post.status == 'publish')\
                 .order_by(Post.id.desc()).limit(10)
         albums = session.query(Album)\
-                .filter(Album.title != 'Me')\
                 .order_by(Album.updated_at.desc()).limit(3)
         return {'posts': posts, 'albums': albums}
 
