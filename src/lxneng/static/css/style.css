@@ -26,6 +26,8 @@ h2 {
     border-bottom: 1px dashed #DDD;
     padding-bottom: 10px;
 }
+.fleft {float: left;}
+.fright {float: right;}
 #main {
     -webkit-box-shadow: 0 0 30px #000;
     -moz-box-shadow: 0 0 30px #000;
