@@ -10,8 +10,8 @@
 </p>
 {% endif %}
 <p>
-{% if prev %}<a class="fleft" href="{{ request.route_url('posts_show', id=prev.id) }}">« Previous</a>{% endif %}
-{% if next %}<a class="fright" href="{{ request.route_url('posts_show', id=next.id) }}">Next »</a>{% endif %}
+{% if prev %}<a class="fleft" href="{{ request.route_url('posts_show', id=prev.id) }}">« {{gettext('Previous')}}</a>{% endif %}
+{% if next %}<a class="fright" href="{{ request.route_url('posts_show', id=next.id) }}">{{gettext('Next')}} »</a>{% endif %}
 </p>
 {% endblock %}
 

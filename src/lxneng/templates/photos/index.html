@@ -13,5 +13,8 @@
     <span class="caption">{{photo.description}}</span>
 </div>
 {% endif %}
+<div class="more_photos">
+<a href="{{request.route_url('photos_album', id=album.id)}}">{{gettext('More Photos')}} →</a>
+</div>
 {% endfor %}
 {% endblock %}

@@ -43,3 +43,12 @@ msgstr "登录"
 
 msgid "Logout"
 msgstr "登出"
+
+msgid "More Photos"
+msgstr "更多照片"
+
+msgid "Previous"
+msgstr "上一篇"
+
+msgid "Next"
+msgstr "下一篇"

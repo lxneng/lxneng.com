@@ -1,23 +1,21 @@
 {% extends "base.html" %}
 {% block title %}{{gettext('Blog')}}{% endblock %}
 {% block body -%}
-<div id="posts">
-    {%- for (year, month), posts in result %}
-    <h2>{{year}}-{{month}}</h2>
-    <ul>
-        {%- for post in posts %}
-        <li><a href="{{ request.route_url('posts_show', id=post.id) }}">{{ post.title }}</a>
-        {% if user %}
-        <a href="{{ request.route_url('posts_edit', id=post.id) }}">Edit</a>
-        <form class="posts_delete" method="POST" action="{{request.route_url('posts_delete',
-            id=post.id)}}">
-            <input type="hidden" name="_method" value="DELETE" />
-            <input type="submit" value="DELETE" />
-        </form>
-        {% endif %}
-        </li>
-        {%- endfor %}
-    </ul>
-    {% endfor -%}
-</div>
+{%- for (year, month), posts in result %}
+<h2>{{year}}-{{month}}</h2>
+<ul>
+    {%- for post in posts %}
+    <li><a href="{{ request.route_url('posts_show', id=post.id) }}">{{ post.title }}</a>
+    {% if user %}
+    <a href="{{ request.route_url('posts_edit', id=post.id) }}">Edit</a>
+    <form class="posts_delete" method="POST" action="{{request.route_url('posts_delete',
+        id=post.id)}}">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="submit" value="DELETE" />
+    </form>
+    {% endif %}
+    </li>
+    {%- endfor %}
+</ul>
+{% endfor -%}
 {%- endblock %}

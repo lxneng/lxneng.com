@@ -36,7 +36,7 @@ h2 {
     margin: 45px auto 40px auto;
     padding: 30px 30px 5px;
     text-align: left;
-    max-width: 648px;
+    max-width: 658px;
     -moz-border-radius: 5px;
     -khtml-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -195,4 +195,23 @@ ul#links li{float:left; width: 30px;}
 }
 .posts_delete {
     display: inline;
+}
+.more_photos a {
+    background: #EBEBEB;
+    display: inline-block;
+    padding: 3px 0;
+    text-decoration: none;
+    text-align: center;
+    color: #666;
+    width: 100%;
+    -moz-transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    transition: background-color 0.5s;
+    font-size: 16px;
+}
+.more_photos a:hover {
+    background: #0181EB;
+    text-shadow: none;
+    color: #F8F8F8;
 }
