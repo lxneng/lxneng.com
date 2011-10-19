@@ -77,8 +77,8 @@ header {
 ul#nav {
     display: block;
     height: 30px;
-    width: 30%;
-    float: left;
+    width: 35%;
+    float: right;
     border: 0;
     padding: 0;
 }
@@ -125,7 +125,7 @@ ul#nav li a.active, ul#nav li a.active:hover {
 ul#nav li a.active:after { content: "\00A0\00BB" attr(cite); }
 #posts {}
 #language {float:right; padding-right:20px;}
-#site_name {float:left; padding: 0 20% 0 20%; font-size: 16px; font-style:italic; color:#3D515C; font-weight:bold;}
+#site_name {float:left; padding-left: 10%; font-size: 16px; font-style:italic; color:#3D515C; font-weight:bold;}
 
 ul.slideshow img {display:block;}
 ul.slideshow {

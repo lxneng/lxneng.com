@@ -4,12 +4,17 @@
         <meta charset="utf-8">
         <meta name="description" content="Eric Lo's page"> 
         <meta name="author" content="Eric Lo">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<link rel="apple-touch-icon-precomposed" media="screen and (resolution: 163dpi)" href="{{request.static_url('lxneng:static/images/icons/ios/apple-touch-icon_45x45.png')}}" />
+		<link rel="apple-touch-icon-precomposed" media="screen and (resolution: 132dpi)" href="{{request.static_url('lxneng:static/images/icons/ios/apple-touch-icon_72x72.png')}}" />
+		<link rel="apple-touch-icon-precomposed" media="screen and (resolution: 326dpi)" href="{{request.static_url('lxneng:static/images/icons/ios/apple-touch-icon_114x114.png')}}" />	
         <title>{% block title %}{{gettext('Home')}}{% endblock %} — {% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
         <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}">
     </head> 
     <body>
         <header>
         <span id="site_name">{% trans %}Hi, I'm Eric Lo.{% endtrans %}</span>
+		<span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
         <ul id="nav">
             <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
             <li><a href="{{request.route_url('posts_index')}}"
@@ -19,7 +24,6 @@
                 request.path.startswith('/photos') else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
             <li><a href="{{request.route_url('about')}}" class="{{'active' if request.path=='/about' else ''}}" title="Bio" id="Bio">{{gettext('Bio')}}</a></li>
         </ul>
-        <span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
         </header>
         <div id="main">
             {%- if request.session.peek_flash() -%}
