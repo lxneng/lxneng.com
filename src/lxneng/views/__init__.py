@@ -147,10 +147,14 @@ def logout(request):
 @view_config(route_name='home', renderer='home.html')
 class Home(BasicView):
     def __call__(self):
-        posts = meta.Session.query(Post)\
+        session = meta.Session()
+        posts = session.query(Post)\
                 .filter(Post.status == 'publish')\
                 .order_by(Post.id.desc()).limit(10)
-        return {'posts': posts}
+        albums = session.query(Album)\
+                .filter(Album.title != 'Me')\
+                .order_by(Album.updated_at.desc()).limit(3)
+        return {'posts': posts, 'albums': albums}
 
 
 @view_config(route_name='photos', renderer='photos/index.html')
