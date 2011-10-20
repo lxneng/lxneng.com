@@ -29,7 +29,7 @@ msgstr "博客"
 msgid "Photo"
 msgstr "照片"
 
-msgid "Bio"
+msgid "About"
 msgstr "关于我"
 
 msgid "Latest Posts"
