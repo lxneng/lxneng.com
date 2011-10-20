@@ -10,7 +10,7 @@
     </tr>
     <tr valign="top">
         <th>工作:</th>
-        <td>Python开发者，就职2Style4you.com.</td>
+        <td>Python开发者，就职2Style4You.com.</td>
     </tr>
 	<tr>
         <th>Gmail/Gtalk:</th>
@@ -29,7 +29,7 @@
 - 2008年毕业于[苏州大学](http://www.suda.edu.cn/)-[计算机科学与技术学院](http://eng.suda.edu.cn/)-软件工程专业本科
 
 ####工作经历:
-- **2Style4you.com**  
+- **2Style4You.com**  
 *2010年12月 - 现在： 高级软件工程师*
 
 - **上海健吾投资管理有限公司**  

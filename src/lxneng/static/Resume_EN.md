@@ -30,7 +30,7 @@
 [School of Computer Science & Technology](http://scst.suda.edu.cn/), [Soochow University](http://eng.suda.edu.cn/)
 
 ####Work Experience:
-- **2Style4you.com**  
+- **2Style4You.com**  
 *Senior Software Engineer, December 2010 - Now*
 
 - **Shanghai Jianwu Investment Consulting Co., Ltd.**  
