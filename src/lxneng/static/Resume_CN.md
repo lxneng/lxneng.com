@@ -39,7 +39,7 @@
 *2008年6月 - 2009年11月：工程师*
 
 ####开源项目:
-我都的开源项目都放在 [GitHub](https://github.com/lxneng)
+我的开源项目都放在 [GitHub](https://github.com/lxneng)
 
 ####社区活动:
 [PMCamp](http://pmcamp.org) 和 [TopGeek](http://topgeek.org) 社区的组织者之一
