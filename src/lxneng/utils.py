@@ -2,6 +2,7 @@ import markdown
 from pyramid.security import authenticated_userid
 from s4u.sqlalchemy import meta
 from lxneng.models import User
+from babel.dates import format_date
 
 
 class Tools(object):
@@ -12,6 +13,9 @@ class Tools(object):
         
     def markdown_content(self, content):
         return markdown.markdown(content, ['codehilite'])
+
+    def format_date(self, date=None, format="full"):
+        return format_date(date, format, locale=self.request.locale_name)
 
 
 def get_user(request):

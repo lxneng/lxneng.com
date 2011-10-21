@@ -3,8 +3,9 @@
 {% block body %}
 <article>
 <h1>{{context.title}}</h1>
+<strong>{{tools.format_date(context.created_at)}}</strong>
 <p>{{tools.markdown_content(context.content)|safe}}</p>
-
+<!--p>This entry was tagged pyramid, jinja2 and python</p-->
 {% if user %}
 <p>
 <a href="{{ request.route_url('posts_edit', id=context.id) }}">Edit</a>
@@ -14,6 +15,7 @@
 {% if prev %}<a class="fleft" href="{{ request.route_url('posts_show', id=prev.id) }}">« {{gettext('Previous')}}</a>{% endif %}
 {% if next %}<a class="fright" href="{{ request.route_url('posts_show', id=next.id) }}">{{gettext('Next')}} »</a>{% endif %}
 </p>
+
 </article>
 {% endblock %}
 

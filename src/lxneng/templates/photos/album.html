@@ -2,6 +2,7 @@
 {% block title %}{{context.title}}{% endblock %}
 {% block body %}
 <h1>{{context.title}}</h1>
+<strong>{{tools.format_date(context.created_at)}}</strong>
 <p>{{context.description}}</p>
 {% for photo in context.photos %}
 <div class="photo">
