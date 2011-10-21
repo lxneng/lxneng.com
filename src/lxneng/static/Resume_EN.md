@@ -1,4 +1,4 @@
-##About Me
+#About Me
 <table>
 	<tr>
         <th>Name:</th>
@@ -25,11 +25,11 @@
         <td>Shanghai</td>
     </tr>
 </table>
-####Education:
+###Education:
 - Bachelor, Software Engineering, 2008  
 [School of Computer Science & Technology](http://scst.suda.edu.cn/), [Soochow University](http://eng.suda.edu.cn/)
 
-####Work Experience:
+###Work Experience:
 - **2Style4You.com**  
 *Senior Software Engineer, December 2010 - Now*
 
@@ -39,8 +39,8 @@
 - **Hejia (Shanghai) Information Technology Co., Ltd.**  
 *Software Engineer, June 2008 - November 2009*
 
-####Open Source:
+###Open Source:
 My open source projects are hosted on [GitHub](https://github.com/lxneng)
 
-####Social Community:
+###Social Community:
 One of the organizers of [PMCamp](http://pmcamp.org) and [TopGeek](http://topgeek.org) community

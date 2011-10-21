@@ -2,7 +2,8 @@
 {% block title %}{{gettext('Photo')}}{% endblock %}
 {% block body %}
 {% for album in albums %}
-<h2><a href="{{request.route_url('photos_album', id=album.id)}}">{{album.title}}</a></h2>
+<article>
+<h1><a href="{{request.route_url('photos_album', id=album.id)}}">{{album.title}}</a></h1>
 <p>{{album.description}}</p>
 {% set photo = album.primary_photo %}
 {% if photo %}
@@ -16,5 +17,6 @@
 <div class="more_photos">
 <a href="{{request.route_url('photos_album', id=album.id)}}">{{gettext('More Photos')}} →</a>
 </div>
+</article>
 {% endfor %}
 {% endblock %}

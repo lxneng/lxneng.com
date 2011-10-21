@@ -7,16 +7,17 @@
 	<img src="{{ request.application_url + '/static_photos/' +photo.path }}" /></a></li>
 	{%- endfor %}
 </ul>
-<div id="posts">
-    <h2>{{gettext('Latest Posts')}}</h2>
+<article>
+    <h1>{{gettext('Latest Posts')}}</h1>
     <ul>
         {%- for post in posts %}
         <li><a href="{{ request.route_url('posts_show', id=post.id) }}" target="_blank">{{ post.title }}</a></li>
         {%- endfor %}
     </ul>
-</div>
+</article>
 {% endblock %}
 {% block footer %}
+<article>
 <h4>{% trans %}Find Me On The Web{% endtrans %}</h4>
 <ul id="links">
 	<li>
@@ -47,6 +48,7 @@
     <a href="http://t.qq.com/luoxiaoneng" target="_blank"><img src="http://t.qq.com/favicon.ico" height="16" width="16" border="0" alt="http://t.qq.com"></a>
     </li>
 </ul>
+</article>
 {% endblock %}
 {% block javascript %}
 <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
