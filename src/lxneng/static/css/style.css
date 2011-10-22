@@ -233,3 +233,6 @@ img.right {
     box-sizing: border-box;
     border: white 0.5em solid;
 }
+.tags {
+    text-align: right;
+}

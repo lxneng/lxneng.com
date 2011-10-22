@@ -5,7 +5,13 @@
 <h1>{{context.title}}</h1>
 <strong>{{tools.format_date(context.created_at)}}</strong>
 <p>{{tools.markdown_content(context.content)|safe}}</p>
-<!--p>This entry was tagged pyramid, jinja2 and python</p-->
+<p class="tags">This entry was tagged
+    {% for tag in context.tags|sort(case_sensitive=true) %}
+      {%- if not loop.first and not loop.last %}, {% endif -%}
+      {%- if loop.last and not loop.first %} and {% endif %}
+      <a href="#">{{ tag.name }}</a>
+    {%- endfor %}
+</p>
 {% if user %}
 <p>
 <a href="{{ request.route_url('posts_edit', id=context.id) }}">Edit</a>

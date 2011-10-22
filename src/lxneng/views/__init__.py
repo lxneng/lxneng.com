@@ -5,8 +5,8 @@ from pyramid.response import Response
 from pyramid.security import remember
 from pyramid.security import forget
 from s4u.sqlalchemy import meta
-from lxneng.models import Post
-from lxneng.models import User
+from lxneng.models.post import Post
+from lxneng.models.user import User
 from lxneng.models.photo import Album
 from pyramid.url import route_url
 from pyramid.httpexceptions import HTTPFound

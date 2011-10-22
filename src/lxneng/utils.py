@@ -1,7 +1,7 @@
 import markdown
 from pyramid.security import authenticated_userid
 from s4u.sqlalchemy import meta
-from lxneng.models import User
+from lxneng.models.user import User
 from babel.dates import format_date
 
 

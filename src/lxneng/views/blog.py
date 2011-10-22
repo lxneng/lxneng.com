@@ -2,7 +2,7 @@ import logging
 from itertools import groupby
 from s4u.sqlalchemy import meta
 from pyramid.view import view_config
-from lxneng.models import Post
+from lxneng.models.post import Post
 from lxneng.views import BasicFormView
 from pyramid.httpexceptions import HTTPFound
 from pyramid.url import route_url

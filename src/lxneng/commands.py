@@ -18,21 +18,6 @@ class PyramidCommand(Command):
         threadlocal_manager.push({'registry': registry, 'request': None})
 
 
-class DemoCommand(PyramidCommand):
-    summary = "--NO SUMMARY--"
-    usage = "paster --plugin=lxneng demo_script development.ini"
-    parser = PyramidCommand.standard_parser()
-
-    def command(self):
-        from s4u.sqlalchemy import meta
-        from lxneng.models import Post
-        self.setupPyramid()
-        print "Hello, app script world!"
-        query = meta.Session.query(Post)
-        for post in query:
-            print post.post_title.encode('utf-8')
-
-
 class SyncFlickr(PyramidCommand):
     summary = "download flickr image"
     usage = "paster --plugin=lxneng sync_flickr development.ini"
