@@ -5,9 +5,7 @@
         <meta name="description" content="Eric Lo's page"> 
         <meta name="author" content="Eric Lo">
         <meta name="viewport" content="width=720, maximum-scale=1.0" />
-		<link rel="apple-touch-icon-precomposed" media="screen and (resolution: 163dpi)" href="{{request.static_url('lxneng:static/images/icons/ios/apple-touch-icon_45x45.png')}}" />
-		<link rel="apple-touch-icon-precomposed" media="screen and (resolution: 132dpi)" href="{{request.static_url('lxneng:static/images/icons/ios/apple-touch-icon_72x72.png')}}" />
-		<link rel="apple-touch-icon-precomposed" media="screen and (resolution: 326dpi)" href="{{request.static_url('lxneng:static/images/icons/ios/apple-touch-icon_114x114.png')}}" />	
+	<link rel="apple-touch-icon" href="{{request.static_url('lxneng:static/images/icons/apple-touch-icon_72x72.png')}}" />
         <title>{% block title %}{{gettext('Home')}}{% endblock %} — {% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
         <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}">
     </head> 
