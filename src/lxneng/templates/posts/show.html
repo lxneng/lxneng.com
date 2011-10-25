@@ -4,7 +4,9 @@
 <article>
 <h1>{{context.title}}</h1>
 <strong>{{tools.format_date(context.created_at)}}</strong>
+<div id='content'>
 <p>{{tools.markdown_content(context.content)|safe}}</p>
+</div>
 <p class="tags">This entry was tagged
     {% for tag in context.tags|sort(case_sensitive=true) %}
       {%- if not loop.first and not loop.last %}, {% endif -%}

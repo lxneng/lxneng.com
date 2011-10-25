@@ -2,7 +2,7 @@
 {% block title %}{{gettext('About')}}{% endblock %}
 {% block body %}
 <article>
-<div id="resume">
+<div id="content">
 	<img class="right" src="{{request.static_url('lxneng:static/images/avatar-238x240.jpg')}}" alt="Eric Lo">
 	{{ tools.markdown_content(resume) | safe }}
 </div>

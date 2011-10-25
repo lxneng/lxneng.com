@@ -215,7 +215,7 @@ ul#links li{float:left; width: 30px;}
     text-shadow: none;
     color: #F8F8F8;
 }
-#resume ul {
+#content ul {
     margin-left: 30px;
     margin-bottom: 15px;
     list-style-type: disc;
@@ -225,7 +225,12 @@ img.right {
     float: right;
     margin-left: 1em;
 }
-#resume img {
+img.left {
+    margin-bottom: .8em;
+    float: left;
+    margin-right: 1em;
+}
+#content img {
     max-width: 100%;
     moz-border-radius: 0.3em;
     -webkit-border-radius: 0.3em;
