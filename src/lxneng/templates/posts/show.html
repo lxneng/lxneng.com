@@ -9,7 +9,7 @@
     {% for tag in context.tags|sort(case_sensitive=true) %}
       {%- if not loop.first and not loop.last %}, {% endif -%}
       {%- if loop.last and not loop.first %} and {% endif %}
-      <a href="#">{{ tag.name }}</a>
+      <a href="{{ request.route_url('posts_tags_show', id=tag.id) }}">{{ tag.name }}</a>
     {%- endfor %}
 </p>
 {% if user %}

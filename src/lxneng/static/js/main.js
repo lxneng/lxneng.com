@@ -1,3 +1,7 @@
 $(function(){
-	$(window).scroll(function(){$(window).scrollTop()=="0"?$("#goTop").fadeOut("slow"):$("#goTop").fadeIn("slow")});
+    $(window).scroll(function(){$(window).scrollTop()=="0"?$("#goTop").fadeOut("slow"):$("#goTop").fadeIn("slow")});
 });
+$('ul#nav li').hover(
+        function() { $(this).children('.submenu').show() },
+        function() { $(this).children('.submenu').hide() }
+        );

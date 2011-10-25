@@ -5,18 +5,20 @@
         <meta name="description" content="Eric Lo's page"> 
         <meta name="author" content="Eric Lo">
         <meta name="viewport" content="width=720, maximum-scale=1.0" />
-	<link rel="apple-touch-icon" href="{{request.static_url('lxneng:static/images/icons/apple-touch-icon_72x72.png')}}" />
+        <link rel="apple-touch-icon" href="{{request.static_url('lxneng:static/images/icons/apple-touch-icon_72x72.png')}}" />
         <title>{% block title %}{{gettext('Home')}}{% endblock %} — {% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
         <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}">
     </head> 
     <body>
         <header>
         <span id="site_name">{% trans %}Hi, I'm Eric Lo.{% endtrans %}</span>
-		<span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
+        <span id="language">{% if request.locale_name=='en' %}<a href="?lang=zh_CN">中文</a>{% endif %}{% if request.locale_name=='zh_CN' %}<a href="?lang=en">English</a>{% endif %}</span>
         <ul id="nav">
             <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
             <li><a href="{{request.route_url('posts_index')}}"
-                class="{{'active' if request.path.startswith('/posts') else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a></li>
+                class="{{'active' if request.path.startswith('/posts') else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a>
+            <div class="submenu"><ul><li><a href="{{request.route_url('posts_tags_index')}}">{{gettext('Tags')}}</a></li></ul></div>
+            </li>
             <li><a href="{{request.route_url('photos')}}"
                 class="{{'active' if
                 request.path.startswith('/photos') else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
@@ -35,9 +37,9 @@
             {% block body %}{% endblock %}
             <footer>
             {% block footer %}{% endblock %}
-			<article>
+            <article>
             <p>© <a title="lxneng.com" href="http://lxneng.com">lxneng.com</a> 2011., All rights reserved. Powered by <a href="http://python.org/" title="Python Programming Language">Python</a> <a href="https://docs.pylonsproject.org/docs/pyramid.html" title="The Pyramid Web Application Development Framework">Pyramid</a><p>
-			</article>
+            </article>
             </footer>
         </div>
         <div id="goTop">
@@ -48,13 +50,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
         <script src="{{request.static_url('lxneng:static/js/main.js')}}" type="text/javascript"></script>
         <script>window.jQuery || document.write('<script src="{{request.static_url('lxneng:static/js/jquery-1.6.4.min.js')}}"><\/script>')
-        </script>
-        <script>
-            var _gaq=[['_setAccount','UA-15032003-1'],['_trackPageview'],['_trackPageLoadTime']];
+            </script>
+            <script>
+                var _gaq=[['_setAccount','UA-15032003-1'],['_trackPageview'],['_trackPageLoadTime']];
                 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
                     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
                     s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-        {% block javascript %}{% endblock %}
+            </script>
+            {% block javascript %}{% endblock %}
         </body>
     </html>

@@ -22,9 +22,12 @@ _robots_response = Response(content_type='text/plain', body=_robots)
 _favicon = open(os.path.join(_here, '../static', 'favicon.ico')).read()
 _favicon_response = Response(content_type='image/x-icon', body=_favicon)
 RESUME_EN = open(os.path.join(_here, '../static', 'Resume_EN.md')).read()
-RESUME_CN = open(os.path.join(_here, '../static', 'Resume_CN.md')).read().decode('utf8')
+RESUME_CN = open(os.path.join(_here, '../static', 'Resume_CN.md'))\
+        .read().decode('utf8')
+
 
 @view_config(route_name='photos_album', renderer='photos/album.html')
+@view_config(route_name='posts_tags_show', renderer='posts/tags/show.html')
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
 @view_config(context='pyramid.exceptions.HTTPForbidden', renderer='403.html')
 class BasicView(object):

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{context.name}}{% endblock %}
+{% block body %}
+<article>
+<h1>{{context.name}}</h1>
+<ul>
+    {%- for post in context.posts %}
+    <li><a href="{{ request.route_url('posts_show', id=post.id) }}">{{ post.title }}</a>
+    {% if user %}
+    <a href="{{ request.route_url('posts_edit', id=post.id) }}">Edit</a>
+    <form class="posts_delete" method="POST" action="{{request.route_url('posts_delete',
+        id=post.id)}}">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="submit" value="DELETE" />
+    </form>
+    {% endif %}
+    </li>
+    {%- endfor %}
+</ul>
+</article>
+{% endblock %}

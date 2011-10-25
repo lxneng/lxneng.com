@@ -52,3 +52,6 @@ msgstr "上一篇"
 
 msgid "Next"
 msgstr "下一篇"
+
+msgid "Tags"
+msgstr "标签云"

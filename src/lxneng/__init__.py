@@ -56,12 +56,15 @@ def main(global_config, **settings):
     config.add_route("logout", "/logout")
     config.add_route("about", "/about")
     config.add_route("photos", "/photos")
-    config.add_route("photos_album", "/photos/albums/:id",
+    config.add_route("photos_album", "/photos/albums/{id:\d+}",
             factory=factories.AlbumFactory)
     config.add_route("posts_index", "/posts")
     config.add_route("posts_new", "/posts/new")
-    config.add_route("posts_show", "/posts/:id", factory=factories.PostFactory)
-    config.add_route("posts_edit", "/posts/:id/edit", factory=factories.PostFactory)
-    config.add_route("posts_delete", "/posts/:id/delete")
+    config.add_route("posts_tags_index", "/posts/tags")
+    config.add_route("posts_show", "/posts/{id:\d+}", factory=factories.PostFactory)
+    config.add_route("posts_edit", "/posts/{id:\d+}/edit", factory=factories.PostFactory)
+    config.add_route("posts_delete", "/posts/{id:\d+}/delete")
+    config.add_route("posts_tags_show", "/posts/tags/{id:\d+}",
+            factory=factories.TagFactory)
     config.scan()
     return HttpMethodOverrideMiddleware(config.make_wsgi_app())

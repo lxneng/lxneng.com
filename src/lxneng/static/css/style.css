@@ -1,11 +1,11 @@
 body {
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
-  font-size: 15px;
-  line-height: 22px;
-  background: #333;
-  color: #252519;
-  margin: 0;
-  padding: 0;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
+    font-size: 15px;
+    line-height: 22px;
+    background: #333;
+    color: #252519;
+    margin: 0;
+    padding: 0;
 }
 a {
     color: #006400;
@@ -15,14 +15,14 @@ a:hover {
     text-decoration: underline;
 }
 p {
-  line-height: 1.7em;
+    line-height: 1.7em;
 }
 h1, h2, h3, h4, h5, h6 {
-  margin: 15px 0 5px 0;
+    margin: 15px 0 5px 0;
 }
 h1 {
-  padding: 10px 0 8px 0;
-  border-bottom: 1px dashed #DDD;
+    padding: 10px 0 8px 0;
+    border-bottom: 1px dashed #DDD;
 }
 span[frown] { transform: rotate(90deg); display:inline-block; color: #bbb; }
 ul, li {
@@ -64,7 +64,6 @@ header {
     height:30px;
     text-align:center;
     line-height:30px;
-    overflow:hidden;
     top:0;
     font-size:14px; 
     position: fixed;
@@ -83,13 +82,12 @@ ul#nav {
     border: 0;
     padding: 0;
 }
-
-ul#nav li { display: inline; }
-
+ul#nav li{
+    float:left;
+}
 ul#nav li a, #language a {
+    height: 25px;
     display: block;
-    float: left;
-    height: 28px;
     margin: 0;
     background: no-repeat 9px 5px;
     padding: 5px 15px 0px 15px;
@@ -102,31 +100,42 @@ ul#nav li a, #language a {
     font-weight: normal;
     cursor: pointer;
 }
-
-ul#nav img {
-    position: relative;
-    top: 4px;
-    left: -3px;
-}
-
 ul#nav li a:hover, .localeSwitch a:hover {
     background-color: #96090A;
     color: #fff;
-    height: 28px;
     text-decoration: underline;
 }
-
 ul#nav li a.active, ul#nav li a.active:hover {
-    height: 28px;
     color: #fff;
     background: #006400;
     cursor: default;
     font-weight: bold;
 }
 ul#nav li a.active:after { content: "\00A0\00BB" attr(cite); }
+ul#nav li .submenu {
+    display: none;
+    background-color: rgba(0,0,0,.8);
+    position: absolute;
+    z-index: 999;
+    margin: 0px;
+    width: 120px;
+}
+ul#nav li .submenu ul {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    position: relative;
+}
+ul#nav li .submenu li a {
+    color: #D5DFE2;
+    background-color: none;
+}
+ul#nav li .submenu li a:hover {
+    background:none;
+}
 #language {float:right; padding-right:20px;}
 #site_name {float:left; padding-left: 10%; font-size: 16px; font-style:italic; color:#3D515C; font-weight:bold;}
-
 ul.slideshow img {display:block;}
 ul.slideshow {
     width:640px;
@@ -235,4 +244,8 @@ img.right {
 }
 .tags {
     text-align: right;
+}
+#tagcloud li {
+    padding-right: 15px;
+    display: inline;
 }

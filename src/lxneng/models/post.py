@@ -6,6 +6,7 @@ from sqlalchemy import orm
 from pyramid.security import Authenticated
 from pyramid.security import Allow
 from s4u.sqlalchemy import meta
+from math import log
 
 
 posts_tags = schema.Table("posts_tags", meta.metadata,
@@ -39,4 +40,10 @@ class Tag(BaseObject):
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     name = schema.Column(types.String(32), index=True)
-    posts = orm.relationship('Post', secondary=posts_tags)
+    posts = orm.relationship('Post', secondary=posts_tags, lazy="dynamic")
+
+    @property
+    def size(self):
+        count = self.posts.count() or 1
+        size = 100 + log(count) * 20
+        return size

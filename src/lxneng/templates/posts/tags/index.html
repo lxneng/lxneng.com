@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{gettext('Tags')}}{% endblock %}
+{% block body %}
+<article>
+<h1>{{gettext('Tags')}}</h1>
+<ul id="tagcloud">
+    {%- for tag in tags %}
+    <li><a href="{{ request.route_url('posts_tags_show', id=tag.id) }}" style="font-size: {{
+        tag.size }}%">{{ tag.name }}</a></li>
+    {%- endfor %}
+</ul>
+</article>
+{% endblock %}
