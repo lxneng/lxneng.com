@@ -18,7 +18,12 @@
             <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
             <li><a href="{{request.route_url('posts_index')}}"
                 class="{{'active' if request.path.startswith('/posts') else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a>
-            <div class="submenu"><ul><li><a href="{{request.route_url('posts_tags_index')}}">{{gettext('Tags')}}</a></li></ul></div>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="{{request.route_url('posts_tags_index')}}">{{gettext('Tags')}}</a></li>
+                        <li><a href="{{request.route_url('posts_rss')}}">RSS</a></li>
+                    </ul>
+                </div>
             </li>
             <li><a href="{{request.route_url('photos')}}"
                 class="{{'active' if

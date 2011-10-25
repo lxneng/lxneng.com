@@ -130,6 +130,7 @@ ul#nav li .submenu ul {
 ul#nav li .submenu li a {
     color: #D5DFE2;
     background-color: none;
+    width: 120px;
 }
 ul#nav li .submenu li a:hover {
     background:none;
