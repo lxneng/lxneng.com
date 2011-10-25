@@ -6,6 +6,7 @@ from pyramid.response import Response
 from lxneng.models.post import Post
 from lxneng.models.post import Tag
 from lxneng.views import BasicFormView
+from lxneng.utils import markdown2html
 from pyramid.httpexceptions import HTTPFound
 from pyramid.url import route_url
 from flatland import Form, String
@@ -85,6 +86,6 @@ class PostView(BasicFormView):
         for post in posts:
             feed.add_item(title=post.title, link=route_url('posts_show',
                 id=post.id, request=self.request),
-                description=post.content)
+                description=markdown2html(post.content))
         return Response(content_type='application/atom+xml',
                 body=feed.writeString('utf-8'))

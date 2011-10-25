@@ -3,6 +3,11 @@ from pyramid.security import authenticated_userid
 from s4u.sqlalchemy import meta
 from lxneng.models.user import User
 from babel.dates import format_date
+from jinja2 import Markup
+
+
+def markdown2html(content):
+    return Markup(markdown.markdown(content, ['codehilite']))
 
 
 class Tools(object):
@@ -10,9 +15,9 @@ class Tools(object):
 
     def __init__(self, request):
         self.request = request
-        
+
     def markdown_content(self, content):
-        return markdown.markdown(content, ['codehilite'])
+        return markdown2html(content)
 
     def format_date(self, date=None, format="full"):
         return format_date(date, format, locale=self.request.locale_name)
