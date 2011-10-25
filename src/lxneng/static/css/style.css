@@ -100,7 +100,7 @@ ul#nav li a, #language a {
     font-weight: normal;
     cursor: pointer;
 }
-ul#nav li a:hover, .localeSwitch a:hover {
+ul#nav li a:hover, #language a:hover {
     background-color: #96090A;
     color: #fff;
     text-decoration: underline;

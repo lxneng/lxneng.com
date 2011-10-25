@@ -61,6 +61,7 @@ def main(global_config, **settings):
     config.add_route("posts_index", "/posts")
     config.add_route("posts_new", "/posts/new")
     config.add_route("posts_tags_index", "/posts/tags")
+    config.add_route("posts_rss", "/posts/rss")
     config.add_route("posts_show", "/posts/{id:\d+}", factory=factories.PostFactory)
     config.add_route("posts_edit", "/posts/{id:\d+}/edit", factory=factories.PostFactory)
     config.add_route("posts_delete", "/posts/{id:\d+}/delete")

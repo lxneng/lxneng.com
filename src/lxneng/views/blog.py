@@ -2,12 +2,14 @@ import logging
 from itertools import groupby
 from s4u.sqlalchemy import meta
 from pyramid.view import view_config
+from pyramid.response import Response
 from lxneng.models.post import Post
 from lxneng.models.post import Tag
 from lxneng.views import BasicFormView
 from pyramid.httpexceptions import HTTPFound
 from pyramid.url import route_url
 from flatland import Form, String
+import webhelpers.feedgenerator as feedgenerator
 
 log = logging.getLogger(__name__)
 
@@ -27,7 +29,6 @@ class PostView(BasicFormView):
             return item.created_at.year, item.created_at.month
 
         posts = meta.Session.query(Post)\
-                .filter(Post.status == 'publish')\
                 .order_by(Post.id.desc()).all()
         result = groupby(posts, grouper)
         return {'result': result}
@@ -72,3 +73,18 @@ class PostView(BasicFormView):
     def tags_index(self):
         tags = meta.Session.query(Tag).all()
         return {'tags': tags}
+
+    @view_config(route_name='posts_rss')
+    def rss(self):
+        posts = meta.Session.query(Post)\
+                .order_by(Post.id.desc()).limit(20)
+        feed = feedgenerator.Rss201rev2Feed(
+                title="Hi, I'm Eric",
+                link="http://lxneng.com",
+                description="Eric's Thoughts and Writings")
+        for post in posts:
+            feed.add_item(title=post.title, link=route_url('posts_show',
+                id=post.id, request=self.request),
+                description=post.content)
+        return Response(content_type='application/atom+xml',
+                body=feed.writeString('utf-8'))
