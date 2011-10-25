@@ -5,7 +5,7 @@
 <h1>{{gettext('Tags')}}</h1>
 <ul id="tagcloud">
     {%- for tag in tags %}
-    <li><a href="{{ request.route_url('posts_tags_show', id=tag.id) }}" style="font-size: {{
+    <li><a href="{{ request.route_url('posts_tags_show', name=tag.name) }}" style="font-size: {{
         tag.size }}%">{{ tag.name }}</a></li>
     {%- endfor %}
 </ul>

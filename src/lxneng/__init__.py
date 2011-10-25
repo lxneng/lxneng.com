@@ -1,3 +1,4 @@
+# coding: utf8
 from pyramid.config import Configurator
 from pyramid_jinja2 import renderer_factory
 import s4u.sqlalchemy
@@ -65,7 +66,7 @@ def main(global_config, **settings):
     config.add_route("posts_show", "/posts/{id:\d+}", factory=factories.PostFactory)
     config.add_route("posts_edit", "/posts/{id:\d+}/edit", factory=factories.PostFactory)
     config.add_route("posts_delete", "/posts/{id:\d+}/delete")
-    config.add_route("posts_tags_show", "/posts/tags/{id:\d+}",
-            factory=factories.TagFactory)
+    config.add_route("posts_tags_show", "/posts/tags/{name}",
+            factory=factories.tag_factory)
     config.scan()
     return HttpMethodOverrideMiddleware(config.make_wsgi_app())

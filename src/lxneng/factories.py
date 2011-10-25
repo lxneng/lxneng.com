@@ -19,9 +19,13 @@ def get_factory(cls):
     return factory
 
 
+def tag_factory(request):
+    name = request.matchdict['name']
+    return meta.Session.query(Tag).filter(Tag.name == name).first()
+
+
 PostFactory = get_factory(Post)
 AlbumFactory = get_factory(Album)
-TagFactory = get_factory(Tag)
 
 
 class RootFactory(object):
