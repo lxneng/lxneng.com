@@ -21,7 +21,7 @@ def get_factory(cls):
 
 def tag_factory(request):
     name = request.matchdict['name']
-    return meta.Session.query(Tag).filter(Tag.name == name).first()
+    return Tag.find_by_name(name)
 
 
 PostFactory = get_factory(Post)

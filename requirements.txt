@@ -30,3 +30,5 @@ s4u.upgrade
 flatland
 flickrapi
 webhelpers
+
+repoze.tm2

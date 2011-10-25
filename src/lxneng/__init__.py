@@ -7,6 +7,7 @@ from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid_beaker import session_factory_from_settings
 from pyramid_beaker import set_cache_regions_from_settings
+from repoze.tm import TM
 
 
 class HttpMethodOverrideMiddleware(object):
@@ -69,4 +70,5 @@ def main(global_config, **settings):
     config.add_route("posts_tags_show", "/posts/tags/{name}",
             factory=factories.tag_factory)
     config.scan()
-    return HttpMethodOverrideMiddleware(config.make_wsgi_app())
+    app = TM(config.make_wsgi_app())
+    return HttpMethodOverrideMiddleware(app)

@@ -6,7 +6,6 @@ from sqlalchemy import orm
 from pyramid.security import Authenticated
 from pyramid.security import Allow
 from s4u.sqlalchemy import meta
-from math import log
 
 
 posts_tags = schema.Table("posts_tags", meta.metadata,
@@ -33,6 +32,11 @@ class Post(BaseObject):
     updated_at = schema.Column(types.DateTime(), nullable=False,
             default=functions.now())
 
+    @property
+    def tags_string(self):
+        return ' '.join([t.name for t in self.tags])
+
+
 
 class Tag(BaseObject):
 
@@ -42,8 +46,33 @@ class Tag(BaseObject):
     name = schema.Column(types.String(32), index=True)
     posts = orm.relationship('Post', secondary=posts_tags, lazy="dynamic")
 
-    @property
-    def size(self):
-        count = self.posts.count() or 1
-        size = 100 + log(count) * 20
-        return size
+    @staticmethod
+    def extract_tags(tags_string):
+        tags = tags_string.replace(';', ' ').replace(',', ' ')
+        tags = [tag.lower() for tag in tags.split()]
+        tags = set(tags)
+        return tags
+
+    @classmethod
+    def find_by_name(cls, tag_name):
+        return meta.Session.query(cls).filter(cls.name==tag_name).first()
+
+    @classmethod
+    def create_tags(cls, tags_string):
+        session = meta.Session()
+        tags_list = cls.extract_tags(tags_string)
+        tags = []
+
+        for tag_name in tags_list:
+            tag = cls.find_by_name(tag_name)
+            if not tag:
+                tag = Tag(name=tag_name)
+                session.add(tag)
+            tags.append(tag)
+
+        return tags
+
+    @classmethod
+    def tag_counts(cls):
+        query = meta.Session.query(cls.name, functions.count('*'))
+        return query.join('posts').group_by(cls.name)

@@ -18,6 +18,7 @@ log = logging.getLogger(__name__)
 class PostForm(Form):
     title = String
     content = String
+    tags_string = String
 
 
 class PostView(BasicFormView):
@@ -48,7 +49,9 @@ class PostView(BasicFormView):
     def add(self):
         if self.request.method == 'POST':
             data = self.form.value
+            tags = Tag.create_tags(data.pop('tags_string'))
             entry = Post(**data)
+            entry.tags = tags
             meta.Session.add(entry)
             return HTTPFound(route_url('posts_index', self.request))
         return {'form': self.form, 'title': 'Create Post'}
@@ -58,10 +61,13 @@ class PostView(BasicFormView):
     def edit(self):
         if self.request.method == 'POST':
             data = self.form.value
+            tags = Tag.create_tags(data.pop('tags_string'))
+            self.context.tags = tags
             for k, v in data.items():
                 setattr(self.context, k, v)
             return HTTPFound(route_url('posts_show', id=self.context.id,
                 request=self.request))
+        self.form['tags_string'] = self.context.tags_string
         return {'form': self.form, 'title': 'Edit Post'}
 
     @view_config(route_name='posts_delete', request_method='DELETE',
@@ -72,7 +78,7 @@ class PostView(BasicFormView):
     @view_config(route_name='posts_tags_index',
             renderer='posts/tags/index.html')
     def tags_index(self):
-        tags = meta.Session.query(Tag).all()
+        tags = Tag.tag_counts()
         return {'tags': tags}
 
     @view_config(route_name='posts_rss')
