@@ -32,3 +32,4 @@ flickrapi
 webhelpers
 
 repoze.tm2
+errormator_client
