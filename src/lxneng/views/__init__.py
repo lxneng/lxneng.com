@@ -29,6 +29,7 @@ RESUME_CN = open(os.path.join(_here, '../static', 'Resume_CN.md'))\
 @view_config(route_name='photos_album', renderer='photos/album.html')
 @view_config(route_name='posts_tags_show', renderer='posts/tags/show.html')
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
+@view_config(context='pyramid.exceptions.URLDecodeError', renderer='404.html')
 @view_config(context='pyramid.exceptions.HTTPForbidden', renderer='403.html')
 class BasicView(object):
 
