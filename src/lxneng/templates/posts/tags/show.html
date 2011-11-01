@@ -3,8 +3,9 @@
 {% block body %}
 <article>
 <h1>{{context.name}}</h1>
+{% set posts_pager = tools.paginate(context.posts) %}
 <ul>
-    {%- for post in context.posts %}
+    {%- for post in posts_pager.items %}
     <li><a href="{{ request.route_url('posts_show', id=post.id) }}">{{ post.title }}</a>
     {% if user %}
     <a href="{{ request.route_url('posts_edit', id=post.id) }}">Edit</a>
@@ -17,5 +18,15 @@
     </li>
     {%- endfor %}
 </ul>
+
+{% if posts_pager.previous_page %}
+<a class="fleft" href="{{request.current_route_url(_query={'page':
+    posts_pager.previous_page})}}">« Previous</a>
+{% endif %}
+
+{% if posts_pager.next_page %}
+<a class="fright" href="{{request.current_route_url(_query={'page': posts_pager.next_page})}}">Next »</a>
+{% endif %}
+
 </article>
 {% endblock %}

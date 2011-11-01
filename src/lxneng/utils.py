@@ -4,6 +4,7 @@ from s4u.sqlalchemy import meta
 from lxneng.models.user import User
 from babel.dates import format_date
 from jinja2 import Markup
+from webhelpers.paginate import Page
 
 
 def markdown2html(content):
@@ -21,6 +22,12 @@ class Tools(object):
 
     def format_date(self, date=None, format="full"):
         return format_date(date, format, locale=self.request.locale_name)
+
+    def paginate(self, items):
+        current_page = self.request.GET.get('page') or 1
+        def page_url(page):
+            return self.request.current_route_url(_query={'page': page})
+        return Page(items, current_page, url=page_url)
 
 
 def get_user(request):
