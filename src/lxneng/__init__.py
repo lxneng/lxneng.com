@@ -84,7 +84,7 @@ class ApplicationFactory(object):
     def setup_assetviews(self, config):
         config.include('pyramid_assetviews')
         config.add_asset_views('lxneng:static', filenames=['robots.txt',
-            'favicon.ico'])
+            'favicon.ico'], http_cache=5000)
 
     def configure(self, settings):
         config = self.create_configuration(settings)
