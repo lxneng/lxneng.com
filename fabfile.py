@@ -1,4 +1,4 @@
-from fabric.api import run, env, cd, run
+from fabric.api import run, env, cd, sudo
 
 env.hosts = ['lxneng.com']
 env.user = 'root'
