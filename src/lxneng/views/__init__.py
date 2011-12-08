@@ -12,6 +12,7 @@ from pyramid.httpexceptions import HTTPFound
 from flatland import Form, String
 from flatland.validation import Present
 from lxneng.utils import get_user
+from beaker.cache import cache_region
 
 
 log = logging.getLogger(__name__)
@@ -40,6 +41,7 @@ class BasicView(object):
         else:
             self.request.locale_name = session.get('lang', 'en')
 
+    @cache_region('short_term')
     def __call__(self):
         return {'context': self.context}
 
@@ -136,6 +138,8 @@ def logout(request):
 
 @view_config(route_name='home', renderer='home.html')
 class Home(BasicView):
+
+    @cache_region('long_term')
     def __call__(self):
         session = meta.Session()
         posts = session.query(Post)\
@@ -148,6 +152,8 @@ class Home(BasicView):
 
 @view_config(route_name='photos', renderer='photos/index.html')
 class AlbumsView(BasicView):
+
+    @cache_region('long_term')
     def __call__(self):
         albums = meta.Session.query(Album).order_by(Album.updated_at.desc())
         return {'albums': albums}
@@ -155,6 +161,8 @@ class AlbumsView(BasicView):
 
 @view_config(route_name='about', renderer='about.html')
 class AboutMeView(BasicView):
+
+    @cache_region('long_term')
     def __call__(self):
         resume = RESUME_EN if self.request.locale_name == 'en' else RESUME_CN
         return {'resume': resume}

@@ -11,6 +11,7 @@ from pyramid.httpexceptions import HTTPFound
 from pyramid.url import route_url
 from flatland import Form, String
 import webhelpers.feedgenerator as feedgenerator
+from beaker.cache import cache_region
 
 log = logging.getLogger(__name__)
 
@@ -35,6 +36,10 @@ class PostView(BasicFormView):
         result = groupby(posts, grouper)
         return {'result': result}
 
+    def _cachekey(self):
+        return (self.request.application_url, str(self.context.id))
+
+    @cache_region('long_term', _cachekey)
     @view_config(route_name='posts_show', renderer='posts/show.html')
     def show(self):
         session = meta.Session()
@@ -75,12 +80,14 @@ class PostView(BasicFormView):
     def destory(self):
         return HTTPFound(route_url('posts_index', self.request))
 
+    @cache_region('long_term')
     @view_config(route_name='posts_tags_index',
             renderer='posts/tags/index.html')
     def tags_index(self):
         tags = Tag.tag_counts()
         return {'tags': tags}
 
+    @cache_region('moderate_term')
     @view_config(route_name='posts_rss')
     def rss(self):
         posts = meta.Session.query(Post)\
