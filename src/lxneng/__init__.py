@@ -1,6 +1,6 @@
 class HttpMethodOverrideMiddleware(object):
-    '''WSGI middleware for overriding HTTP Request Method for RESTful support
-    '''
+    """WSGI middleware for overriding HTTP Request Method for RESTful support
+    """
     def __init__(self, application):
         self.application = application
 
@@ -8,19 +8,21 @@ class HttpMethodOverrideMiddleware(object):
         if 'POST' == environ['REQUEST_METHOD']:
             override_method = ''
 
-            # First check the "_method" form parameter
+            # First check the '_method' form parameter
             if 'form-urlencoded' in environ['CONTENT_TYPE']:
                 from webob import Request
                 request = Request(environ)
                 override_method = request.POST.get('_method', '').upper()
 
-            # If not found, then look for "X-HTTP-Method-Override" header
+            # If not found, then look for 'X-HTTP-Method-Override' header
             if not override_method:
-                override_method = environ.get('HTTP_X_HTTP_METHOD_OVERRIDE', '').upper()
+                override_method = environ.get('HTTP_X_HTTP_METHOD_OVERRIDE',
+                                        '').upper()
 
             if override_method in ('PUT', 'DELETE', 'OPTIONS', 'PATCH'):
                 # Save the original HTTP method
-                environ['http_method_override.original_method'] = environ['REQUEST_METHOD']
+                environ['http_method_override.original_method'] =\
+                        environ['REQUEST_METHOD']
                 # Override HTTP method
                 environ['REQUEST_METHOD'] = override_method
 
@@ -60,28 +62,36 @@ class ApplicationFactory(object):
         config.add_static_view('static', 'lxneng:static', cache_max_age=3600)
         config.add_static_view('static_photos', settings['photos_dir'],
                 cache_max_age=3600)
-        config.add_route("home", "/")
-        config.add_route("login", "/login")
-        config.add_route("logout", "/logout")
-        config.add_route("about", "/about")
-        config.add_route("photos", "/photos")
-        config.add_route("photos_album", "/photos/albums/{id:\d+}",
+        config.add_route('home', '/')
+        config.add_route('login', '/login')
+        config.add_route('logout', '/logout')
+        config.add_route('about', '/about')
+        config.add_route('photos', '/photos')
+        config.add_route('photos_album', '/photos/albums/{id:\d+}',
                 factory=factories.AlbumFactory)
-        config.add_route("posts_index", "/posts")
-        config.add_route("posts_new", "/posts/new")
-        config.add_route("posts_tags_index", "/posts/tags")
-        config.add_route("posts_rss", "/posts/rss")
-        config.add_route("posts_show", "/posts/{id:\d+}", factory=factories.PostFactory)
-        config.add_route("posts_edit", "/posts/{id:\d+}/edit", factory=factories.PostFactory)
-        config.add_route("posts_delete", "/posts/{id:\d+}/delete")
-        config.add_route("posts_tags_show", "/posts/tags/{name}",
+        config.add_route('posts_index', '/posts')
+        config.add_route('posts_new', '/posts/new')
+        config.add_route('posts_tags_index', '/posts/tags')
+        config.add_route('posts_rss', '/posts/rss')
+        config.add_route('posts_show', '/posts/{id:\d+}',
+                factory=factories.PostFactory)
+        config.add_route('posts_edit', '/posts/{id:\d+}/edit',\
+                factory=factories.PostFactory)
+        config.add_route('posts_delete', '/posts/{id:\d+}/delete')
+        config.add_route('posts_tags_show', '/posts/tags/{name}',
                 factory=factories.tag_factory)
+
+    def setup_assetviews(self, config):
+        config.include('pyramid_assetviews')
+        config.add_asset_views('lxneng:static', filenames=['robots.txt',
+            'favicon.ico'])
 
     def configure(self, settings):
         config = self.create_configuration(settings)
         self.setup_sqlalchemy(config)
         self.setup_jinja2(config)
         self.setup_routes(config, settings)
+        self.setup_assetviews(config)
         config.scan()
         return config
 

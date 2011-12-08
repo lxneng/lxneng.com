@@ -1,7 +1,6 @@
 import os
 import logging
 from pyramid.view import view_config
-from pyramid.response import Response
 from pyramid.security import remember
 from pyramid.security import forget
 from s4u.sqlalchemy import meta
@@ -14,13 +13,10 @@ from flatland import Form, String
 from flatland.validation import Present
 from lxneng.utils import get_user
 
+
 log = logging.getLogger(__name__)
 
 _here = os.path.dirname(__file__)
-_robots = open(os.path.join(_here, '../static', 'robots.txt')).read()
-_robots_response = Response(content_type='text/plain', body=_robots)
-_favicon = open(os.path.join(_here, '../static', 'favicon.ico')).read()
-_favicon_response = Response(content_type='image/x-icon', body=_favicon)
 RESUME_EN = open(os.path.join(_here, '../static', 'Resume_EN.md')).read()
 RESUME_CN = open(os.path.join(_here, '../static', 'Resume_CN.md'))\
         .read().decode('utf8')
@@ -79,16 +75,6 @@ class BasicFormView(BasicView):
             if response is not None:
                 return response
         return {'form': self.form}
-
-
-@view_config(name='robots.txt')
-def robotstxt_view(context, request):
-    return _robots_response
-
-
-@view_config(name='favicon.ico')
-def favicon_view(context, request):
-    return _favicon_response
 
 
 class LoginForm(Form):

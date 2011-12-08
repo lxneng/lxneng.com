@@ -87,7 +87,7 @@ class PostView(BasicFormView):
                 .order_by(Post.id.desc()).limit(20)
         feed = feedgenerator.Rss201rev2Feed(
                 title="Hi, I'm Eric",
-                link="http://lxneng.com",
+                link='http://lxneng.com',
                 description="Eric's Thoughts and Writings")
         for post in posts:
             feed.add_item(title=post.title, link=route_url('posts_show',

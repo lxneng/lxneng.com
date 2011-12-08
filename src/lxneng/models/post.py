@@ -8,11 +8,11 @@ from pyramid.security import Allow
 from s4u.sqlalchemy import meta
 
 
-posts_tags = schema.Table("posts_tags", meta.metadata,
-        schema.Column("post_id", types.Integer,
-            schema.ForeignKey("posts.id", ondelete='CASCADE')),
-        schema.Column("tag_id", types.Integer,
-            schema.ForeignKey("tags.id", ondelete='CASCADE')))
+posts_tags = schema.Table('posts_tags', meta.metadata,
+        schema.Column('post_id', types.Integer,
+            schema.ForeignKey('posts.id', ondelete='CASCADE')),
+        schema.Column('tag_id', types.Integer,
+            schema.ForeignKey('tags.id', ondelete='CASCADE')))
 
 
 class Post(BaseObject):
@@ -44,7 +44,7 @@ class Tag(BaseObject):
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     name = schema.Column(types.String(32), index=True)
-    posts = orm.relationship('Post', secondary=posts_tags, lazy="dynamic")
+    posts = orm.relationship('Post', secondary=posts_tags, lazy='dynamic')
 
     @staticmethod
     def extract_tags(tags_string):

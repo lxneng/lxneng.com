@@ -6,6 +6,7 @@ s4u.sqlalchemy
 -f http://dist.simplon.biz/
 mysql-python
 py-bcrypt
+pyramid_assetviews
 
 # for development
 pyramid_debugtoolbar

@@ -13,8 +13,8 @@ class Album(BaseObject):
     title = schema.Column(types.String(256), nullable=False)
     description = schema.Column(types.Text, nullable=False)
     flickr_set_id = schema.Column(types.String(32), index=True)
-    photos = orm.relationship("Photo", backref="photos",
-            order_by="Photo.id.desc()", lazy="dynamic")
+    photos = orm.relationship('Photo', backref='photos',
+            order_by='Photo.id.desc()', lazy='dynamic')
     created_at = schema.Column(types.DateTime(),
             nullable=False, default=functions.now())
     updated_at = schema.Column(types.DateTime(),

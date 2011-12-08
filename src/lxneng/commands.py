@@ -6,7 +6,7 @@ from paste.deploy import loadapp
 
 class PyramidCommand(Command):
 
-    group_name = "lxneng"
+    group_name = 'lxneng'
     min_args = 1
     max_args = 1
     parser = Command.standard_parser()
@@ -19,8 +19,8 @@ class PyramidCommand(Command):
 
 
 class SyncFlickr(PyramidCommand):
-    summary = "download flickr image"
-    usage = "paster --plugin=lxneng sync_flickr development.ini"
+    summary = 'download flickr image'
+    usage = 'paster --plugin=lxneng sync_flickr development.ini'
     parser = PyramidCommand.standard_parser()
 
     def command(self):
@@ -38,7 +38,7 @@ class SyncFlickr(PyramidCommand):
 
         user_id = '37212768@N05'
         key = 'e64d9c7e5823e5d7c00f156c69c13bd2'
-        url_tmpl = "http://farm%s.static.flickr.com/%s/%s_%s_z.jpg"
+        url_tmpl = 'http://farm%s.static.flickr.com/%s/%s_%s_z.jpg'
         session = meta.Session()
 
         image_dir = get_current_registry().settings['photos_dir']
