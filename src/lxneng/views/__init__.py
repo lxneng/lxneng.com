@@ -162,7 +162,6 @@ class AlbumsView(BasicView):
 @view_config(route_name='about', renderer='about.html')
 class AboutMeView(BasicView):
 
-    @cache_region('long_term')
     def __call__(self):
         resume = RESUME_EN if self.request.locale_name == 'en' else RESUME_CN
         return {'resume': resume}
