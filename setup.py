@@ -60,8 +60,8 @@ setup(name='lxneng',
       [paste.app_factory]
       main = lxneng:main
 
-      [paste.paster_command]
-      sync_flickr = lxneng.commands:SyncFlickr
+      [console_scripts]
+      sync_flickr = lxneng.commands.sync_flickr:main
       """,
       paster_plugins=['pyramid'],
       )
