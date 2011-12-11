@@ -41,7 +41,6 @@ class BasicView(object):
         else:
             self.request.locale_name = session.get('lang', 'en')
 
-    @cache_region('short_term')
     def __call__(self):
         return {'context': self.context}
 
@@ -139,7 +138,6 @@ def logout(request):
 @view_config(route_name='home', renderer='home.html')
 class Home(BasicView):
 
-    @cache_region('long_term')
     def __call__(self):
         session = meta.Session()
         posts = session.query(Post)\
