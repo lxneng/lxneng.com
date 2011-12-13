@@ -46,9 +46,9 @@ class PostView(BasicFormView):
         def _pager():
             session = meta.Session()
             prev = session.query(Post).filter(Post.id < self.context.id)\
-                            .order_by(Post.id.desc()).first()
+                                      .order_by(Post.id.desc()).first()
             next = session.query(Post).filter(Post.id > self.context.id)\
-                .order_by(Post.id).first()
+                                      .order_by(Post.id).first()
             return prev, next
 
         prev, next = _pager()
