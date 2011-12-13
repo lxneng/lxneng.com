@@ -39,14 +39,20 @@ class PostView(BasicFormView):
     def _cachekey(self):
         return (self.request.application_url, str(self.context.id))
 
-    @cache_region('long_term', _cachekey)
     @view_config(route_name='posts_show', renderer='posts/show.html')
     def show(self):
-        session = meta.Session()
-        prev = session.query(Post).filter(Post.id < self.context.id)\
-                .order_by(Post.id.desc()).first()
-        next = session.query(Post).filter(Post.id > self.context.id)\
+
+        @cache_region('long_term', self._cachekey)
+        def _pager():
+            session = meta.Session()
+            prev = session.query(Post).filter(Post.id < self.context.id)\
+                            .order_by(Post.id.desc()).first()
+            next = session.query(Post).filter(Post.id > self.context.id)\
                 .order_by(Post.id).first()
+            return prev, next
+
+        prev, next = _pager()
+
         return {'context': self.context, 'prev': prev, 'next': next}
 
     @view_config(route_name='posts_new', permission='auth',
