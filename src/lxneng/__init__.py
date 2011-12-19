@@ -1,3 +1,6 @@
+__import__('pkg_resources').declare_namespace(__name__)
+
+
 class ApplicationFactory(object):
 
     def create_configuration(self, settings):
