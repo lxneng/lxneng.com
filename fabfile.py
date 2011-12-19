@@ -8,7 +8,7 @@ CODE_DIR = '/var/www/lxneng'
 def deploy():
     with cd(CODE_DIR):
         run('git pull')
-        run('supervisorctl restart gunicorn')
+        run('supervisorctl restart lxneng')
 
 
 def restart_nginx():

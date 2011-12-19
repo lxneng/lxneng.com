@@ -37,7 +37,6 @@ class Post(BaseObject):
         return ' '.join([t.name for t in self.tags])
 
 
-
 class Tag(BaseObject):
 
     __tablename__ = 'tags'
@@ -55,7 +54,7 @@ class Tag(BaseObject):
 
     @classmethod
     def find_by_name(cls, tag_name):
-        return meta.Session.query(cls).filter(cls.name==tag_name).first()
+        return meta.Session.query(cls).filter(cls.name == tag_name).first()
 
     @classmethod
     def create_tags(cls, tags_string):

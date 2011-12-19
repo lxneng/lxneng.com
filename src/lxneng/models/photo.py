@@ -22,7 +22,7 @@ class Album(BaseObject):
 
     @property
     def primary_photo(self):
-        return self.photos.filter(Photo.is_primary==True).first()
+        return self.photos.filter(Photo.is_primary == True).first()
 
 
 class Photo(BaseObject):

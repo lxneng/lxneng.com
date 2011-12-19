@@ -12,9 +12,10 @@ log = logging.getLogger(__name__)
                {'type': str, 'required': True, 'dest': 'dburi'})])
 def setup_sqlalchemy(options):
     engine = create_engine(options.dburi)
-    init_sqlalchemy(engine) 
+    init_sqlalchemy(engine)
     log.info('setup_sqlalchemy')
     return {'sql-engine': engine}
+
 
 @upgrade_step(require=['sql'])
 def add_missing_tables(environment):

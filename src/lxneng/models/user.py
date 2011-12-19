@@ -46,6 +46,3 @@ class User(BaseObject):
             return bcrypt.hashpw(password, user.password) == user.password
         else:
             return False
-
-
-# INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`) VALUES (1, 'admin', 'lxneng@gmail.com', '$2a$12$fHqI1/S3Fq8Ot/xBRaDIse0YpQRB/EWTV1U07qJU6M1CKVvHbKNFC', '2011-09-28 15:11:08');

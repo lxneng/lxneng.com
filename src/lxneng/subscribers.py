@@ -4,7 +4,7 @@ from pyramid.events import NewRequest
 from flatland.out.markup import Generator
 from pyramid.httpexceptions import HTTPForbidden
 from lxneng.utils import Tools
-from lxneng.utils import get_user
+from lxneng.factories import get_user
 
 
 @subscriber(BeforeRender)

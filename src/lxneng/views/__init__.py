@@ -11,7 +11,7 @@ from pyramid.url import route_url
 from pyramid.httpexceptions import HTTPFound
 from flatland import Form, String
 from flatland.validation import Present
-from lxneng.utils import get_user
+from lxneng.factories import get_user
 from beaker.cache import cache_region
 
 
