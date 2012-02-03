@@ -182,6 +182,7 @@ ul#links li{float:left; width: 30px;}
     box-sizing: border-box;
     border: white 0.5em solid;
 }
+img.thumb { margin: 10px 10px 0 0;}
 .photo .caption{
     background: white;
     text-align: center;

@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 {% block title %}{{gettext('Photo')}}{% endblock %}
 {% block body %}
-{% for album in albums %}
 <article>
-<h1><a href="{{request.route_url('photos_album', id=album.id)}}">{{album.title}}</a></h1>
-<p>{{album.description}}</p>
-{% set photo = album.primary_photo %}
-{% if photo %}
+{% for photo in photos %}
 <div class="photo">
-    <a href="{{request.route_url('photos_album', id=album.id)}}">
+    <a href="{{request.route_url('photos_album', id=photo.album.id)}}">
         <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
     </a>
     <span class="caption">{{photo.description}}</span>
 </div>
-{% endif %}
+{% endfor %}
+
+{% for album in albums %}
+<h1><a href="{{request.route_url('photos_album', id=album.id)}}">{{album.title}}</a></h1>
+{% for photo in album.photos[:6] %}
+    <a href="{{request.route_url('photos_album', id=album.id)}}">
+        <img width="200" class="thumb" src="{{ request.application_url + '/static_photos/' +photo.path }}" />
+    </a>
+{% endfor %}
 <div class="more_photos">
 <a href="{{request.route_url('photos_album', id=album.id)}}">{{gettext('More Photos')}} →</a>
 </div>
-</article>
 {% endfor %}
+</article>
 {% endblock %}

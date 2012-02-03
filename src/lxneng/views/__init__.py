@@ -154,8 +154,11 @@ class AlbumsView(BasicView):
 
     @cache_region('long_term')
     def __call__(self):
+        photos = meta.Session.query(Photo)\
+                .order_by(Photo.updated_at.desc())\
+                .limit(10)
         albums = meta.Session.query(Album).order_by(Album.updated_at.desc())
-        return {'albums': albums}
+        return {'photos': photos, 'albums': albums}
 
 
 @view_config(route_name='about', renderer='about.html')
