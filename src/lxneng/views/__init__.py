@@ -7,6 +7,7 @@ from s4u.sqlalchemy import meta
 from lxneng.models.post import Post
 from lxneng.models.user import User
 from lxneng.models.photo import Album
+from lxneng.models.photo import Photo
 from pyramid.url import route_url
 from pyramid.httpexceptions import HTTPFound
 from flatland import Form, String
@@ -143,9 +144,9 @@ class Home(BasicView):
         posts = session.query(Post)\
                 .filter(Post.status == 'publish')\
                 .order_by(Post.id.desc()).limit(10)
-        albums = session.query(Album)\
-                .order_by(Album.updated_at.desc()).limit(3)
-        return {'posts': posts, 'albums': albums}
+        photos = session.query(Photo)\
+                .order_by(Photo.updated_at.desc()).limit(4)
+        return {'posts': posts, 'photos': photos}
 
 
 @view_config(route_name='photos', renderer='photos/index.html')

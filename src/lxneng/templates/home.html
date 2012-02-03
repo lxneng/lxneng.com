@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block body -%}
 <ul class="slideshow box_shadow">
-	{%- for album in albums %}
-    <li class="{{'show' if loop.first else ''}}"><a href="{{request.route_url('photos_album', id=album.id)}}">
-	{%- set photo = album.primary_photo -%}
+	{%- for photo in photos %}
+    <li class="{{'show' if loop.first else ''}}"><a
+        href="{{request.route_url('photos_album', id=photo.album_id)}}">
 	<img src="{{ request.application_url + '/static_photos/' +photo.path }}" /></a></li>
 	{%- endfor %}
 </ul>
