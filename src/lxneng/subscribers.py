@@ -1,17 +1,19 @@
+import logging
 from pyramid.events import subscriber
 from pyramid.events import BeforeRender
 from pyramid.events import NewRequest
 from flatland.out.markup import Generator
 from pyramid.httpexceptions import HTTPForbidden
 from lxneng.utils import Tools
-from lxneng.factories import get_user
+
+
+log = logging.getLogger(__name__)
 
 
 @subscriber(BeforeRender)
 def add_renderer_globals(event):
     event['tools'] = Tools(event['request'])
     event['html'] = Generator()
-    event['user'] = get_user(event['request'])
 
 
 @subscriber(NewRequest)

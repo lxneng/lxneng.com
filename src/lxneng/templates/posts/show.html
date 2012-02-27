@@ -14,7 +14,7 @@
       <a href="{{ request.route_url('posts_tags_show', name=tag.name) }}">{{ tag.name }}</a>
     {%- endfor %}
 </p>
-{% if user %}
+{% if request.user %}
 <p>
 <a href="{{ request.route_url('posts_edit', id=context.id) }}">Edit</a>
 </p>

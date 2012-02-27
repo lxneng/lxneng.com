@@ -10,6 +10,7 @@ class ApplicationFactory(object):
         from pyramid_beaker import session_factory_from_settings
         from pyramid_beaker import set_cache_regions_from_settings
         from lxneng.factories import RootFactory
+        from lxneng.factories import get_user
 
         set_cache_regions_from_settings(settings)
 
@@ -19,6 +20,9 @@ class ApplicationFactory(object):
                 authentication_policy=AuthTktAuthenticationPolicy('secret'),
                 authorization_policy=ACLAuthorizationPolicy()
             )
+        config.set_request_property(get_user, 'user', reify=True)
+
+
         return config
 
     def setup_sqlalchemy(self, config):
