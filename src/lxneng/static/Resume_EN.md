@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <th>Professional Bio:</th>
-        <td>Python Developer at 2Style4You.com</td>
+        <td>Python Developer</td>
     </tr>
 	<tr>
         <th>Gmail/Gtalk:</th>
@@ -31,7 +31,7 @@
 
 ###Work Experience:
 - **2Style4You.com**  
-*Senior Software Engineer, December 2010 - Now*
+*Senior Software Engineer, December 2010 - March 2012*
 
 - **Shanghai Jianwu Investment Consulting Co., Ltd.**  
 *Senior Software Engineer, November 2009 - December 2010*
