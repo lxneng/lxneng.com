@@ -12,8 +12,10 @@ log = logging.getLogger(__name__)
 
 @subscriber(BeforeRender)
 def add_renderer_globals(event):
+    request = event['request']
     event['tools'] = Tools(event['request'])
     event['html'] = Generator()
+    event['v'] = request.registry.settings['static_version']
 
 
 @subscriber(NewRequest)

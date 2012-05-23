@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=720, maximum-scale=1.0" />
         <link rel="apple-touch-icon" href="{{request.static_url('lxneng:static/images/icons/apple-touch-icon_72x72.png')}}" />
         <title>{% block title %}{{gettext('Home')}}{% endblock %} — {% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
-        <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}">
+        <link rel="stylesheet"
+        href="{{request.static_url('lxneng:static/css/style.css',_query={'v': v})}}">
         <link href="{{request.route_url('posts_rss')}}" rel="alternate" title="Recent Posts" type="application/atom+xml">
     </head> 
     <body>
