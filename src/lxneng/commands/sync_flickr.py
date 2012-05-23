@@ -1,7 +1,7 @@
 import argparse
 import sys
 from pyramid.paster import bootstrap
-from s4u.sqlalchemy import meta
+from easy_sqlalchemy import meta
 from lxneng.models.photo import Album
 from lxneng.models.photo import Photo
 import flickrapi

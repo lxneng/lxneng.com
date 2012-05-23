@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block body -%}
-<ul class="slideshow box_shadow">
+<ul class="slideshow shadow">
 	{%- for photo in photos %}
     <li class="{{'show' if loop.first else ''}}"><a
         href="{{request.route_url('photos_album', id=photo.album_id)}}">
@@ -8,7 +8,7 @@
 	{%- endfor %}
 </ul>
 <article>
-    <h1>{{gettext('Latest Posts')}}</h1>
+    <h2>{{gettext('Latest Posts')}}</h2>
     <ul>
         {%- for post in posts %}
         <li><a href="{{ request.route_url('posts_show', id=post.id) }}" target="_blank">{{ post.title }}</a></li>

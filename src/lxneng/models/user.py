@@ -2,8 +2,8 @@ from sqlalchemy import schema
 from sqlalchemy import types
 from sqlalchemy.sql import functions
 from sqlalchemy.orm import synonym
-from s4u.sqlalchemy.meta import BaseObject
-from s4u.sqlalchemy import meta
+from easy_sqlalchemy.meta import BaseObject
+from easy_sqlalchemy import meta
 import bcrypt
 
 

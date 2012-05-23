@@ -3,7 +3,7 @@ import logging
 from pyramid.view import view_config
 from pyramid.security import remember
 from pyramid.security import forget
-from s4u.sqlalchemy import meta
+from easy_sqlalchemy import meta
 from lxneng.models.post import Post
 from lxneng.models.user import User
 from lxneng.models.photo import Album

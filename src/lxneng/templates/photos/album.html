@@ -5,7 +5,7 @@
 <strong>{{tools.format_date(context.created_at)}}</strong>
 <p>{{context.description}}</p>
 {% for photo in context.photos %}
-<div class="photo">
+<div class="shadow photo">
     <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
     <span class="caption">{{photo.description}}</span>
 </div>

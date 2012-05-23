@@ -26,7 +26,7 @@ class ApplicationFactory(object):
         return config
 
     def setup_sqlalchemy(self, config):
-        from s4u.sqlalchemy import includeme
+        from easy_sqlalchemy import includeme
         includeme(config)
 
     def setup_jinja2(self, config):

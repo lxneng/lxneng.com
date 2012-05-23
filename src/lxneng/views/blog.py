@@ -1,6 +1,6 @@
 import logging
 from itertools import groupby
-from s4u.sqlalchemy import meta
+from easy_sqlalchemy import meta
 from pyramid.view import view_config
 from pyramid.response import Response
 from lxneng.models.post import Post

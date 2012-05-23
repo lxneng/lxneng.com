@@ -1,7 +1,7 @@
 from sqlalchemy import schema
 from sqlalchemy import types
 from sqlalchemy import orm
-from s4u.sqlalchemy.meta import BaseObject
+from easy_sqlalchemy.meta import BaseObject
 from sqlalchemy.sql import functions
 
 
@@ -13,8 +13,8 @@ class Album(BaseObject):
     title = schema.Column(types.String(256), nullable=False)
     description = schema.Column(types.Text, nullable=False)
     flickr_set_id = schema.Column(types.String(32), index=True)
-    photos = orm.relationship('Photo', backref='photos',
-            order_by='Photo.id.desc()', lazy='dynamic')
+    photos = orm.relationship('Photo', order_by='Photo.id.desc()',
+            lazy='dynamic', backref='album')
     created_at = schema.Column(types.DateTime(),
             nullable=False, default=functions.now())
     updated_at = schema.Column(types.DateTime(),
@@ -35,7 +35,6 @@ class Photo(BaseObject):
     is_primary = schema.Column(types.Boolean(), default=False)
     flickr_photo_id = schema.Column(types.String(32), index=True)
     album_id = schema.Column(types.Integer(), schema.ForeignKey(Album.id))
-    album = orm.relationship(Album, backref='albums')
     created_at = schema.Column(types.DateTime(),
             nullable=False, default=functions.now())
     updated_at = schema.Column(types.DateTime(),

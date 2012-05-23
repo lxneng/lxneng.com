@@ -1,36 +1,16 @@
 pyramid
 pyramid_jinja2
-SQLAlchemy
-zope.sqlalchemy
-s4u.sqlalchemy
--f http://dist.simplon.biz/
+easy_sqlalchemy
 mysql-python
 py-bcrypt
 pyramid_assetviews
-
-# for development
 pyramid_debugtoolbar
-
-# i18n
 Babel
 lingua
-
-# for deploy
-supervisor
-gunicorn
-
-# for session store and cache store
 pyramid_beaker
-
-# for markdown content and hightlight code syntax
 Markdown
-
-# for DB migration
-s4u.upgrade
-
 flatland
 flickrapi
 webhelpers
-
 pyramid_tm
 errormator_client

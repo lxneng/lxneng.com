@@ -1,11 +1,11 @@
 from sqlalchemy import schema
 from sqlalchemy import types
-from s4u.sqlalchemy.meta import BaseObject
+from easy_sqlalchemy.meta import BaseObject
 from sqlalchemy.sql import functions
 from sqlalchemy import orm
 from pyramid.security import Authenticated
 from pyramid.security import Allow
-from s4u.sqlalchemy import meta
+from easy_sqlalchemy import meta
 
 
 posts_tags = schema.Table('posts_tags', meta.metadata,

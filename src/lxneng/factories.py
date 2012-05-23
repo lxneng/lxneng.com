@@ -3,7 +3,7 @@ from pyramid.security import authenticated_userid
 from pyramid.security import Everyone
 from pyramid.security import Authenticated
 from pyramid.security import Allow
-from s4u.sqlalchemy import meta
+from easy_sqlalchemy import meta
 from lxneng.models.user import User
 from lxneng.models.post import Post
 from lxneng.models.post import Tag

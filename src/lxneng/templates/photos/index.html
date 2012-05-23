@@ -3,7 +3,7 @@
 {% block body %}
 <article>
 {% for photo in photos %}
-<div class="photo">
+<div class="shadow photo">
     <a href="{{request.route_url('photos_album', id=photo.album.id)}}">
         <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
     </a>
@@ -15,7 +15,7 @@
 <h1><a href="{{request.route_url('photos_album', id=album.id)}}">{{album.title}}</a></h1>
 {% for photo in album.photos[:6] %}
     <a href="{{request.route_url('photos_album', id=album.id)}}">
-        <img width="200" class="thumb" src="{{ request.application_url + '/static_photos/' +photo.path }}" />
+        <img width="200" class="shadow thumb" src="{{ request.application_url + '/static_photos/' +photo.path }}" />
     </a>
 {% endfor %}
 <div class="more_photos">

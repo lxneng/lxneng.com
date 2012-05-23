@@ -12,7 +12,7 @@ a {
     text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
+    color: #96090A;
 }
 p {
     line-height: 1.7em;
@@ -40,13 +40,45 @@ ul {list-style: none;}
 table {border-spacing: 0px;}
 .fleft {float: left;}
 .fright {float: right;}
+
+.container {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    zoom: 1;
+}
+#header {
+    display: block;
+    height: 80px;
+    background-color: #333;
+    color: #EEE;
+    margin: 0 auto;
+    padding: 10px 0 0;
+}
+#header h1 {
+    font-weight: 400;
+    font-size: 25pt;
+    padding: 0;
+    margin: 32px 15px;
+    border: none;
+}
+#header span#lxneng {
+    font-weight: 700;
+    color: white;
+}
+#header span#dot {
+    color: #CCC;
+}
+#header span#ext {
+    letter-spacing: -0.05em;
+    color: #BBB;
+}
 #main {
     -webkit-box-shadow: 0 0 30px #000;
     -moz-box-shadow: 0 0 30px #000;
     box-shadow: 0 0 30px #000;
     background: #F2F2F2 url('../images/noise.png') top left;
-    margin: 45px auto 40px auto;
-    padding: 30px 30px 5px;
+    padding: 30px 21px 5px;
     text-align: left;
     max-width: 658px;
     -moz-border-radius: 5px;
@@ -55,11 +87,12 @@ table {border-spacing: 0px;}
     border-radius: 5px;
 }
 
-div#main > footer {
+footer {
     margin-top:40px;
     border-top:1px solid #006400;
     font-size:16px;
 }
+
 header {
     width:100%;
     height:30px;
@@ -75,18 +108,20 @@ header {
     z-index:999;    
 }
 
-ul#nav {
+.nav {
     display: block;
     height: 30px;
-    width: 40%;
-    float: right;
+    float: left;
     border: 0;
     padding: 0;
 }
-ul#nav li{
+.nav.nav-right{
+    float:right;
+}
+.nav li{
     float:left;
 }
-ul#nav li a, #language a {
+.nav li a {
     height: 25px;
     display: block;
     margin: 0;
@@ -101,42 +136,41 @@ ul#nav li a, #language a {
     font-weight: normal;
     cursor: pointer;
 }
-ul#nav li a:hover, #language a:hover {
+.nav li a:hover {
     background-color: #96090A;
     color: #fff;
     text-decoration: underline;
 }
-ul#nav li a.active, ul#nav li a.active:hover {
+.nav li a.active {
     color: #fff;
     background: #006400;
     cursor: default;
     font-weight: bold;
 }
-ul#nav li a.active:after { content: "\00A0\00BB" attr(cite); }
-ul#nav li .submenu {
+.nav li a.active:after { content: "\00A0\00BB" attr(cite); }
+.nav li .submenu {
     display: none;
     background-color: rgba(0,0,0,.8);
     position: absolute;
     z-index: 999;
     margin: 0px;
-    width: 120px;
+    width: 100px;
 }
-ul#nav li .submenu ul {
+.nav li .submenu ul {
     float: left;
     margin: 0px;
     padding: 0px;
     text-align: left;
     position: relative;
 }
-ul#nav li .submenu li a {
+.nav li .submenu li a {
     color: #D5DFE2;
     background-color: none;
     width: 120px;
 }
-ul#nav li .submenu li a:hover {
+.nav li .submenu li a:hover {
     background:none;
 }
-#language {float:right; padding-right:20px;}
 #site_name {float:left; padding-left: 10%; font-size: 16px; font-style:italic; color:#3D515C; font-weight:bold;}
 ul.slideshow img {display:block;}
 ul.slideshow {
@@ -159,7 +193,7 @@ ul.slideshow li.showit {
 footer h4 {margin: 5px 0;}
 ul#links{height:20px;}
 ul#links li{float:left; width: 30px;}
-.box_shadow {
+.shadow {
     -moz-box-shadow: 2px 3px 3px #999;
     -webkit-box-shadow: 2px 3px 4px #999;
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
@@ -176,11 +210,6 @@ ul#links li{float:left; width: 30px;}
 .photo {
     display: inline-block;
     margin: 0 auto 20px;
-}
-.photo img {
-    display: block;
-    box-sizing: border-box;
-    border: white 0.5em solid;
 }
 img.thumb { margin: 10px 10px 0 0;}
 .photo .caption{
@@ -240,15 +269,21 @@ img.left {
     -ms-border-radius: 0.3em;
     -khtml-border-radius: 0.3em;
     border-radius: 0.3em;
-    -moz-box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
-    -webkit-box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
-    -o-box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
-    box-shadow: rgba(0,0,0,0.15) 0 1px 4px;
-    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     border: white 0.5em solid;
+    box-shadow: 1px 3px 20px#888;
+    -moz-box-shadow: 1px 3px 20px#888;
+    -webkit-box-shadow: 1px 3px 20px#888;
+    -o-box-shadow: 1px 3px 20px#888;
+}
+#content img#avatar {
+    transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    margin: 20px;
 }
 .tags {
     text-align: right;
