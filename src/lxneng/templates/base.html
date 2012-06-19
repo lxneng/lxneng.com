@@ -7,10 +7,12 @@
         <meta name="viewport" content="width=720, maximum-scale=0.8" />
         <link rel="apple-touch-icon" href="{{request.static_url('lxneng:static/images/icons/apple-touch-icon_72x72.png')}}" />
         <title>{% block title %}{{gettext('Home')}}{% endblock %} — {% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
-        <link rel="stylesheet"
-        href="{{request.static_url('lxneng:static/css/style.css',_query={'v': v})}}">
+        <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css',_query={'v': v})}}">
         <link href="{{request.route_url('posts_rss')}}" rel="alternate" title="Recent Posts" type="application/atom+xml">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+        <!--[if lt IE 9]>
+　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+　　　　<![endif]-->
     </head> 
     <body>
         <canvas class='blur' src="{{request.static_url('lxneng:static/images/bg.jpg')}}"></canvas>
