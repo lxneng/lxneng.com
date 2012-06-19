@@ -42,15 +42,14 @@ table {border-spacing: 0px;}
 .fright {float: right;}
 
 .container {
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    mix-width: 100px;
+    max-width: 700px;
+    margin: 0 auto 50px;
     zoom: 1;
 }
 #header {
     display: block;
-    height: 80px;
-    background-color: #333;
+    height: 100px;
     color: #EEE;
     margin: 0 auto;
     padding: 10px 0 0;
@@ -59,7 +58,7 @@ table {border-spacing: 0px;}
     font-weight: 400;
     font-size: 25pt;
     padding: 0;
-    margin: 32px 15px;
+    margin: 50px 0 20px 0;
     border: none;
 }
 #header span#lxneng {
@@ -81,10 +80,10 @@ table {border-spacing: 0px;}
     padding: 30px 21px 5px;
     text-align: left;
     max-width: 658px;
-    -moz-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    -moz-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
 }
 
 footer {
@@ -291,4 +290,14 @@ img.left {
 #tagcloud li {
     padding-right: 15px;
     display: inline;
+}
+
+.blur {
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  opacity: 0.7;
 }
