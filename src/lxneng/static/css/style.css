@@ -42,7 +42,6 @@ table {border-spacing: 0px;}
 .fright {float: right;}
 
 .container {
-    mix-width: 100px;
     max-width: 700px;
     margin: 0 auto 50px;
     zoom: 1;
