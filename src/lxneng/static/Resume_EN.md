@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <th>Professional Bio:</th>
-        <td>Python Developer</td>
+        <td>Web Developer</td>
     </tr>
 	<tr>
         <th>Gmail/Gtalk:</th>

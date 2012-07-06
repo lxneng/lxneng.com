@@ -10,7 +10,7 @@
     </tr>
     <tr valign="top">
         <th>工作:</th>
-        <td>Python开发者</td>
+        <td>互联网工程师</td>
     </tr>
 	<tr>
         <th>Gmail/Gtalk:</th>
