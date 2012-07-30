@@ -25,9 +25,13 @@
                     </ul>
                 </div>
                 </li>
-                <li><a href="{{request.route_url('photos')}}"
-                    class="{{'active' if
-                    request.path.startswith('/photos') else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a></li>
+                <li><a href="{{request.route_url('photos')}}" class="{{'active' if request.path.startswith('/photos') else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a>
+					<div class="submenu">
+		                <ul>
+		                    <li><a href="{{request.route_url('all_photos')}}">{{gettext('All Photos')}}</a></li>
+		                </ul>
+		            </div>
+				</li>
                 <li><a href="{{request.route_url('about')}}" class="{{'active' if request.path=='/about' else ''}}" title="About" id="About">{{gettext('About')}}</a></li>
             </ul>
             <ul class="nav nav-right">

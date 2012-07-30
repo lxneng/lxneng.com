@@ -46,11 +46,6 @@ table {border-spacing: 0px;}
     margin: 0 auto 50px;
     zoom: 1;
 }
-#photos {
-    position: absolute;
-    top: 60px;
-    width: 100%;
-}
 #header {
     display: block;
     height: 100px;
@@ -292,6 +287,11 @@ img.left {
 
 /* =all photos
     ---------------------------------------------- */
+#all_photos {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+    }
 section.grid.masonry .block, section.grid.masonry article, section.article.masonry .block, section.article.masonry article {
     opacity: 1;
     -webkit-transition: opacity 0.5s;
@@ -302,7 +302,7 @@ section.grid article {
     margin-left: 20px;
     margin-bottom: 20px;
 }
-article .overlay {
+#all_photos article .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -313,7 +313,7 @@ article .overlay {
     display: none;
     cursor: pointer;
 }
-article .overlay .content {
+#all_photos article .overlay .content {
     padding: 10px;
 }
 .heading-container {
@@ -322,10 +322,10 @@ article .overlay .content {
 .heading-container .categories {
     margin-bottom: 19px;
 }
-article .overlay a, article .overlay a:hover {
+#all_photos article .overlay a, article .overlay a:hover {
     color: #FAFAF9 !important;
 }
-article .categories a {
+#all_photos article .categories a {
     font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2";
     -webkit-font-smoothing: antialiased;
     font-size: 0.95em;
@@ -337,7 +337,7 @@ article .categories a {
     color: #999;
     font-size: 1em;
 }
-article img {
+#all_photos article img {
     display: block;
     width: 320px;
 }
