@@ -15,13 +15,14 @@ class ApplicationFactory(object):
         set_cache_regions_from_settings(settings)
 
         config = Configurator(settings=settings,
-                session_factory=session_factory_from_settings(settings),
-                root_factory=RootFactory,
-                authentication_policy=AuthTktAuthenticationPolicy('secret'),
-                authorization_policy=ACLAuthorizationPolicy()
-            )
+                              session_factory=session_factory_from_settings(
+                                  settings),
+                              root_factory=RootFactory,
+                              authentication_policy=AuthTktAuthenticationPolicy(
+                                  'secret'),
+                              authorization_policy=ACLAuthorizationPolicy()
+                              )
         config.set_request_property(get_user, 'user', reify=True)
-
 
         return config
 
@@ -38,30 +39,32 @@ class ApplicationFactory(object):
         from lxneng import factories
         config.add_static_view('static', 'lxneng:static', cache_max_age=3600)
         config.add_static_view('static_photos', settings['photos_dir'],
-                cache_max_age=3600)
+                               cache_max_age=3600)
         config.add_route('home', '/')
         config.add_route('login', '/login')
         config.add_route('logout', '/logout')
         config.add_route('about', '/about')
         config.add_route('photos', '/photos')
+        config.add_route('all_photos', '/photos/all')
+        config.add_route('all_photos_pagination', '/photos/all/{page:\d+}')
         config.add_route('photos_album', '/photos/albums/{id:\d+}',
-                factory=factories.AlbumFactory)
+                         factory=factories.AlbumFactory)
         config.add_route('posts_index', '/posts')
         config.add_route('posts_new', '/posts/new')
         config.add_route('posts_tags_index', '/posts/tags')
         config.add_route('posts_rss', '/posts/rss')
         config.add_route('posts_show', '/posts/{id:\d+}',
-                factory=factories.PostFactory)
-        config.add_route('posts_edit', '/posts/{id:\d+}/edit',\
-                factory=factories.PostFactory)
+                         factory=factories.PostFactory)
+        config.add_route('posts_edit', '/posts/{id:\d+}/edit',
+                         factory=factories.PostFactory)
         config.add_route('posts_delete', '/posts/{id:\d+}/delete')
         config.add_route('posts_tags_show', '/posts/tags/{name}',
-                factory=factories.tag_factory)
+                         factory=factories.tag_factory)
 
     def setup_assetviews(self, config):
         config.include('pyramid_assetviews')
         config.add_asset_views('lxneng:static', filenames=['robots.txt',
-            'favicon.ico'], http_cache=5000)
+                                                           'favicon.ico'], http_cache=5000)
 
     def configure(self, settings):
         config = self.create_configuration(settings)

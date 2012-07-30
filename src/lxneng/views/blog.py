@@ -32,7 +32,7 @@ class PostView(BasicFormView):
             return item.created_at.year, item.created_at.month
 
         posts = meta.Session.query(Post)\
-                .order_by(Post.id.desc()).all()
+            .order_by(Post.id.desc()).all()
         result = groupby(posts, grouper)
         return {'result': result}
 
@@ -56,7 +56,7 @@ class PostView(BasicFormView):
         return {'context': self.context, 'prev': prev, 'next': next}
 
     @view_config(route_name='posts_new', permission='auth',
-            renderer='posts/edit.html')
+                 renderer='posts/edit.html')
     def add(self):
         if self.request.method == 'POST':
             data = self.form.value
@@ -68,7 +68,7 @@ class PostView(BasicFormView):
         return {'form': self.form, 'title': 'Create Post'}
 
     @view_config(route_name='posts_edit', permission='auth',
-            renderer='posts/edit.html')
+                 renderer='posts/edit.html')
     def edit(self):
         if self.request.method == 'POST':
             data = self.form.value
@@ -77,18 +77,18 @@ class PostView(BasicFormView):
             for k, v in data.items():
                 setattr(self.context, k, v)
             return HTTPFound(route_url('posts_show', id=self.context.id,
-                request=self.request))
+                                       request=self.request))
         self.form['tags_string'] = self.context.tags_string
         return {'form': self.form, 'title': 'Edit Post'}
 
     @view_config(route_name='posts_delete', request_method='DELETE',
-            permission='auth')
+                 permission='auth')
     def destory(self):
         return HTTPFound(route_url('posts_index', self.request))
 
     @cache_region('long_term')
     @view_config(route_name='posts_tags_index',
-            renderer='posts/tags/index.html')
+                 renderer='posts/tags/index.html')
     def tags_index(self):
         tags = Tag.tag_counts()
         return {'tags': tags}
@@ -97,14 +97,14 @@ class PostView(BasicFormView):
     @view_config(route_name='posts_rss')
     def rss(self):
         posts = meta.Session.query(Post)\
-                .order_by(Post.id.desc()).limit(20)
+            .order_by(Post.id.desc()).limit(20)
         feed = feedgenerator.Rss201rev2Feed(
-                title="Hi, I'm Eric",
-                link='http://lxneng.com',
-                description="Eric's Thoughts and Writings")
+            title="Hi, I'm Eric",
+            link='http://lxneng.com',
+            description="Eric's Thoughts and Writings")
         for post in posts:
             feed.add_item(title=post.title, link=route_url('posts_show',
-                id=post.id, request=self.request),
-                description=markdown2html(post.content))
+                                                           id=post.id, request=self.request),
+                          description=markdown2html(post.content))
         return Response(content_type='application/atom+xml',
-                body=feed.writeString('utf-8'))
+                        body=feed.writeString('utf-8'))

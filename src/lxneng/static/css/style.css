@@ -46,6 +46,11 @@ table {border-spacing: 0px;}
     margin: 0 auto 50px;
     zoom: 1;
 }
+#photos {
+position: absolute;
+top: 60px;
+width: 100%;
+}
 #header {
     display: block;
     height: 100px;
@@ -170,6 +175,7 @@ header {
     background:none;
 }
 #site_name {float:left; padding-left: 10%; font-size: 16px; font-style:italic; color:#3D515C; font-weight:bold;}
+/**
 ul.slideshow img {display:block;}
 ul.slideshow {
     width:640px;
@@ -188,6 +194,7 @@ ul.slideshow li {
 ul.slideshow li.showit {
     z-index:1;    
 }
+*/
 footer h4 {margin: 5px 0;}
 ul#links{height:20px;}
 ul#links li{float:left; width: 30px;}
@@ -259,7 +266,7 @@ img.left {
     float: left;
     margin-right: 1em;
 }
-#content img {
+#content img{
     max-width: 100%;
     moz-border-radius: 0.3em;
     -webkit-border-radius: 0.3em;

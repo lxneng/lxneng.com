@@ -21,7 +21,7 @@ log = logging.getLogger(__name__)
 _here = os.path.dirname(__file__)
 RESUME_EN = open(os.path.join(_here, '../static', 'Resume_EN.md')).read()
 RESUME_CN = open(os.path.join(_here, '../static', 'Resume_CN.md'))\
-        .read().decode('utf8')
+    .read().decode('utf8')
 
 
 @view_config(route_name='photos_album', renderer='photos/album.html')
@@ -104,7 +104,7 @@ class Login(BasicFormView):
         password = data.pop('password')
         query = session.query(User)
         user = query.filter(User.username == login).first()\
-                or query.filter(User.email == login).first()
+            or query.filter(User.email == login).first()
         if user is not None and user.authenticate(password):
             log.info('%s login' % user.username)
             headers = remember(self.request, user.id)
@@ -142,10 +142,10 @@ class Home(BasicView):
     def __call__(self):
         session = meta.Session()
         posts = session.query(Post)\
-                .filter(Post.status == 'publish')\
-                .order_by(Post.id.desc()).limit(10)
+            .filter(Post.status == 'publish')\
+            .order_by(Post.id.desc()).limit(15)
         photos = session.query(Photo)\
-                .order_by(Photo.updated_at.desc()).limit(4)
+            .order_by(Photo.updated_at.desc()).limit(4)
         return {'posts': posts, 'photos': photos}
 
 
@@ -155,10 +155,24 @@ class AlbumsView(BasicView):
     @cache_region('long_term')
     def __call__(self):
         photos = meta.Session.query(Photo)\
-                .order_by(Photo.updated_at.desc())\
-                .limit(10)
+            .order_by(Photo.updated_at.desc())\
+            .limit(10)
         albums = meta.Session.query(Album).order_by(Album.updated_at.desc())
         return {'photos': photos, 'albums': albums}
+
+
+@view_config(route_name='all_photos', renderer='photos/all_photos.html')
+@view_config(route_name='all_photos_pagination', renderer='photos/all_photos.html')
+class AllAlbumsView(BasicView):
+
+    batch_size = 20
+
+    def __call__(self):
+        page = int(self.request.matchdict.get('page', 0))
+        batch_offset = page * self.batch_size
+        photos = meta.Session.query(Photo)\
+            .order_by(Photo.created_at.desc()).limit(self.batch_size).offset(batch_offset)
+        return {'photos': photos, 'next': page + 1}
 
 
 @view_config(route_name='about', renderer='about.html')

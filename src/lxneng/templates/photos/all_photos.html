@@ -1,0 +1,231 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head> 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Eric Lo's page"> 
+        <meta name="author" content="Eric Lo">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <link rel="apple-touch-icon" href="{{request.static_url('lxneng:static/images/icons/apple-touch-icon_72x72.png')}}" />
+        <title>{% block title %}{{gettext('All Photos')}}{% endblock %} — {% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
+        <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css', _query={'v': v})}}">
+        <link href="{{request.route_url('posts_rss')}}" rel="alternate" title="Recent Posts" type="application/atom+xml">
+        <script src="http://creativejournal.com/js/libs/modernizr-2.5.3.min.js"></script>
+        <style type="text/css" media="screen">
+            section.grid, section.article {
+                min-width: 100px;
+                min-height: 100px;
+                background-image: url(http://creativejournal.com/css/images/bg-loader.gif);
+                background-repeat: no-repeat;
+                background-position: 20px 0px;
+            }
+            section.grid.masonry .block, section.grid.masonry article, section.article.masonry .block, section.article.masonry article {
+                opacity: 1;
+                -webkit-transition: opacity 0.5s;
+            }
+            section.grid article {
+                width: 320px;
+                float: left;
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+            article .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 320px;
+                height: 100%;
+                background-color: rgba(51, 51, 51, 0.9);
+                color: #FAFAF9;
+                display: none;
+                cursor: pointer;
+            }
+            article .overlay .content {
+                padding: 10px;
+            }
+            .heading-container {
+                margin-bottom: 24px;
+            }
+            .heading-container .categories {
+                margin-bottom: 19px;
+            }
+            article .overlay a, article .overlay a:hover {
+                color: #FAFAF9 !important;
+            }
+            article .categories a {
+                font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2";
+                -webkit-font-smoothing: antialiased;
+                font-size: 0.95em;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+            .timestamp {
+                color: #999;
+                font-size: 1em;
+            }
+            article img {
+                display: block;
+                width: 320px;
+            }
+            #pagination {
+                display: none;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+            #infscr-loading {
+                position: fixed;
+                bottom: 0px;
+                width: 100%;
+                background-image: url(http://creativejournal.com/css/images/dark-trans.png);
+                padding: 15px;
+                height: 20px;
+                overflow: hidden;
+            }
+        </style>
+    </head> 
+    <body>
+        <canvas class='blur' src="{{request.static_url('lxneng:static/images/bg.jpg')}}"></canvas>
+        <header>
+        <ul class="nav">
+            <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>
+            <li><a href="{{request.route_url('posts_index')}}"
+                class="{{'active' if request.path.startswith('/posts') else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a>
+            <div class="submenu">
+                <ul>
+                    <li><a href="{{request.route_url('posts_tags_index')}}">{{gettext('Tags')}}</a></li>
+                    <li><a href="{{request.route_url('posts_rss')}}">RSS</a></li>
+                </ul>
+            </div>
+            </li>
+            <li><a href="{{request.route_url('photos')}}"
+                class="{{'active' if
+                request.path.startswith('/photos') else ''}}" title="Photo" id="Photo">{{gettext('Photo')}}</a>
+            <div class="submenu">
+                <ul>
+                    <li><a href="{{request.route_url('all_photos')}}">{{gettext('All Photos')}}</a></li>
+                </ul>
+            </div>
+            </li>
+            <li><a href="{{request.route_url('about')}}" class="{{'active' if request.path=='/about' else ''}}" title="About" id="About">{{gettext('About')}}</a></li>
+        </ul>
+        <ul class="nav nav-right">
+            <li>
+            {% if request.locale_name=='en' %}
+            <a href="?lang=zh_CN">中文</a>
+            {% else %}
+            <a href="?lang=en">English</a>
+            {% endif %}
+            </li>
+        </ul>
+        </header>
+        <div id="photos">
+            <section class="grid">
+            {% for photo in photos %}
+            <article id="article-{{photo.id}}" class="articles">
+            <div class="overlay">
+                <div class="content">
+                    <div class="heading-container">
+                        <div class="categories">
+                            <a href="{{req.route_url('photos_album', id=photo.album.id)}}">{{photo.album.title}}</a>
+                        </div>
+                        <h3><a href="{{req.route_url('photos_album', id=photo.album.id)}}">{{photo.description}}</a></h3>
+                        <div class="timestamp">{{tools.format_date(photo.created_at)}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="media">
+                <img src="{{ request.application_url + '/static_photos/' +photo.path }}" width="320" height="auto" alt="" />
+            </div>
+            </article>
+            {% endfor %}
+            <div id="pagination">
+                <a href="{{req.route_url('all_photos_pagination', page=next)}}" class="next">Next Page &#8594;</a>
+            </div>
+            <section>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+        <script src="{{request.static_url('lxneng:static/js/main.js', _query={'v': v})}}" type="text/javascript"></script>
+        <script src="{{request.static_url('lxneng:static/js/jquery.masonry.min.js')}}" type="text/javascript"></script>
+        <script src="{{request.static_url('lxneng:static/js/jquery.infinitescroll.min.js')}}" type="text/javascript"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(function(){
+                    /* Masonry
+                       -------------------------------------------------------------- */
+
+                    var grid = $('section.grid');
+                    grid.masonry({ 
+singleMode: true,
+itemSelector: 'article',
+});
+
+                    grid.infinitescroll({
+loading: {
+finished: undefined,
+finishedMsg: "No more pages to load.",
+img: "http://creativejournal.com/css/images/ajax-loader.gif",
+msg: null,
+msgText: "Loading...",
+selector: null,
+speed: 'fast',
+start: undefined
+},
+
+navSelector  : '#pagination',  // selector for the paged navigation 
+nextSelector : '#pagination a.next',  // selector for the NEXT link (to page 2)
+itemSelector : 'article',     // selector for all items you'll retrieve
+state: {currPage: 0},
+pathParse: function() {
+return ['/photos/all/','']
+},
+debug: true,
+errorCallback: function() { 
+    // fade out the error message after 2 seconds
+    $('#infscr-loading').animate({opacity: 0.8},2000).fadeOut('normal');   
+}
+
+},
+    // call masonry as a callback
+    function( newElements ) { 
+        var $newElems = $( newElements ).css({ opacity: 0 });
+        // ensure that images load before adding to masonry layout
+        $newElems.imagesLoaded(function(){
+                // show elems now they're ready
+                $newElems.animate({ opacity: 1 });
+                grid.masonry( 'appended', $newElems, true ); 
+                });
+    }
+);
+
+/* Article hover
+   -------------------------------------------------------------- */
+
+$('article').live('mouseover', function(){
+        $(this).find('.overlay').stop().fadeTo('fast', 100); 
+        });
+
+$('article').live('mouseout', function(){
+        $(this).find('.overlay').stop().fadeTo('fast', 0);
+        });
+
+
+/* Expand click zone
+   -------------------------------------------------------------- */
+
+$('article').live('click', function(){
+
+        var href = $(this).find('h3 a').attr('href');
+
+        window.location = href;
+
+        });
+});
+</script>
+<script>
+    var _gaq=[['_setAccount','UA-15032003-1'],['_trackPageview'],['_trackPageLoadTime']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+        </body>
+    </html>
