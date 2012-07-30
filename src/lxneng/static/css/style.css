@@ -47,9 +47,9 @@ table {border-spacing: 0px;}
     zoom: 1;
 }
 #photos {
-position: absolute;
-top: 60px;
-width: 100%;
+    position: absolute;
+    top: 60px;
+    width: 100%;
 }
 #header {
     display: block;
@@ -175,26 +175,7 @@ header {
     background:none;
 }
 #site_name {float:left; padding-left: 10%; font-size: 16px; font-style:italic; color:#3D515C; font-weight:bold;}
-/**
-ul.slideshow img {display:block;}
-ul.slideshow {
-    width:640px;
-    height:420px;
-    overflow:hidden;
-    position:relative;
-    margin:0;
-    border-radius: 3px 5px 5px 5px;
-    border: .5em solid white;
-}   
-ul.slideshow li {
-    position:absolute;
-    left:0;
-    right:0;
-}
-ul.slideshow li.showit {
-    z-index:1;    
-}
-*/
+
 footer h4 {margin: 5px 0;}
 ul#links{height:20px;}
 ul#links li{float:left; width: 30px;}
@@ -299,11 +280,79 @@ img.left {
 }
 
 .blur {
-  min-width: 100%;
-  min-height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  opacity: 0.7;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    opacity: 0.7;
 }
+
+
+/* =all photos
+    ---------------------------------------------- */
+section.grid.masonry .block, section.grid.masonry article, section.article.masonry .block, section.article.masonry article {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s;
+}
+section.grid article {
+    width: 320px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+article .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #FAFAF9;
+    display: none;
+    cursor: pointer;
+}
+article .overlay .content {
+    padding: 10px;
+}
+.heading-container {
+    margin-bottom: 24px;
+}
+.heading-container .categories {
+    margin-bottom: 19px;
+}
+article .overlay a, article .overlay a:hover {
+    color: #FAFAF9 !important;
+}
+article .categories a {
+    font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2";
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.95em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.timestamp {
+    color: #999;
+    font-size: 1em;
+}
+article img {
+    display: block;
+    width: 320px;
+}
+#pagination {
+    display: none;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+#infscr-loading {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-image: url(../images/dark-trans.png);
+    padding: 15px;
+    height: 20px;
+    overflow: hidden;
+}
+/* ------------------------------------------- */

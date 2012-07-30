@@ -10,79 +10,6 @@
         <title>{% block title %}{{gettext('All Photos')}}{% endblock %} — {% trans %}Hi, I'm Eric Lo.{% endtrans %}</title> 
         <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css', _query={'v': v})}}">
         <link href="{{request.route_url('posts_rss')}}" rel="alternate" title="Recent Posts" type="application/atom+xml">
-        <script src="http://creativejournal.com/js/libs/modernizr-2.5.3.min.js"></script>
-        <style type="text/css" media="screen">
-            section.grid, section.article {
-                min-width: 100px;
-                min-height: 100px;
-                background-image: url(http://creativejournal.com/css/images/bg-loader.gif);
-                background-repeat: no-repeat;
-                background-position: 20px 0px;
-            }
-            section.grid.masonry .block, section.grid.masonry article, section.article.masonry .block, section.article.masonry article {
-                opacity: 1;
-                -webkit-transition: opacity 0.5s;
-            }
-            section.grid article {
-                width: 320px;
-                float: left;
-                margin-left: 20px;
-                margin-bottom: 20px;
-            }
-            article .overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 320px;
-                height: 100%;
-                background-color: rgba(51, 51, 51, 0.9);
-                color: #FAFAF9;
-                display: none;
-                cursor: pointer;
-            }
-            article .overlay .content {
-                padding: 10px;
-            }
-            .heading-container {
-                margin-bottom: 24px;
-            }
-            .heading-container .categories {
-                margin-bottom: 19px;
-            }
-            article .overlay a, article .overlay a:hover {
-                color: #FAFAF9 !important;
-            }
-            article .categories a {
-                font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2";
-                -webkit-font-smoothing: antialiased;
-                font-size: 0.95em;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                text-decoration: none;
-            }
-            .timestamp {
-                color: #999;
-                font-size: 1em;
-            }
-            article img {
-                display: block;
-                width: 320px;
-            }
-            #pagination {
-                display: none;
-                overflow: hidden;
-                margin-bottom: 20px;
-            }
-            #infscr-loading {
-                position: fixed;
-                bottom: 0px;
-                width: 100%;
-                background-image: url(http://creativejournal.com/css/images/dark-trans.png);
-                padding: 15px;
-                height: 20px;
-                overflow: hidden;
-            }
-        </style>
     </head> 
     <body>
         <canvas class='blur' src="{{request.static_url('lxneng:static/images/bg.jpg')}}"></canvas>
@@ -148,84 +75,12 @@
         <script src="{{request.static_url('lxneng:static/js/main.js', _query={'v': v})}}" type="text/javascript"></script>
         <script src="{{request.static_url('lxneng:static/js/jquery.masonry.min.js')}}" type="text/javascript"></script>
         <script src="{{request.static_url('lxneng:static/js/jquery.infinitescroll.min.js')}}" type="text/javascript"></script>
-        <script type="text/javascript" charset="utf-8">
-            $(function(){
-                    /* Masonry
-                       -------------------------------------------------------------- */
-
-                    var grid = $('section.grid');
-                    grid.masonry({ 
-singleMode: true,
-itemSelector: 'article',
-});
-
-                    grid.infinitescroll({
-loading: {
-finished: undefined,
-finishedMsg: "No more pages to load.",
-img: "http://creativejournal.com/css/images/ajax-loader.gif",
-msg: null,
-msgText: "Loading...",
-selector: null,
-speed: 'fast',
-start: undefined
-},
-
-navSelector  : '#pagination',  // selector for the paged navigation 
-nextSelector : '#pagination a.next',  // selector for the NEXT link (to page 2)
-itemSelector : 'article',     // selector for all items you'll retrieve
-state: {currPage: 0},
-pathParse: function() {
-return ['/photos/all/','']
-},
-debug: true,
-errorCallback: function() { 
-    // fade out the error message after 2 seconds
-    $('#infscr-loading').animate({opacity: 0.8},2000).fadeOut('normal');   
-}
-
-},
-    // call masonry as a callback
-    function( newElements ) { 
-        var $newElems = $( newElements ).css({ opacity: 0 });
-        // ensure that images load before adding to masonry layout
-        $newElems.imagesLoaded(function(){
-                // show elems now they're ready
-                $newElems.animate({ opacity: 1 });
-                grid.masonry( 'appended', $newElems, true ); 
-                });
-    }
-);
-
-/* Article hover
-   -------------------------------------------------------------- */
-
-$('article').live('mouseover', function(){
-        $(this).find('.overlay').stop().fadeTo('fast', 100); 
-        });
-
-$('article').live('mouseout', function(){
-        $(this).find('.overlay').stop().fadeTo('fast', 0);
-        });
-
-
-/* Expand click zone
-   -------------------------------------------------------------- */
-
-$('article').live('click', function(){
-
-        var href = $(this).find('h3 a').attr('href');
-
-        window.location = href;
-
-        });
-});
-</script>
-<script>
-    var _gaq=[['_setAccount','UA-15032003-1'],['_trackPageview'],['_trackPageLoadTime']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
+		<script src="{{request.static_url('lxneng:static/js/all_photos.js', _query={'v': v})}}" type="text/javascript"></script>
+		<script>
+		    var _gaq=[['_setAccount','UA-15032003-1'],['_trackPageview'],['_trackPageLoadTime']];
+		    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		        s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
         </body>
     </html>
