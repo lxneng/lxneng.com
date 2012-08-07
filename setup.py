@@ -6,7 +6,6 @@ from setuptools import find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
-version = '1.0'
 
 
 def parse_requirements(file_name):
@@ -37,7 +36,7 @@ def parse_dependency_links(file_name):
 requires = parse_requirements('requirements.txt')
 
 setup(name='lxneng',
-      version=version,
+      version='1.1',
       description='lxneng',
       long_description=README + '\n\n' + CHANGES,
       author='Eric Lo',
@@ -45,7 +44,6 @@ setup(name='lxneng',
       url='http://lxneng.com',
       packages=find_packages('src'),
       package_dir={'': 'src'},
-      namespace_packages=["lxneng"],
       include_package_data=True,
       zip_safe=False,
       install_requires=requires,
@@ -63,5 +61,4 @@ setup(name='lxneng',
       [console_scripts]
       sync_flickr = lxneng.commands.sync_flickr:main
       """,
-      paster_plugins=['pyramid'],
       )

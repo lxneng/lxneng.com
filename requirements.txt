@@ -1,7 +1,7 @@
 pyramid
 pyramid_jinja2
 easy_sqlalchemy
-mysql-python
+psycopg2
 py-bcrypt
 pyramid_assetviews
 pyramid_debugtoolbar
@@ -13,4 +13,3 @@ flatland
 flickrapi
 webhelpers
 pyramid_tm
-errormator_client
