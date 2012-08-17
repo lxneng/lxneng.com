@@ -48,7 +48,7 @@ class Tag(BaseObject):
     @staticmethod
     def extract_tags(tags_string):
         tags = tags_string.replace(';', ' ').replace(',', ' ')
-        tags = [tag.lower() for tag in tags.split()]
+        tags = [tag for tag in tags.split()]
         tags = set(tags)
         return tags
 
