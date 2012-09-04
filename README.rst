@@ -7,5 +7,5 @@ Power by
     - Pyramid
     - SQLAlchemy
     - Jinja2
-    - MySQL
+    - Postgres
     - Flatland
