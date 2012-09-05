@@ -5,7 +5,7 @@
 {% for photo in photos %}
 <div class="shadow photo">
     <a href="{{request.route_url('photos_album', id=photo.album.id)}}">
-        <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
+        <img src="http://lxneng.b0.upaiyun.com/photos/{{ photo.path }}!medium" />
     </a>
     <span class="caption">{{photo.description}}</span>
 </div>
@@ -15,7 +15,7 @@
 <h1><a href="{{request.route_url('photos_album', id=album.id)}}">{{album.title}}</a></h1>
 {% for photo in album.photos[:6] %}
     <a href="{{request.route_url('photos_album', id=album.id)}}">
-        <img width="200" class="shadow thumb" src="{{ request.application_url + '/static_photos/' +photo.path }}" />
+        <img width="200" class="shadow thumb" src="http://lxneng.b0.upaiyun.com/photos/{{ photo.path }}!200px" />
     </a>
 {% endfor %}
 <div class="more_photos">

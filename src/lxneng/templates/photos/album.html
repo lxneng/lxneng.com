@@ -6,7 +6,7 @@
 <p>{{context.description}}</p>
 {% for photo in context.photos %}
 <div class="shadow photo">
-    <img src="{{ request.application_url + '/static_photos/' +photo.path }}" />
+    <img src="http://lxneng.b0.upaiyun.com/photos/{{ photo.path }}!medium" />
     <span class="caption">{{photo.description}}</span>
 </div>
 {% endfor %}
