@@ -40,8 +40,8 @@ AlbumFactory = get_factory(Album)
 
 class RootFactory(object):
     __acl__ = [
-            (Allow, Everyone, 'view'),
-            (Allow, Authenticated, 'auth')
+        (Allow, Everyone, 'view'),
+        (Allow, Authenticated, 'auth')
     ]
 
     def __init__(self, request):

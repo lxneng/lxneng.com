@@ -15,9 +15,9 @@ class User(BaseObject):
     email = schema.Column(types.String(256), nullable=False)
     _password = schema.Column('password', types.Unicode(255), nullable=False)
     created_at = schema.Column(types.DateTime(),
-            nullable=False, default=functions.now())
+                               nullable=False, default=functions.now())
     updated_at = schema.Column(types.DateTime(),
-            nullable=False, default=functions.now())
+                               nullable=False, default=functions.now())
 
     def _get_password(self):
         return self._password

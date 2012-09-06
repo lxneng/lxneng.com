@@ -9,10 +9,11 @@ from easy_sqlalchemy import meta
 
 
 posts_tags = schema.Table('posts_tags', meta.metadata,
-        schema.Column('post_id', types.Integer,
-            schema.ForeignKey('posts.id', ondelete='CASCADE')),
-        schema.Column('tag_id', types.Integer,
-            schema.ForeignKey('tags.id', ondelete='CASCADE')))
+                          schema.Column('post_id', types.Integer,
+                                        schema.ForeignKey(
+                                            'posts.id', ondelete='CASCADE')),
+                          schema.Column('tag_id', types.Integer,
+                                        schema.ForeignKey('tags.id', ondelete='CASCADE')))
 
 
 class Post(BaseObject):
@@ -25,12 +26,12 @@ class Post(BaseObject):
     summary = schema.Column(types.String(256))
     content = schema.Column(types.Text, nullable=False)
     status = schema.Column(types.String(20), nullable=False,
-            default='publish')
+                           default='publish')
     tags = orm.relationship('Tag', secondary=posts_tags)
     created_at = schema.Column(types.DateTime(), nullable=False,
-            default=functions.now())
+                               default=functions.now())
     updated_at = schema.Column(types.DateTime(), nullable=False,
-            default=functions.now())
+                               default=functions.now())
 
     @property
     def tags_string(self):

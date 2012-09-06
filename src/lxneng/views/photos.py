@@ -35,7 +35,9 @@ class AlbumView(BasicFormView):
     def show(self):
         return {}
 
-    @view_config(route_name='photos_album_new', renderer='photos/edit_album.html')
+    @view_config(route_name='photos_album_new',
+                 permission='auth',
+                 renderer='photos/edit_album.html')
     def new(self):
         if self.request.method == 'POST':
             session = meta.Session()
@@ -47,6 +49,7 @@ class AlbumView(BasicFormView):
         return {'form': self.form, 'title': 'Create Album'}
 
     @view_config(route_name='photos_album_edit',
+                 permission='auth',
                  renderer='photos/edit_album.html')
     def edit(self):
         if self.request.method == 'POST':
@@ -65,6 +68,7 @@ class AlbumPhotoView(BasicView):
         self.upyun.set_bucket('lxneng')
 
     @view_config(route_name='photos_album_upload',
+                 permission='auth',
                  renderer='photos/upload_to_album.html')
     def upload(self):
         if self.request.method == 'POST':
@@ -74,7 +78,8 @@ class AlbumPhotoView(BasicView):
                 path = '%s/%s' % (self.context.id, image.filename)
             rt = self.upyun.writeFile('/photos/%s' % path, image.file, True)
             if rt:
-                entry = Photo(album_id=self.context.id, path=path, description=data['description'])
+                entry = Photo(album_id=self.context.id,
+                              path=path, description=data['description'])
                 meta.Session.add(entry)
                 return HTTPFound(self.request.route_url('photos_album', id=self.context.id))
         return {'title': 'upload photos'}

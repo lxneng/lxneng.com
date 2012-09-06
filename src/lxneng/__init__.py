@@ -40,18 +40,21 @@ class ApplicationFactory(object):
         config.add_route('login', '/login')
         config.add_route('logout', '/logout')
         config.add_route('about', '/about')
+
+        # photos
         config.add_route('photos', '/photos')
         config.add_route('all_photos', '/photos/all')
         config.add_route('all_photos_pagination', '/photos/all/{page:\d+}')
         config.add_route('photos_album', '/photos/albums/{id:\d+}',
                          factory=factories.AlbumFactory)
-
         config.add_route('photos_album_new', '/photos/albums/new')
         config.add_route('photos_album_edit', '/photos/albums/{id:\d+}/edit',
                          factory=factories.AlbumFactory)
-        config.add_route('photos_album_upload', '/photos/albums/{id:\d+}/upload',
-                         factory=factories.AlbumFactory)
+        config.add_route(
+            'photos_album_upload', '/photos/albums/{id:\d+}/upload',
+            factory=factories.AlbumFactory)
 
+        # posts
         config.add_route('posts_index', '/posts')
         config.add_route('posts_new', '/posts/new')
         config.add_route('posts_tags_index', '/posts/tags')
@@ -72,7 +75,8 @@ class ApplicationFactory(object):
 
     def setup_upyun(self, config, settings):
         from lxneng.lib.upyun import UpYun
-        config.registry['upyun'] = UpYun(username=settings['upyun.username'], password=settings['upyun.password'])
+        config.registry['upyun'] = UpYun(username=settings['upyun.username'],
+                                         password=settings['upyun.password'])
 
     def configure(self, settings):
         config = self.create_configuration(settings)

@@ -2,7 +2,9 @@ from pyramid.view import view_config
 from lxneng.views import BasicView
 
 
-@view_config(route_name='uploader', renderer='uploader.html')
+@view_config(route_name='uploader',
+            permission='auth',
+            renderer='uploader.html')
 class Upyun(BasicView):
 
     def __init__(self, context, request):

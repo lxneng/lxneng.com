@@ -14,11 +14,11 @@ class Album(BaseObject):
     description = schema.Column(types.Text, nullable=False)
     flickr_set_id = schema.Column(types.String(32), index=True)
     photos = orm.relationship('Photo', order_by='Photo.id.desc()',
-            lazy='dynamic', backref='album')
+                              lazy='dynamic', backref='album')
     created_at = schema.Column(types.DateTime(),
-            nullable=False, default=functions.now())
+                               nullable=False, default=functions.now())
     updated_at = schema.Column(types.DateTime(),
-            nullable=False, default=functions.now(), index=True)
+                               nullable=False, default=functions.now(), index=True)
 
     @property
     def primary_photo(self):
@@ -36,6 +36,6 @@ class Photo(BaseObject):
     flickr_photo_id = schema.Column(types.String(32), index=True)
     album_id = schema.Column(types.Integer(), schema.ForeignKey(Album.id))
     created_at = schema.Column(types.DateTime(),
-            nullable=False, default=functions.now())
+                               nullable=False, default=functions.now())
     updated_at = schema.Column(types.DateTime(),
-            nullable=False, default=functions.now(), index=True)
+                               nullable=False, default=functions.now(), index=True)
