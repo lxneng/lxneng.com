@@ -39,9 +39,6 @@ class ApplicationFactory(object):
         else:
             config.add_static_view('static', 'lxneng:static', cache_max_age=3600)
 
-        config.add_static_view('photos', settings['photos_dir'],
-                               cache_max_age=3600)
-
         config.add_route('home', '/')
         config.add_route('login', '/login')
         config.add_route('logout', '/logout')
