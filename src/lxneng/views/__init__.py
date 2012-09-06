@@ -6,14 +6,11 @@ from pyramid.security import forget
 from easy_sqlalchemy import meta
 from lxneng.models.post import Post
 from lxneng.models.user import User
-from lxneng.models.photo import Album
 from lxneng.models.photo import Photo
 from pyramid.url import route_url
 from pyramid.httpexceptions import HTTPFound
 from flatland import Form, String
 from flatland.validation import Present
-from lxneng.factories import get_user
-from beaker.cache import cache_region
 
 
 log = logging.getLogger(__name__)
@@ -24,7 +21,6 @@ RESUME_CN = open(os.path.join(_here, '../static', 'Resume_CN.md'))\
     .read().decode('utf8')
 
 
-@view_config(route_name='photos_album', renderer='photos/album.html')
 @view_config(route_name='posts_tags_show', renderer='posts/tags/show.html')
 @view_config(context='pyramid.exceptions.NotFound', renderer='404.html')
 @view_config(context='pyramid.exceptions.URLDecodeError', renderer='404.html')
@@ -43,7 +39,7 @@ class BasicView(object):
             self.request.locale_name = session.get('lang', 'en')
 
     def __call__(self):
-        return {'context': self.context}
+        return {}
 
 
 class BasicFormView(BasicView):
@@ -116,8 +112,7 @@ class Login(BasicFormView):
             return None
 
     def __call__(self):
-        user = get_user(self.request)
-        if user is not None:
+        if self.request.user is not None:
             self.request.session.flash('You are already login')
             return HTTPFound(self.request.route_url('home'))
         if self.request.method == 'POST':
@@ -147,18 +142,6 @@ class Home(BasicView):
         photos = session.query(Photo)\
             .order_by(Photo.updated_at.desc()).limit(4)
         return {'posts': posts, 'photos': photos}
-
-
-@view_config(route_name='photos', renderer='photos/index.html')
-class AlbumsView(BasicView):
-
-    @cache_region('long_term')
-    def __call__(self):
-        photos = meta.Session.query(Photo)\
-            .order_by(Photo.updated_at.desc())\
-            .limit(10)
-        albums = meta.Session.query(Album).order_by(Album.updated_at.desc())
-        return {'photos': photos, 'albums': albums}
 
 
 @view_config(route_name='all_photos', renderer='photos/all_photos.html')

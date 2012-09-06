@@ -26,10 +26,6 @@ class ApplicationFactory(object):
 
         return config
 
-    def setup_sqlalchemy(self, config):
-        from easy_sqlalchemy import includeme
-        includeme(config)
-
     def setup_jinja2(self, config):
         from pyramid_jinja2 import renderer_factory
         config.add_translation_dirs('lxneng:locale')
@@ -49,6 +45,13 @@ class ApplicationFactory(object):
         config.add_route('all_photos_pagination', '/photos/all/{page:\d+}')
         config.add_route('photos_album', '/photos/albums/{id:\d+}',
                          factory=factories.AlbumFactory)
+
+        config.add_route('photos_album_new', '/photos/albums/new')
+        config.add_route('photos_album_edit', '/photos/albums/{id:\d+}/edit',
+                         factory=factories.AlbumFactory)
+        config.add_route('photos_album_upload', '/photos/albums/{id:\d+}/upload',
+                         factory=factories.AlbumFactory)
+
         config.add_route('posts_index', '/posts')
         config.add_route('posts_new', '/posts/new')
         config.add_route('posts_tags_index', '/posts/tags')
@@ -60,18 +63,23 @@ class ApplicationFactory(object):
         config.add_route('posts_delete', '/posts/{id:\d+}/delete')
         config.add_route('posts_tags_show', '/posts/tags/{name}',
                          factory=factories.tag_factory)
+        config.add_route('uploader', '/uploader')
 
     def setup_assetviews(self, config):
         config.include('pyramid_assetviews')
         config.add_asset_views('lxneng:static', filenames=['robots.txt',
                                                            'favicon.ico'], http_cache=5000)
 
+    def setup_upyun(self, config, settings):
+        from lxneng.lib.upyun import UpYun
+        config.registry['upyun'] = UpYun(username=settings['upyun.username'], password=settings['upyun.password'])
+
     def configure(self, settings):
         config = self.create_configuration(settings)
-        self.setup_sqlalchemy(config)
         self.setup_jinja2(config)
         self.setup_routes(config, settings)
         self.setup_assetviews(config)
+        self.setup_upyun(config, settings)
         config.scan()
         return config
 
