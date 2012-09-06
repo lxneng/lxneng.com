@@ -26,7 +26,7 @@
     </tr>
 </table>
 ###教育背景:
-- 2008年毕业于[苏州大学](http://www.suda.edu.cn/)-[计算机科学与技术学院](http://eng.suda.edu.cn/)-软件工程专业本科
+- 2008年毕业于[苏州大学](http://www.suda.edu.cn/)-[计算机科学与技术学院](http://scst.suda.edu.cn/)-软件工程专业本科
 
 ###工作经历:
 - **2Style4You.com**  
