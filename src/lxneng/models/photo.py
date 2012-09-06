@@ -3,11 +3,14 @@ from sqlalchemy import types
 from sqlalchemy import orm
 from easy_sqlalchemy.meta import BaseObject
 from sqlalchemy.sql import functions
+from pyramid.security import Authenticated
+from pyramid.security import Allow
 
 
 class Album(BaseObject):
 
     __tablename__ = 'albums'
+    __acl__ = [(Allow, Authenticated, 'auth')]
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     title = schema.Column(types.String(256), nullable=False)
@@ -28,6 +31,7 @@ class Album(BaseObject):
 class Photo(BaseObject):
 
     __tablename__ = 'photos'
+    __acl__ = [(Allow, Authenticated, 'auth')]
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     path = schema.Column(types.String(128), nullable=False, unique=True)

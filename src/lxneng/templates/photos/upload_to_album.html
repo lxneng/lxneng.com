@@ -2,8 +2,10 @@
 {% block body %}
 <form method="POST" enctype='multipart/form-data'>
   {{html.input(name='_csrf', type='hidden', value=request.session.get_csrf_token())}}
+  <p><label>图片</label></p>
   <p><input name='image' type=file></p>
-  <p><input name="description" type="text"></p>
+  <p><label>描述</label></p>
+  <p><input name="description" type="text" placeholder="描述"></p>
   <p><input type='submit'></p>
 </form>
 {% endblock %}
