@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>广场_MicroChannel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">document.domain='qq.com';var QosS={t:[+new Date]};QosS.topSpan=function(a){this.site=a;QosS.t[1]=+new Date};QosS.endCheck=function(){window.MI&&MI.pageSpeed&&MI.pageSpeed()};for(var i=3;i<6;i++)QosS["timePoint"+i]=function(a){return function(){return function(){QosS.t[a-1]=+new Date}}}(i);</script><meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta name="viewport" content="width=810"/>
+<link rel="apple-touch-icon-precomposed" href="http://mat1.gtimg.com/www/mb/images/microblog_72_72.png"/>
+<link rel="shortcut icon" href="http://mat1.gtimg.com/www/mb/favicon.ico"/>
+<link href="http://mat1.gtimg.com/www/mb/css/style_120905.css" type="text/css" rel="stylesheet" id="mainStyle"/><link type="text/css" rel="stylesheet" id="mainStyle2"/>
+<style type="text/css">
+.btnHasStr,.sign_new{background-image:url(http://mat1.gtimg.com/www/mb/images/en/b1_110715.png)}
+.inputBtn,input.addAttention,input.delAttention,.addAttention,.delAttention,.btn_save,.btn_cancel,.btn_topicRss,.btn_addRss,.btn_delRss,.btn_saddRss,.btn_sdelFo{background-image:url(http://mat1.gtimg.com/www/mb/images/en/b2_110715.png)}
+#logo{width:242px;}#logo a{width:242px;background:url(http://mat1.gtimg.com/www/mb/images/en/b3.png) no-repeat;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=crop,src='http://mat1.gtimg.com/www/mb/images/en/b3.png')}
+.ico_vData{font-family:Tahoma,Arial}
+.foFun{width:50px;font-family:Tahoma,Arial;background-image:none}
+.cutBox{width:124%}
+#LUI .talk{width:34px;padding-left:23px}
+.moreFun{width:116px}
+.moreFun ul{width:112px!important;white-space:nowrap}
+.uCard .moreFun{width:74px}
+.uCard .nums,.mFun a,.DcreateList,.cusFun a{white-space:nowrap}
+.uCard .moreFun ul{width:70px!important}.uCard .moreFun ul a{padding:0 2px;text-align:left}
+.insertFun .dropBox{width:80px}
+.listDrop .ctrlBar{height:36px;text-align:left;word-wrap:break-word}.listDrop .ctrlBar a{display:inline-block;white-space:nowrap}
+.tSearch .inputBtn,input.addAttention,input.delAttention,.tbList .inputBtn,.btn_addRss,.btn_delRss,.botFunBox .inputBtn{line-height:20em\9}
+.LC .funBox{width:auto!important}
+.imgModTips .funBox{width:150px!important}
+.sDropBox{width:124px;white-space:nowrap}
+.navArr{display:none}
+.mainCnt .Modstep span{width:auto}
+.musicBox .mTit .ops a{margin-left:0}
+.talkBox .m_voteBox th{width:60px;white-space:nowrap}
+.tbList th{font-family:Tahoma,Arial;white-space:nowrap}
+.big .tools a.btnOriginal{width:56px}
+#LUI .userNums a strong{padding-left:3px}
+.imgModTips .imgExpd{background-image:url(http://mat1.gtimg.com/www/mb/images/en/pl_expd_110519.png) !important}
+.SM li.letter a.newNum{left:168px}
+.smoreFun .mloadWrap{left:-220px}
+</style>
+<style type="text/css">
+.LC .userNums {padding-left:0px}
+.source {padding-left:0px}
+.mainWrapperBg{width:800px}
+</style>
+
+<link href="http://mat1.gtimg.com/www/mb/css/c/201209/c.style_120905.css" type="text/css" rel="stylesheet"/>
+
+<style>
+#pic-list{ visibility:visible }
+.picModBox .col .single .clk-1{display:block; overflow: hidden; background: #E9E9E9}
+.clk-srelay,.clk-mo-smore,.rss .gb_foed{ cursor: pointer;}
+.picModBox .col .single .pl .text img{ width: 20px; height: 20px;}
+.picModBox .col .single .pl .text img.w24{ width: 24px; height: 24px;}
+.moreBox .moreDrop{ display:block; visibility:hidden;}
+#cypher .text{ width: 184px; line-height: 21px; word-wrap:break-word;word-break:break-all;}
+.picModBox .col .single .pl .text{ line-height: 21px;}
+#cypher .text img{ width: 24px; height: 24px;}
+</style>
+<script>
+var version = 5;
+var cid = 877;
+var _timeStart = new Date();
+
+var availWidth = document.documentElement.clientWidth;
+var col;
+if(availWidth>1440){
+    col="5";
+}else if(availWidth>=1280){
+    col="4";
+}else{
+    col="3";
+}
+if(availWidth>=1259&&screen.availWidth==1280){
+    col="4";
+}    
+
+</script>
+</head>
+<body>
+<script>
+
+document.body.className='col_'+col;
+
+
+
+</script>
+<style type="text/css">
+.guestreg_pn,.guestreg_pn .guestreg_btn,.guestreg_pn .guestreg_loginbtn{ background:url(http://mat1.gtimg.com/www/mb/images/guest_reg.png)}
+.guestreg_pn{ width:800px; margin:0 auto;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px; background-position:0 -59px; margin-bottom:7px}
+.guestreg_pn .guestreg_inner{ position:relative; height:58px; padding:0 250px 0 20px}
+.guestreg_pn .guestreg_mess{12px/1.75 Tahoma,Arial,sans-serif; color:#fff}
+.guestreg_pn .fc_yellow{ color:#ffe92f}
+.guestreg_pn .guestreg_btn{ position:absolute; right:0; top:0; width:190px; background-position: right top; background-repeat:no-repeat; height:45px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px; padding:13px 0 0 50px}
+.guestreg_pn .guestreg_link{ font-size:14px; font-weight:bold; color:#fff; position:relative; top:1px; text-decoration:underline}
+.guestreg_pn .guestreg_loginbtn{ width:94px; height:34px; margin-left:18px; text-align:center; line-height:34px; color:#fff; font-size:14px; font-weight:bold; display:inline-block; vertical-align:middle; background-position:0 -118px;text-shadow:0 0 1px #165902}
+.guestreg_pn .guestreg_loginbtn:hover{ text-decoration:none}
+.guestreg_pn .gr_vline{ width:0; height:34px; border-left:1px solid #4a99c8;border-right:1px solid #2574a3; display:inline-block; vertical-align:middle; position:absolute; left:30px}
+.guestreg_w960{ width:960px}
+.guestreg_w960 .gr_vline{ display:none}
+</style>
+<div class="headWrap">
+	<div class="headInside" id="header">
+		<h1><a href="http://t.qq.com/" title="t.qq.com" accesskey="z" boss="btnClickNewLogo">Tencent Weibo</a></h1>
+		<ul class="topNav">
+			<li class="topNavItem"><a href="http://t.qq.com/"><u>Home</u><i></i></a></li>
+			<li class="topNavItem"><a href="http://p.t.qq.com/p/news"><u>MicroChannel</u><i></i></a></li>
+						<li class="topNavItem"><a href="http://t.qq.com/people?from=top"><u>Find</u><i></i></a></li>
+			<li class="topNavItem apps" id="app">
+			<a href="http://app.t.qq.com?via=WB.TQQ.TOP.APP" boss="btnTopMenuApp"><u>Apps<em>&nbsp;</em></u><i></i></a>
+			</li>
+			<li class="topNavItem"><a href="http://p.t.qq.com/client.php?t=mobile"><u>Mobile</u><i></i></a></li>
+		</ul>
+		</div>
+	<div class="headShadow"></div>
+	</div>
+<div style="padding-top:45px;_padding-top:10px;">
+	<div class="guestreg_pn ">
+	<div class="guestreg_inner">
+		<div class="guestreg_mess">
+				  <table width="100%" border="0">
+						<tr>
+							  <td height="58" valign="middle">
+						In Tencent Weibo, talk and listen to the world. 							  </td>
+						</tr>
+				  </table>
+		</div>
+			<div class="guestreg_btn">
+				<em class="gr_vline"></em>
+<a href="http://t.qq.com/login.php?type=invite&from=10"   class="guestreg_link">Join</a>
+    <a href="http://t.qq.com?url=http://t.qq.com/"  class="guestreg_loginbtn">Sign In</a>			</div>
+			<div class="hr"></div>
+		</div>
+	</div>
+</div>
+	<style type="text/css"> .headInside{width:960px;} </style>
+<div class="top_title clear">
+            <div class="left">
+                <h2><a href="/k/default"><span>Selected Messages</span><i class="beta"></i></a></h2>
+                <span class="slogan">Listen to the World</span> </div>
+                         <!--div class="right"><a target="_blank" onclick="MI.Bos({id:1220,name:'btnHelp'});" href="http://t.qq.com/help.php?page=microchannel">About Microchannel››</a></div-->
+            
+            <!--奥运热点回顾-->
+            <div class="oly_num" style="width:224px; height:41px; background:url(http://mat1.gtimg.com/www/mb/images/c/201208/oly_bg.png) no-repeat">
+                <a style="width:190px" href="http://c.t.qq.com/i/1563?pgv_ref=web.c.page.hotnum.review" class="help" hidefocus="true" title="奥运热点回顾"></a>
+                <a target="_blank" href="http://p.t.qq.com/help.php?page=microchannel&pgv_ref=web.c.page.hotnum.helpa" title="关于微频道"><i style="width:24px;float:right" class="oly_num_help"></i></a>
+            </div>
+            
+            </div>
+
+<!-- 全部频道 -->
+<div class="C_top_nav clear">
+    <div class="CHA_selector">
+        <div class="btn" id="btn"><span><a href="/?pref=web.c.page.nav.all.level0">全部频道</a></span><i class="drop_arr"></i></div>
+    </div>
+        <div class="topicCol clear">
+        <div class="left">
+            <div class="C_crumb">
+                                <a href="/?pref=web.c.page.nav.crumbs" style="font-weight: bold">广场</a>
+                            </div>
+                            <div type="1" class="rss">
+                    <a onclick="MI.Bos({name:'btnCategoryFollow', iBak1:'877',id:1220})" class="gb_btn gb_btn3" href="#"><i class="icon icon_fo2"></i><span class="t">Follow this channel</span></a>
+                       <span class="gb_foed gb_fo1" style="display:none;"><i class="icon icon_sfo"></i><span class="t">已收听，<a onclick="MI.Bos({name:'btnCategoryUnFollow', iBak1:'877',id:1220})" href="#">Cancel</a></span></span>
+                </div>
+                   </div>
+
+        <div class="right">
+            <div class="right_pn">
+            <div class="yy_link">            <a boss='({name:"btnOPeratorWording" ,id:1220})' href="http://p.t.qq.com/help.php?page&#61;microchannel&amp;pgv_ref&#61;web.c.page.hotnum.helpa" target="_blank">微频道新规则上线啦！</a></div>                                            <div class="type_look"  >
+                    <div class="selected">图文模式<em class="btn_ldrop"></em></div>
+                    <div class="select_list">
+                                                <div class="item"><i class="ic ic_selected"></i><a boss='({name:"btnViewList",iBak1:"877",id:1220})' href='/i/877?filter=0&default'>list mode</a></div>
+                        <div class="item cur"><i class="ic ic_selected"></i><a href='/i/877?filter=1&default'>图文模式</a></div>
+                        <div class="item"><i class="ic ic_selected"></i><a boss='({name:"btnViewTum",iBak1:"877",id:1220})' href='/i/877?filter=2&default'>大图模式</a></div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    
+        </div>
+</div>
+
+<div id="mainWrapper" class="clear">
+
+            <div class="C_nav_box" id="leftNav">
+                                                <div class="item square">
+                <dl><dt><a href="http://c.t.qq.com/i/877" hidefocus="true" class='on'><span>广场</span></a><a href="http://c.t.qq.com/i/877?filter=3"  style="
+    margin-left: 10px;" hidefocus="true"><span>微博头条</span></a></dt></dl>
+                </div>
+                <div class="item" categoryId="-1">
+                <dl style="display:none;">
+                    <dt><i></i><span class="c_tx2">My MicroChannel<em class="num">(0)</em></span></dt>
+                    <dd class="clear mynav">
+                                            <a id="goHome" style="display:none;" cid="-1" top="2" href="http://t.qq.com/viewchannel.php" onclick="MI.Bos({name:'btnGotoHome'});" class="TLC">去我的主页看微频道››</a>
+                    </dd>
+                </dl>
+                </div>
+                                <div class="item" categoryId="47">
+<dl>
+    <dt><i></i><a href="http://c.t.qq.com/i/47?pgv_ref=web.c.page.nav.left.level1" cid="47"><span>资讯·体育<em class="num">(10)</em></span></a></dt>
+    <dd class="clear">
+        <a href="http://c.t.qq.com/i/1?pgv_ref=web.c.page.nav.left.level2" cid="1"><span>时事</span></a>
+        <a href="http://c.t.qq.com/i/882?pgv_ref=web.c.page.nav.left.level2" cid="882"><span>杂谈</span></a>
+        <a href="http://c.t.qq.com/i/4?pgv_ref=web.c.page.nav.left.level2" cid="4"><span>军事</span></a> 
+        <a href="http://c.t.qq.com/i/3?pgv_ref=web.c.page.nav.left.level2" cid="3"><span>财经</span></a> 
+        <a href="http://c.t.qq.com/i/883?pgv_ref=web.c.page.nav.left.level2" cid="883"><span>科技</span></a>
+        <a href="http://c.t.qq.com/i/918?pgv_ref=web.c.page.nav.left.level2" cid="918"><span>体育</span><span class="ico_hot_s"><em></em></span></a>
+<br />
+    </dd>
+</dl>
+</div>
+
+<div class="item" categoryId="48">
+<dl>
+    <dt><i></i><a href="http://c.t.qq.com/i/48?pgv_ref=web.c.page.nav.left.level1" cid="48"><span>娱乐·影音<em class="num">(19)</em></span></a></dt>
+    <dd class="clear">
+        <a href="http://c.t.qq.com/i/13?pgv_ref=web.c.page.nav.left.level2" cid="13"><span>明星</span></a>
+        <a href="http://c.t.qq.com/i/43?pgv_ref=web.c.page.nav.left.level2" cid="43"><span>美女</span></a>
+        <a href="http://c.t.qq.com/i/838?pgv_ref=web.c.page.nav.left.level2" cid="838"><span>动漫</span></a>
+<br />
+        <a href="http://c.t.qq.com/i/30?pgv_ref=web.c.page.nav.left.level2" cid="30"><span>电影</span></a>
+        <a href="http://c.t.qq.com/i/19?pgv_ref=web.c.page.nav.left.level2" cid="19"><span>星座</span></a>
+        <a href="http://c.t.qq.com/i/40?pgv_ref=web.c.page.nav.left.level2" cid="40"><span>乐事搞笑</span></a> <br />
+        <a href="http://c.t.qq.com/i/1308?pgv_ref=web.c.page.nav.left.level2" cid="1308"><span>高清MV</span></a>
+        <a href="http://c.t.qq.com/i/1581?pgv_ref=web.c.page.nav.left.level2" cid="1581"><span>欧美巨星</span><span class="ico_hot_s"><em></em></span></a>
+<br />
+    </dd>
+</dl>
+</div>
+<div class="item" categoryId="49">
+<dl>
+    <dt><i></i><a href="http://c.t.qq.com/i/49?pgv_ref=web.c.page.nav.left.level1" cid="49"><span>生活·时尚<em class="num">(13)</em></span></a></dt>
+    <dd class="clear">
+        <a href="http://c.t.qq.com/i/36?pgv_ref=web.c.page.nav.left.level2" cid="36"><span>服饰</span></a>
+        <a href="http://c.t.qq.com/i/1173?pgv_ref=web.c.page.nav.left.level2" cid="1173"><span>逛街</span><span class="ico_hot_s"><em></em></span></a>
+        <a href="http://c.t.qq.com/i/37?pgv_ref=web.c.page.nav.left.level2" cid="37"><span>美容</span></a>
+<br />
+        <a href="http://c.t.qq.com/i/35?pgv_ref=web.c.page.nav.left.level2" cid="35"><span>美食</span></a>
+        <a href="http://c.t.qq.com/i/33?pgv_ref=web.c.page.nav.left.level2" cid="33"><span>创意</span></a>
+        <a href="http://c.t.qq.com/i/38?pgv_ref=web.c.page.nav.left.level2" cid="38"><span>旅行</span></a><br />
+        <a href="http://c.t.qq.com/i/1565?pgv_ref=web.c.page.nav.left.level2" cid="1565"><span>征友</span><span class="ico_hot_s"><em></em></span></a>
+        <a href="http://c.t.qq.com/i/922?pgv_ref=web.c.page.nav.left.level2" cid="922"><span>职场</span></a>
+        <a href="http://c.t.qq.com/i/1303?pgv_ref=web.c.page.nav.left.level2" cid="1303"><span>奢侈品</span></a>
+<br />
+
+    </dd>
+</dl>
+</div>
+<div class="item" categoryId="50">
+<dl>
+    <dt><i></i><a href="http://c.t.qq.com/i/50?pgv_ref=web.c.page.nav.left.level1" cid="50"><span>文化·教育<em class="num">(7)</em></span></a></dt>
+    <dd class="clear">
+        <a href="http://c.t.qq.com/i/31?pgv_ref=web.c.page.nav.left.level2" cid="31"><span>摄影</span></a>
+        <a href="http://c.t.qq.com/i/1216?pgv_ref=web.c.page.nav.left.level2" cid="1216"><span>英语</span></a>
+        <a href="http://c.t.qq.com/i/34?pgv_ref=web.c.page.nav.left.level2" cid="34"><span>读书</span></a><br />
+        <a href="http://c.t.qq.com/i/1170?pgv_ref=web.c.page.nav.left.level2" cid="1170"><span>历史</span></a>
+        <a href="http://c.t.qq.com/i/916?pgv_ref=web.c.page.nav.left.level2" cid="916"><span>育儿</span></a>
+        <a href="http://c.t.qq.com/i/1331?pgv_ref=web.c.page.nav.left.level2" cid="1331"><span>蔡奇</span><span class="ico_hot_s"><em></em></span></a>
+
+        <br />
+    </dd>
+</dl>
+</div>
+
+
+<div class="item" categoryId="1248">
+<dl>
+    <dt><i></i><a href="http://c.t.qq.com/i/1248?pgv_ref=web.c.page.nav.left.level1" cid="1248"><span>新鲜·热点<em class="num">(3)</em></span></a></dt>
+    <dd class="clear">
+        <a href="http://c.t.qq.com/i/1254?pgv_ref=web.c.page.nav.left.level2" cid="1254"><span>热门广播</span></a><br/>
+        <a href="http://c.t.qq.com/i/1563?pgv_ref=web.c.page.nav.left.level2" cid="1563"><span>奥运热点回顾</span><span class="ico_hot_s"><em></em></span></a>
+        <a boss='({name:"btnNavKillNoReply",id:214})' href="http://t.qq.com/killnoreply.php?pgv_ref=web.c.index.catalog.left" target="_blank"><span>聆听寂寞的蒲公英</span></a>
+        <br />
+    </dd>
+</dl>
+</div>                                                <dl id="norss" class="nobor">
+                    <dt class="nobor"><span>My MicroChannel</span></dt>
+                    <dd class="clear"><p class="norss">Follow your favorite channel</p></dd>
+                </dl>
+                                            </div>
+           <div class="mainCon clear main picMod">
+<script>try{QosS.topSpan("t_c_pic",1);}catch(e){}</script>
+                                         <div class="picModBox clear">
+<div class="col"  id="pic-list"><div  style="visibility:visible;left:10px;z-index:50030;"  user="摄影吧" class="single " rel="1346942665" id="159615036952080"   data-token="67537f98" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/159615036952080"  style="height:146.4375px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="159615036952080"
+         width="220" height="146.4375" oheight="639" srcurl="http://t1.qpic.cn/mblogpic/c87534a5f66c37e509fa/220" alt="" /><img class="tiny"  tid="159615036952080"  
+         width="220" height="146.4375" oheight="639" srcurl="http://t1.qpic.cn/mblogpic/c87534a5f66c37e509fa/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/sheying8?pgv_ref=web.c.page.user.userPic.877" 
+                        title="摄影吧(@sheying8)"><img src="http://t2.qlogo.cn/mbloghead/34378311467c1233396a/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="sheying8">Following </a>
+                    </div>
+                    <div class="text"  rel="sheying8" ><a target="_blank" class="uthead"  title="摄影吧(@sheying8)"
+                           href="http://t.qq.com/sheying8?pgv_ref=web.c.page.user.userName.877" rel="sheying8">摄影吧</a><a href="http://zhaoren.t.qq.com/people.php?id=114" title="腾讯机构认证" target="_blank" class="tIcon ico_cvip"></a>:
+        <a href="http://k.t.qq.com/k/%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87">#分享图片#</a>有时，路很宽，却找不到自己在哪里，将要去哪里，只知道不停的走，不停的走，不停的走…停不下脚步，却也走不到尽头。一遍一遍，朝着未知的方向，早已找不到最初的场景，最初的心情…                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/31" e="sourceClick" data-cid="31" data-cname="摄影">摄影</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="159615036952080" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">459</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="159615036952080"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="159615036952080"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="159615036952080" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/159615036952080" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>摄影吧</a></div><div class="msgCnt"><a href="http://k.t.qq.com/k/%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87">#分享图片#</a>有时，路很宽，却找不到自己在哪里，将要去哪里，只知道不停的走，不停的走，不停的走…停不下脚步，却也走不到尽头。一遍一遍，朝着未知的方向，早已找不到最初的场景，最初的心情…</div><div class="pubInfo"><p class="time">3 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:visible;left:270px;z-index:50029;"  user="撒娇女王" class="single " rel="1346942656" id="157115038457131"   data-token="ca399eb7" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/157115038457131"  style="height:220px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="157115038457131"
+         width="220"  oheight="800" srcurl="http://t2.qpic.cn/mblogpic/960965af34047e8109ba/220" alt="" /><img class="tiny"  tid="157115038457131"  
+         width="220"  oheight="800" srcurl="http://t2.qpic.cn/mblogpic/960965af34047e8109ba/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/Miss_Xu?pgv_ref=web.c.page.user.userPic.877" 
+                        title="撒娇女王(@撒娇女王)"><img src="http://t3.qlogo.cn/mbloghead/4f78f50cb450ae40df5a/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="Miss_Xu">Following </a>
+                    </div>
+                    <div class="text"  rel="Miss_Xu" ><a target="_blank" class="uthead"  title="撒娇女王(@撒娇女王)"
+                           href="http://t.qq.com/Miss_Xu?pgv_ref=web.c.page.user.userName.877" rel="Miss_Xu">撒娇女王</a><a href="http://zhaoren.t.qq.com/people.php" title="腾讯个人认证" target="_blank" class="vip"></a>:
+        当你的心真的在痛，眼泪快要流下来的时候，那就赶快抬头看看，这片曾经属于我们的天空；当天依旧是那么的广阔，云依旧那么的潇洒，那就不应该哭，因为我的离去，并没有带走你的世界。——《看得见风景的房间》<a href="http://k.t.qq.com/k/%E8%AF%BB%E4%B9%A6">#读书#</a>                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/34" e="sourceClick" data-cid="34" data-cname="读书">读书</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="157115038457131" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">364</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="157115038457131"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="157115038457131"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="157115038457131" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/157115038457131" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>撒娇女王</a></div><div class="msgCnt">当你的心真的在痛，眼泪快要流下来的时候，那就赶快抬头看看，这片曾经属于我们的天空；当天依旧是那么的广阔，云依旧那么的潇洒，那就不应该哭，因为我的离去，并没有带走你的世界。——《看得见风景的房间》<a href="http://k.t.qq.com/k/%E8%AF%BB%E4%B9%A6">#读书#</a></div><div class="pubInfo"><p class="time">3 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:visible;left:530px;z-index:50028;"  user="户外旅行记" class="single " rel="1346942648" id="74910026949495"   data-token="4a2d2f8e" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/74910026949495"  style="height:761.39130434783px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="74910026949495"
+         width="220" height="761.39130434783" oheight="1592" srcurl="http://t1.qpic.cn/mblogpic/d279a9fd2f278fec0b00/220" alt="" /><img class="tiny"  tid="74910026949495"  
+         width="220" height="761.39130434783" oheight="1592" srcurl="http://t1.qpic.cn/mblogpic/d279a9fd2f278fec0b00/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/happyxinmei?pgv_ref=web.c.page.user.userPic.877" 
+                        title="户外旅行记(@happyxinmei)"><img src="http://t2.qlogo.cn/mbloghead/317e00cbf0a260bac774/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="happyxinmei">Following </a>
+                    </div>
+                    <div class="text"  rel="happyxinmei" ><a target="_blank" class="uthead"  title="户外旅行记(@happyxinmei)"
+                           href="http://t.qq.com/happyxinmei?pgv_ref=web.c.page.user.userName.877" rel="happyxinmei">户外旅行记</a>:
+        当你打算放弃旅行梦时，告诉自己再多撑一天、一个星期、一个月，再多撑一年吧。你会发现，拒绝退场的结果令人惊讶,也许不久后,你也能背着背包,结伴旅行<a href="http://k.t.qq.com/k/%E6%97%85%E8%A1%8C">#旅行#</a>                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/38" e="sourceClick" data-cid="38" data-cname="旅行">旅行</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="74910026949495" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">234</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="74910026949495"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="74910026949495"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="74910026949495" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/74910026949495" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>户外旅行记</a></div><div class="msgCnt">当你打算放弃旅行梦时，告诉自己再多撑一天、一个星期、一个月，再多撑一年吧。你会发现，拒绝退场的结果令人惊讶,也许不久后,你也能背着背包,结伴旅行<a href="http://k.t.qq.com/k/%E6%97%85%E8%A1%8C">#旅行#</a></div><div class="pubInfo"><p class="time">3 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:hidden;"  user="时尚生活街拍" class="single " rel="1346942645" id="111833018299576"   data-token="4c906801" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/111833018299576"  style="height:218.47926267281px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="111833018299576"
+         width="220" height="218.47926267281" oheight="431" srcurl="http://t1.qpic.cn/mblogpic/d5cc2102e618ee0f127c/220" alt="" /><img class="tiny"  tid="111833018299576"  
+         width="220" height="218.47926267281" oheight="431" srcurl="http://t1.qpic.cn/mblogpic/d5cc2102e618ee0f127c/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/ailisi__?pgv_ref=web.c.page.user.userPic.877" 
+                        title="时尚生活街拍(@ailisi__)"><img src="http://t1.qlogo.cn/mbloghead/927e066985823e6b7f9e/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="ailisi__">Following </a>
+                    </div>
+                    <div class="text"  rel="ailisi__" ><a target="_blank" class="uthead"  title="时尚生活街拍(@ailisi__)"
+                           href="http://t.qq.com/ailisi__?pgv_ref=web.c.page.user.userName.877" rel="ailisi__">时尚生活街拍</a>:
+        宏村南湖，水天交相辉映。有拍过这么霸气的宏村南湖么？<a href="http://k.t.qq.com/k/%E6%91%84%E5%BD%B1">#摄影#</a>                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/31" e="sourceClick" data-cid="31" data-cname="摄影">摄影</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="111833018299576" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">165</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="111833018299576"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="111833018299576"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="111833018299576" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/111833018299576" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>时尚生活街拍</a></div><div class="msgCnt">宏村南湖，水天交相辉映。有拍过这么霸气的宏村南湖么？<a href="http://k.t.qq.com/k/%E6%91%84%E5%BD%B1">#摄影#</a></div><div class="pubInfo"><p class="time">3 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:hidden;"  user="齐鲁晚报" class="single " rel="1346942525" id="72910026752138"   data-token="ceba53f9" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/72910026752138"  style="height:146.66666666667px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="72910026752138"
+         width="220" height="146.66666666667" oheight="330" srcurl="http://t1.qpic.cn/mblogpic/a1fca1f58d0e4a968316/220" alt="" /><img class="tiny"  tid="72910026752138"  
+         width="220" height="146.66666666667" oheight="330" srcurl="http://t1.qpic.cn/mblogpic/a1fca1f58d0e4a968316/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/qlwbyw?pgv_ref=web.c.page.user.userPic.877" 
+                        title="齐鲁晚报(@齐鲁晚报)"><img src="http://t0.qlogo.cn/mbloghead/712fbbbde5f1d93e6d1a/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="qlwbyw">Following </a>
+                    </div>
+                    <div class="text"  rel="qlwbyw" ><a target="_blank" class="uthead"  title="齐鲁晚报(@齐鲁晚报)"
+                           href="http://t.qq.com/qlwbyw?pgv_ref=web.c.page.user.userName.877" rel="qlwbyw">齐鲁晚报</a><a href="http://zhaoren.t.qq.com/people.php?id=114" title="腾讯机构认证" target="_blank" class="tIcon ico_cvip"></a>:
+        【济南一拍卖行试水古玩“保退” 业内人士不理解】省城济南，针对拍卖会不保真、“知假卖假”等行业潜规则，有拍卖行大胆提出了“保退”政策。对于收藏者来说，拍下来的拍品能否实现退换？对于拍卖行方面来说，这种新的政策可否持续下去？这一切都有待时间的考证。（中国新闻网）<a href="http://url.cn/94YKBo" class="url" target="_blank">http://url.cn/94YKBo</a>                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/1" e="sourceClick" data-cid="1" data-cname="时事">时事</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="72910026752138" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">79</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="72910026752138"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="72910026752138"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="72910026752138" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/72910026752138" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>齐鲁晚报</a></div><div class="msgCnt">【济南一拍卖行试水古玩“保退” 业内人士不理解】省城济南，针对拍卖会不保真、“知假卖假”等行业潜规则，有拍卖行大胆提出了“保退”政策。对于收藏者来说，拍下来的拍品能否实现退换？对于拍卖行方面来说，这种新的政策可否持续下去？这一切都有待时间的考证。（中国新闻网）<a href="http://url.cn/94YKBo" class="url" target="_blank">http://url.cn/94YKBo</a></div><div class="pubInfo"><p class="time">5 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:hidden;"  user="旅行日记" class="single " rel="1346942521" id="97934091533485"   data-token="23c95446" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/97934091533485"  style="height:255.07972665148px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="97934091533485"
+         width="220" height="255.07972665148" oheight="509" srcurl="http://t1.qpic.cn/mblogpic/ce4cf286f8ca2a5c83d2/220" alt="" /><img class="tiny"  tid="97934091533485"  
+         width="220" height="255.07972665148" oheight="509" srcurl="http://t1.qpic.cn/mblogpic/ce4cf286f8ca2a5c83d2/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/Go-travel?pgv_ref=web.c.page.user.userPic.877" 
+                        title="旅行日记(@Go-travel)"><img src="http://t2.qlogo.cn/mbloghead/39a1686de90ec7eca286/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="Go-travel">Following </a>
+                    </div>
+                    <div class="text"  rel="Go-travel" ><a target="_blank" class="uthead"  title="旅行日记(@Go-travel)"
+                           href="http://t.qq.com/Go-travel?pgv_ref=web.c.page.user.userName.877" rel="Go-travel">旅行日记</a>:
+        微光中的威尼斯，有生之年一定要实实在在的感受它的美。                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/38" e="sourceClick" data-cid="38" data-cname="旅行">旅行</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="97934091533485" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">180</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="97934091533485"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="97934091533485"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="97934091533485" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/97934091533485" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>旅行日记</a></div><div class="msgCnt">微光中的威尼斯，有生之年一定要实实在在的感受它的美。</div><div class="pubInfo"><p class="time">5 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:hidden;"  user="成都日报" class="single " rel="1346942467" id="89960114689024"   data-token="659ca92d" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/89960114689024"  style="height:297.23404255319px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="89960114689024"
+         width="220" height="297.23404255319" oheight="762" srcurl="http://t1.qpic.cn/mblogpic/b15b25a9540c48f5dbe6/220" alt="" /><img class="tiny"  tid="89960114689024"  
+         width="220" height="297.23404255319" oheight="762" srcurl="http://t1.qpic.cn/mblogpic/b15b25a9540c48f5dbe6/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/dbrx962211?pgv_ref=web.c.page.user.userPic.877" 
+                        title="成都日报(@成都日报)"><img src="http://t2.qlogo.cn/mbloghead/f290c0285746abafe89a/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="dbrx962211">Following </a>
+                    </div>
+                    <div class="text"  rel="dbrx962211" ><a target="_blank" class="uthead"  title="成都日报(@成都日报)"
+                           href="http://t.qq.com/dbrx962211?pgv_ref=web.c.page.user.userName.877" rel="dbrx962211">成都日报</a><a href="http://zhaoren.t.qq.com/people.php?id=114" title="腾讯机构认证" target="_blank" class="tIcon ico_cvip"></a>:
+        【大邑再现大熊猫活动踪迹】在最近两个月，地处大邑县的四川黑水河自然保护区内，先后3次发现2只大熊猫的活动踪迹。在保护区安置的5部红外触发相机中，5号机、3号机均拍摄到大熊猫，3号机还拍摄到了鬣羚。这是今年保护区安装红外线触发相机以来首次拍摄到的野外大熊猫活动图片。记者 杨华春                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/1" e="sourceClick" data-cid="1" data-cname="时事">时事</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="89960114689024" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">595</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="89960114689024"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="89960114689024"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="89960114689024" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/89960114689024" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>成都日报</a></div><div class="msgCnt">【大邑再现大熊猫活动踪迹】在最近两个月，地处大邑县的四川黑水河自然保护区内，先后3次发现2只大熊猫的活动踪迹。在保护区安置的5部红外触发相机中，5号机、3号机均拍摄到大熊猫，3号机还拍摄到了鬣羚。这是今年保护区安装红外线触发相机以来首次拍摄到的野外大熊猫活动图片。记者 杨华春</div><div class="pubInfo"><p class="time">6 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:hidden;"  user="旅行中的COCO姐" class="single " rel="1346942409" id="22492018698820"   data-token="97b34e5b" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/22492018698820"  style="height:262.47288503254px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="22492018698820"
+         width="220" height="262.47288503254" oheight="550" srcurl="http://t1.qpic.cn/mblogpic/12ee93467d1a31861978/220" alt="" /><img class="tiny"  tid="22492018698820"  
+         width="220" height="262.47288503254" oheight="550" srcurl="http://t1.qpic.cn/mblogpic/12ee93467d1a31861978/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/XK775800?pgv_ref=web.c.page.user.userPic.877" 
+                        title="旅行中的COCO姐(@XK775800)"><img src="http://t2.qlogo.cn/mbloghead/ef87e2708919ea57ca90/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="XK775800">Following </a>
+                    </div>
+                    <div class="text"  rel="XK775800" ><a target="_blank" class="uthead"  title="旅行中的COCO姐(@XK775800)"
+                           href="http://t.qq.com/XK775800?pgv_ref=web.c.page.user.userName.877" rel="XK775800">旅行中的COCO姐</a><a href="http://zhaoren.t.qq.com/people.php" title="腾讯个人认证" target="_blank" class="vip"></a>:
+        五彩湾，新疆吉州吉木萨尔县城北，一片茫茫戈壁荒漠中罕见的五彩缤纷的世界，素来以怪异，神秘，壮观而著称，充满了奇丽的色彩<a href="http://k.t.qq.com/k/%E6%97%85%E8%A1%8C">#旅行#</a>。                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/38" e="sourceClick" data-cid="38" data-cname="旅行">旅行</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="22492018698820" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">651</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="22492018698820"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="22492018698820"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="22492018698820" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/22492018698820" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>旅行中的COCO姐</a></div><div class="msgCnt">五彩湾，新疆吉州吉木萨尔县城北，一片茫茫戈壁荒漠中罕见的五彩缤纷的世界，素来以怪异，神秘，壮观而著称，充满了奇丽的色彩<a href="http://k.t.qq.com/k/%E6%97%85%E8%A1%8C">#旅行#</a>。</div><div class="pubInfo"><p class="time">7 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:hidden;"  user="天府早报" class="single " rel="1346942406" id="94447107133533"   data-token="4c17338e" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/94447107133533"  style="height:132.91666666667px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="94447107133533"
+         width="220" height="132.91666666667" oheight="203" srcurl="http://t1.qpic.cn/mblogpic/c37e556122934f6afa56/220" alt="" /><img class="tiny"  tid="94447107133533"  
+         width="220" height="132.91666666667" oheight="203" srcurl="http://t1.qpic.cn/mblogpic/c37e556122934f6afa56/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/tfzb?pgv_ref=web.c.page.user.userPic.877" 
+                        title="天府早报(@天府早报)"><img src="http://t2.qlogo.cn/mbloghead/8011a060aeb8a57088e4/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="tfzb">Following </a>
+                    </div>
+                    <div class="text"  rel="tfzb" ><a target="_blank" class="uthead"  title="天府早报(@天府早报)"
+                           href="http://t.qq.com/tfzb?pgv_ref=web.c.page.user.userName.877" rel="tfzb">天府早报</a><a href="http://zhaoren.t.qq.com/people.php?id=114" title="腾讯机构认证" target="_blank" class="tIcon ico_cvip"></a>:
+        【江苏多所高校被曝逼学生在富士康打工】学的不是电子和机械，却被学校强制派往江苏淮安富士康工厂实习；实习与毕业学分挂钩，如学分不够有可能难以毕业……近日，江苏财经职业技术学院、江苏食品职业技术学院、淮安广播电视大学等多个高校的在校生反映上述情况。<a href="http://url.cn/5CMfDu" class="url" target="_blank">http://url.cn/5CMfDu</a>                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/1" e="sourceClick" data-cid="1" data-cname="时事">时事</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="94447107133533" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">388</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="94447107133533"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="94447107133533"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="94447107133533" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/94447107133533" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>天府早报</a></div><div class="msgCnt">【江苏多所高校被曝逼学生在富士康打工】学的不是电子和机械，却被学校强制派往江苏淮安富士康工厂实习；实习与毕业学分挂钩，如学分不够有可能难以毕业……近日，江苏财经职业技术学院、江苏食品职业技术学院、淮安广播电视大学等多个高校的在校生反映上述情况。<a href="http://url.cn/5CMfDu" class="url" target="_blank">http://url.cn/5CMfDu</a></div><div class="pubInfo"><p class="time">7 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div><div  style="visibility:hidden;"  user="大S美容宝典" class="single " rel="1346942663" id="146614077317120"   data-token="019ec179" >
+                         <a  target="_blank" href="http://c.t.qq.com/p/877/146614077317120"  style="height:384.82084690554px" 
+           class="thumb imgsPreview"onclick="" title="Click to view the full image"><img title="Click to view the full image" class="huge" style="position:absolute"  tid="146614077317120"
+         width="220" height="384.82084690554" oheight="537" srcurl="http://t1.qpic.cn/mblogpic/34c7bb3ed0ba52249fa8/220" alt="" /><img class="tiny"  tid="146614077317120"  
+         width="220" height="384.82084690554" oheight="537" srcurl="http://t1.qpic.cn/mblogpic/34c7bb3ed0ba52249fa8/60" alt="" /></a>            <div class="con">
+                <div class="pl">
+                    <div class="user_pn">
+                    <a  target="_blank" href="http://t.qq.com/FashionMeirong?pgv_ref=web.c.page.user.userPic.877" 
+                        title="大S美容宝典(@FashionMeirong)"><img src="http://t3.qlogo.cn/mbloghead/6ee669266802bc6adb6e/50"/></a>                        <a e="fol" href="#" class="foFun addAttention" user="FashionMeirong">Following </a>
+                    </div>
+                    <div class="text"  rel="FashionMeirong" ><a target="_blank" class="uthead"  title="大S美容宝典(@FashionMeirong)"
+                           href="http://t.qq.com/FashionMeirong?pgv_ref=web.c.page.user.userName.877" rel="FashionMeirong">大S美容宝典</a>:
+        『消除肚腩10要素』①每天至少喝6杯水；②睡觉前不喝茶或含咖啡因饮料；③睡觉前不要吃东西；④多吃新鲜蔬菜和水果；⑤少吃脂肪含量较高的肉类，不吃油炸食品；⑥一定要吃早餐，而且少吃多餐；⑦每周健身3次；⑧保持大便畅通，每日排便1次；⑨饭前先喝汤，钝化食欲增强饱食感⑩可坚持按下图做做运动。                                                                         <p class="source">(from <a href="http://c.t.qq.com/i/37" e="sourceClick" data-cid="37" data-cname="美容瘦身">美容瘦身</a> channel)</p>
+                                            </div>
+                </div>
+                <div class="bottom clear">
+                    
+                    <div class="right">
+
+                        <span class="zb"><a href="#" tid="146614077317120" onclick=""  e="srelay"><em e="srelay">Repost</em><em e="srelay" class="num">(<cite e="srelay" class="num">63</cite>)</em></a></span>
+                        <span class="stp">|</span><div class="d_i"  tid="146614077317120"><a class="scomment" e="scomment" href="#">Reply</a><span class="stp">|</span></div><div class="d_i_a"><div class="fav_ico"  tid="146614077317120"><a href="#" title=Favor  e="sfav"></a></div><span class="stp">|</span></div>
+
+                        <div class="moreBox  clk-mo-smore" onclick="">
+                            <div class="mb"><i>&nbsp;</i></div>
+
+                            <div class="moreDrop" tid="146614077317120" ><a href=""  e="sreply">Dialog</a><a href="#"  type="1" e="sfav" hidefocus="true"> Favor</a><a href="" e="sshare">Share </a><a href="http://t.qq.com/p/t/146614077317120" target="_blank" e="sdetail">Details</a></div>
+                        </div></div><div class="msgBox" style="display:none"><div class="userName"><a>大S美容宝典</a></div><div class="msgCnt">『消除肚腩10要素』①每天至少喝6杯水；②睡觉前不喝茶或含咖啡因饮料；③睡觉前不要吃东西；④多吃新鲜蔬菜和水果；⑤少吃脂肪含量较高的肉类，不吃油炸食品；⑥一定要吃早餐，而且少吃多餐；⑦每周健身3次；⑧保持大便畅通，每日排便1次；⑨饭前先喝汤，钝化食欲增强饱食感⑩可坚持按下图做做运动。</div><div class="pubInfo"><p class="time">3 minutes ago</p></div></div></div></div>
+                        <div class="cha_tm">
+                                            </div>
+
+               </div></div>
+
+
+</div>                        
+                        <div class="moreFoot"  id="moreList"  style="display:none;width:100%"><a id="hasmore" href="javascript:void(0)" rel=""><em class="ico_load"></em>Loading</a></div>
+                        <div id="pageNav" class="blueFoot" style="display:none"><a href="" e="page">‹‹ Previous</a><a href=""  e="page">Next ››</a></div>
+                        <div id="pimg" style="display:none"></div>
+                             </div>
+        </div>
+<script type="text/javascript">if(!window._MIRun){_MIRun=[];MIRun=function(o){_MIRun.push(o)};} _MIVersion={"TalkBoxRich":"120906","Tmpl":"120906"};MILang='en_US';</script><script type="text/javascript" src="http://mat1.gtimg.com/www/mb/js/mi.Lang.en_US_120626.js"></script><script type="text/javascript" src="http://mat1.gtimg.com/www/mb/js/mi_120906a.js"></script><script type="text/javascript">
+</script>
+<script type="text/javascript">
+
+MI.wcp = {
+	wcpUserPic       : "web.c.page.user.userPic.877",
+	wcpUserName      : "web.c.page.user.userName.877", 
+	wcpCardUserPic   : "web.c.page.userCard.userPic.877", 
+	wcpCardUserName  : "web.c.page.userCard.userName.877", 
+
+	wcsUserPic       : "web.c.slide.user.userPic.877",
+	wcsUserName      : "web.c.slide.user.userName.877",
+	wcsComUserPic    : "web.c.slide.comlist.userPic.877", 
+	wcsComUserName   : "web.c.slide.comlist.userName.877", 
+
+	wcdUserPic      : "web.c.dp.user.userPic.877",
+	wcdUserName     : "web.c.dp.user.userName.877",
+	wcdComUserPic    : "web.c.dp.comlist.userPic.877", 
+	wcdComUserName   : "web.c.dp.comlist.userName.877", 
+
+	wclUserPic       : "web.c.list.user.userPic.877",
+	wclUserName      : "web.c.list.user.userName.877", 
+	wclComUserPic    : "web.c.list.comlist.userPic.877", 
+	wclComUserName   : "web.c.list.comlist.userName.877",
+	wbcShortTalklist : "web.reflow.c.shorturl.talklist"
+};
+
+(function(){
+	for (var kk in MI.wcp){
+		window[kk] = MI.wcp[kk];
+	}
+})();
+
+
+var newlyUrl         = 'http://c.t.qq.com/asyn/selectedAutoUpdate.php?';
+
+MI.cPageConfig                   = {}; //页面JS中需要的配置放这个里面，以便维护和调试
+var bossiBak2                    = 2;
+
+MI.cPageConfig.ChannelOfficialer = [];
+
+MI.cPageConfig.myChUinJson       = 0 ? [] : [];
+
+MI.cPageConfig.hasHotNum         = false;
+
+MI.cPageConfig.fChannelId        = true;// follow channel id?
+
+MI.cPageConfig.firstVisitFlag    = 0;
+
+MI.cPageConfig.navType           = 0;
+
+MI.cPageConfig.showLeshiSkin     = 0;
+
+var sHtml = ['<div class="sign_top" title="'+_('推荐')+'">推荐</div>','<div class="sign_author" title="'+_('特约作者')+'">特约作者</div>'];
+
+MIRun(function(){
+    MI.ChannelInfo = {
+        name       : "广场" ,
+        id         : "877" , 
+        flag       : "1",
+        channelType: "1",
+
+		rear       : null
+    };
+    MI.api.boss               = 1220;
+    MI.api.source             = 1729;
+    MI.user.fun.chat          = UI.B.ie6 ? 1:false;
+    MI.user.fun.relTopic      = false;
+    MI.boss                   = 50;  
+    MI.user.fun.goTop         = UI.B.ie6 ? 1:false;
+    MI.user.fun.userSidePanel = 0;
+
+    MI.BosCall = function(o){
+        if(!o.split){
+            //名片卡收听上报不改 搜索上报不改
+            if( o.iPos !== 52 && o.id !== 1194){
+                o.iBak1 = cid;
+                o.iBak2 = bossiBak2;
+            }
+        }
+    } 
+
+	//MI.api.type = 7;
+	MI.TalkBox.prototype.data = {
+		'channelId'   : MI.ChannelInfo.id, 
+		'channelPage' : bossiBak2//parseInt(MI.ChannelInfo.channelType) + 1	// MSG_TYPE_ALL:1, MSG_TYPE_PIC:2, MSG_TYPE_TUM:3
+	};
+});
+
+</script>  
+
+<script src="http://mat1.gtimg.com/www/mb/js/c/201209/mi.cSlide.waterfall_120905.js"></script>
+<script>
+
+UI.ready(function() {
+    MI.api.type = 7;
+	// 瀑布流
+	if( new Date -_timeStart > 1000 ){
+		MI.bannerTips({
+			newTips: { 
+				dir     :'up',
+				type    :1,
+				xy      :[ UI.width( $$('.C_top_nav')[0]) - 278, 85],
+				dirStyle:'left:230px',
+				style   :"width:279px",
+				target  :".top_title .left",
+				content :'您的网络状况不佳，建议您切换到列表浏览内容'
+			}
+		});
+		MI.Bos({ id:1220, name:'btnSlowTips'});
+	}
+	MI.Crs.disabled = 1;
+	var autoUpdate  = true; 
+	var param = {
+		cid : MI.ChannelInfo.id,
+		n   : 10
+	};
+	var url = UI.parseUrl();    
+	for (var urlHash in url) {
+		if ('p' == urlHash && url['p'] > 1) {
+			autoUpdate = false; 
+			break;
+		}
+		if ('time' == urlHash) {
+			continue;
+		}
+		if ('id' == urlHash) {
+			continue;
+		}
+		if ('filter' == urlHash) {
+			continue;
+		}
+		param[urlHash] = url[urlHash];
+	}
+	var rel = newlyUrl;
+	for (var pr in param){
+		rel += pr + "=" + param[pr] + "&";
+	}
+	rel += 'turn=1';
+	
+	
+    MI.ChannelInfo.personalOrder   = '0';
+    MI.ChannelInfo.relationMap     = {};
+    MI.ChannelInfo.opeCacheContent = [];
+    MI.ChannelInfo.searchPage      = 1+1;
+		
+	var slideConfig = {
+		searchPage     :MI.ChannelInfo.searchPage,              
+		listNum        :1000, 
+		arynUrl        :rel,
+		moreNode       :$('moreList'),
+		pageNode       :$('pageNav'),
+		cid            :MI.ChannelInfo.id,
+		// col            :col,
+		version        :version,
+		personalOrder  :MI.ChannelInfo.personalOrder,
+		relationMap    :MI.ChannelInfo.relationMap,
+		opeCacheContent:MI.ChannelInfo.opeCacheContent
+	};
+    var mcslide = {};
+	mcslide = new MI.cSlide($('pic-list'), slideConfig);
+	
+	
+		
+
+}); //end ui.ready
+
+
+
+
+
+MI.user.account = 10000;//快速登录
+function mb_quick_reg(el,from){
+	if(!MI.user.account){
+		var frame = $('QuickLoginFrame');
+		if (frame){
+			UI.remove(frame);
+		}
+		MI.dialog.show({title:'<h3 class="DmainTit">Sign in to Tencent Weibo</h3>',end:function(){
+        UI.cookie('reg_quick',1,0.42);        },html:'<iframe src="http://mini.t.qq.com/mblogin_quick_en.htm" frameborder="0" scrolling="no" width="571" height="187" id="QuickLoginFrame"></iframe>',width:620});
+	}
+	MI.Bos('btnPortalQuickLogin',from);
+}
+function mb_quick_reg_call(isReg){
+	MI.dialog.hide();
+	if (isReg){
+        document.location.reload();
+	}
+	else {
+        document.location.href = 'http://t.qq.com/regfriend.php?reg';
+	}
+}
+if(!MI.user.account){
+	MI.app({
+		Base:function(){
+			if (!UI.cookie('reg_quick')){
+                            mb_quick_reg(document.body,'');
+                          }		}
+	});
+}
+function ptlogin2_onResize(w,h){var F=$('QuickLoginFrame');if(F) F.style.height=h+'px'}
+function ptui_notifyClose(){MI.dialog.hide()}
+function mb_cbRegister(){MI.dialog.hide()}MI.user.account = 0;
+
+</script>
+
+<script type="text/javascript">
+function changeLang(event){
+	var e = window.event || event || {};
+	var dom = e.target || e.srcElement,
+		href = document.location.href,
+		lang = dom.getAttribute('href'),
+		index = href.indexOf('?'),
+		newHref = href;
+	if(lang!=null){
+		var indexL = lang.indexOf('lang='),
+			langTxt = lang.substring(indexL);
+		if(index == -1){
+			newHref = newHref + '?' + langTxt; 
+		}
+		else{
+			var hasLang = href.indexOf('lang');
+			if(hasLang == -1)
+				newHref += '&' + langTxt;
+			else{
+				newHref = newHref.substring(0,hasLang) + langTxt;
+			}
+		}
+		document.location.href = newHref;
+	}
+}
+</script>
+<div id="Copyright"><div class="wrapper"><div><a href="http://www.qq.com" target="_blank">QQ.COM </a>|<a href="http://www.qq.com/map" target="_blank">Sitemap</a>|<a href="http://t.qq.com/certification">Verification</a>|<a href="http://open.t.qq.com" target="_blank">Open Platform</a>|<a href="http://k.t.qq.com/k/%25E6%2584%258F%25E8%25A7%2581%25E5%258F%258D%25E9%25A6%2588">Feedbacks</a>|<div class="langSet" onmouseover="UI.addClass(this,'hover');" onmouseout="UI.removeClass(this,'hover');" onclick="if(MI.changeLang && (MI.user.account != null || MI.user.account != '')){MI.changeLang(event); return false;}else{changeLang(event);return false;}">
+        <a data-flag="2" href="?lang=en_US ">English<span class="btn_arr"><span><em>◆</em></span></span></a><div class="subNav"><p><a data-flag="3" href="?lang=zh_CN">简体中文</a></p><p class="last"><a data-flag="1" href="?lang=zh_CHT">繁體中文</a></p>
+            <p></p></div></div></div><div>Copyright &copy; 1998 - 2012 Tencent. All Rights Reserved</div></div></div>
+<script>try{QosS.timePoint3()();}catch(e){}</script>
+<script>MIRun(function(){setTimeout(function(){UI.getScript('http://pingjs.qq.com/ping.js',function(){if(typeof(pgvMain) == 'function'){vsPgvCol = "en_US";if(MI&&MI.user.fun.wideStyle){}pgvMain()}})},1000)});</script><div id="cssCheck"></div>
+<div id="cypher" style="position: absolute; visibility: hidden; left: 0;top: 0"></div><div class="sideTopBar" id="rtop" title="Go Top"></div>
+<div class="D" style="display:none" id="followbanner">
+      <div style="margin-left: 0pt; width: 1583px; height: 1113px" class="bg"></div>
+</div>
+<script src="http://mat1.gtimg.com/www/mb/js/c/201208/mi.cSlide.page_120830b.js"></script>
+
+<script type="text/javascript">
+try{QosS.endCheck();}catch(e){}
+MI.feedBack({
+    name : 'visitCategoryIndex',
+    id   : 1220,
+    iBak1: MI.ChannelInfo.id || 877,
+    iBak2: bossiBak2
+});
+
+//window.onload = function(){trace && trace(new Date() - _timeStart)};
+
+
+</script>
+
+</body>
+</html>
