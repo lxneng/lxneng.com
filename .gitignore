@@ -8,3 +8,4 @@ parts/
 .ropeproject/
 eggs
 *.egg-info/
+production.ini
