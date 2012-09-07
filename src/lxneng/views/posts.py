@@ -28,9 +28,14 @@ class PostView(BasicFormView):
 
     @view_config(route_name='posts_index', renderer='posts/index.html')
     def index(self):
+        posts = meta.Session.query(Post)\
+            .order_by(Post.id.desc()).all()
+        return {'posts': posts}
+
+    @view_config(route_name='posts_archive', renderer='posts/archive.html')
+    def archive(self):
         def grouper(item):
             return item.created_at.year, item.created_at.month
-
         posts = meta.Session.query(Post)\
             .order_by(Post.id.desc()).all()
         result = groupby(posts, grouper)

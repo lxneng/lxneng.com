@@ -19,14 +19,16 @@
     {%- endfor %}
 </ul>
 
-{% if posts_pager.previous_page %}
-<a class="fleft" href="{{request.current_route_url(_query={'page':
-    posts_pager.previous_page})}}">« Previous</a>
-{% endif %}
+<div class="pagination">
+    {% if posts_pager.previous_page %}
+    <a class="fleft" href="{{request.current_route_url(_query={'page':
+        posts_pager.previous_page})}}">« Previous</a>
+    {% endif %}
 
-{% if posts_pager.next_page %}
-<a class="fright" href="{{request.current_route_url(_query={'page': posts_pager.next_page})}}">Next »</a>
-{% endif %}
+    {% if posts_pager.next_page %}
+    <a class="fright" href="{{request.current_route_url(_query={'page': posts_pager.next_page})}}">Next »</a>
+    {% endif %}
+</div>
 
 </article>
 {% endblock %}

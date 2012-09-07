@@ -5,40 +5,40 @@
 <h1>{{context.title}}</h1>
 <strong>{{tools.format_date(context.created_at)}}</strong>
 <div id='content'>
-<p>{{tools.markdown_content(context.content)|safe}}</p>
+    <p>{{tools.markdown_content(context.content)|safe}}</p>
 </div>
 <p class="tags">This entry was tagged
-    {% for tag in context.tags|sort(case_sensitive=true) %}
-      {%- if not loop.first and not loop.last %}, {% endif -%}
-      {%- if loop.last and not loop.first %} and {% endif %}
-      <a href="{{ request.route_url('posts_tags_show', name=tag.name) }}">{{ tag.name }}</a>
-    {%- endfor %}
+{% for tag in context.tags|sort(case_sensitive=true) %}
+{%- if not loop.first and not loop.last %}, {% endif -%}
+{%- if loop.last and not loop.first %} and {% endif %}
+<a href="{{ request.route_url('posts_tags_show', name=tag.name) }}">{{ tag.name }}</a>
+{%- endfor %}
 </p>
 {% if request.user %}
 <p>
 <a href="{{ request.route_url('posts_edit', id=context.id) }}">Edit</a>
 </p>
 {% endif %}
-<p>
-{% if prev %}<a class="fleft" href="{{ request.route_url('posts_show', id=prev.id) }}">« {{gettext('Previous')}}</a>{% endif %}
-{% if next %}<a class="fright" href="{{ request.route_url('posts_show', id=next.id) }}">{{gettext('Next')}} »</a>{% endif %}
-</p>
+<div class="pagination">
+    {% if prev %}<a class="fleft" href="{{ request.route_url('posts_show', id=prev.id) }}">« {{gettext('Previous')}}</a>{% endif %}
+    {% if next %}<a class="fright" href="{{ request.route_url('posts_show', id=next.id) }}">{{gettext('Next')}} »</a>{% endif %}
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'lxneng';
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-</article>
-{% endblock %}
+ </article>
+ {% endblock %}
 
-{% block javascript %}
-<link rel="stylesheet" href="{{request.static_url('lxneng:static/css/syntax.css')}}">
-{% endblock %}
+ {% block javascript %}
+ <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/syntax.css')}}">
+ {% endblock %}

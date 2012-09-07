@@ -59,6 +59,7 @@ class ApplicationFactory(object):
 
         # posts
         config.add_route('posts_index', '/posts')
+        config.add_route('posts_archive', '/posts/archive')
         config.add_route('posts_new', '/posts/new')
         config.add_route('posts_tags_index', '/posts/tags')
         config.add_route('posts_rss', '/posts/rss')

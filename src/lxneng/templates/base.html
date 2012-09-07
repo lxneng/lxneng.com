@@ -20,6 +20,7 @@
                     class="{{'active' if request.path.startswith('/posts') else ''}}" title="Blog" id="Blog">{{gettext('Blog')}}</a>
                 <div class="submenu">
                     <ul>
+                        <li><a href="{{request.route_url('posts_archive')}}">{{gettext('Archive')}}</a></li>
                         <li><a href="{{request.route_url('posts_tags_index')}}">{{gettext('Tags')}}</a></li>
                         <li><a href="{{request.route_url('posts_rss')}}">RSS</a></li>
                     </ul>
