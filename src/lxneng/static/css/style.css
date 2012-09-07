@@ -46,7 +46,7 @@ img, video, audio, embed {
 .fright {float: right;}
 
 .container {
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 auto 50px;
   zoom: 1;
 }
@@ -80,9 +80,9 @@ img, video, audio, embed {
   -moz-box-shadow: 0 0 30px #000;
   box-shadow: 0 0 30px #000;
   background: #F2F2F2 url('../images/noise.png') top left;
-  padding: 30px 21px 5px;
+  padding: 30px 20px 5px;
   text-align: left;
-  max-width: 658px;
+  max-width: 640px;
   -moz-border-radius: 2px;
   -khtml-border-radius: 2px;
   -webkit-border-radius: 2px;
