@@ -12,7 +12,7 @@ $(function(){
         loading: {
             finished: undefined,
         finishedMsg: "No more pages to load.",
-        img: "/static/images/ajax-loader.gif",
+        img: "http://lxneng-static.b0.upaiyun.com/static/images/ajax-loader.gif",
         msg: null,
         msgText: "Loading...",
         selector: null,
