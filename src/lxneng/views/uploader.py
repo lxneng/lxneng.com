@@ -3,8 +3,8 @@ from lxneng.views import BasicView
 
 
 @view_config(route_name='uploader',
-            permission='auth',
-            renderer='uploader.html')
+             permission='auth',
+             renderer='uploader.html')
 class Upyun(BasicView):
 
     def __init__(self, context, request):

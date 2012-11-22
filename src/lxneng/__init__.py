@@ -35,9 +35,11 @@ class ApplicationFactory(object):
         from lxneng import factories
 
         if settings.get('static_file_url', 0):
-            config.add_static_view(settings['static_file_url'], 'lxneng:static')
+            config.add_static_view(
+                settings['static_file_url'], 'lxneng:static')
         else:
-            config.add_static_view('static', 'lxneng:static', cache_max_age=3600)
+            config.add_static_view(
+                'static', 'lxneng:static', cache_max_age=3600)
 
         config.add_route('home', '/')
         config.add_route('login', '/login')

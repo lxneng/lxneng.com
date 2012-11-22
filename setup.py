@@ -51,9 +51,9 @@ setup(name='lxneng',
       tests_require=requires,
       test_suite="lxneng",
       message_extractors={'src': [
-                    ('**.py', 'lingua_python', None),
-                    ('**.html', 'lingua_jinja2', None),
-                ]},
+                          ('**.py', 'lingua_python', None),
+     ('**.html', 'lingua_jinja2', None),
+      ]},
       entry_points="""\
       [paste.app_factory]
       main = lxneng:main
