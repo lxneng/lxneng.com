@@ -74,6 +74,8 @@ class ApplicationFactory(object):
                          factory=factories.tag_factory)
         config.add_route('uploader', '/uploader')
 
+        config.add_route('cse', '/search')
+
     def setup_assetviews(self, config):
         config.include('pyramid_assetviews')
         config.add_asset_views('lxneng:static', filenames=['robots.txt',

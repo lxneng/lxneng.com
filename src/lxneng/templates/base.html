@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{request.static_url('lxneng:static/css/style.css')}}?v={{v}}">
 		<link rel="stylesheet" href="{{request.static_url('lxneng:static/css/flexslider.css')}}">
         <link href="{{request.route_url('posts_rss')}}" rel="alternate" title="Recent Posts" type="application/atom+xml">
+        {% block javascript_top %}{% endblock %}
     </head> 
     <body>
         <canvas class='blur' src="http://lxneng.b0.upaiyun.com/images/bg.jpg"></canvas>
