@@ -26,7 +26,7 @@
 [School of Computer Science & Technology](http://scst.suda.edu.cn/), [Soochow University](http://eng.suda.edu.cn/)
 
 ###Work Experience:
-- **Shanghai Qinchao Internet Technology Co., Ltd.**
+- **Shanghai Qinchao Internet Technology Co., Ltd.**  
 *Platform R&D Manager, March 2012 - Now*
 
 - **2Style4You.com**  
