@@ -1,26 +1,14 @@
 from fabric.api import run, env, cd, sudo
 
-env.hosts = ['lxneng.com']
+env.hosts = ['direct.lxneng.com']
 env.user = 'root'
-CODE_DIR = '/var/www/lxneng'
+CODE_DIR = '/var/www/lxneng.com'
 
 
 def deploy():
     with cd(CODE_DIR):
-        run('git pull')
-        run('supervisorctl restart lxneng')
+        run('git pull && supervisorctl restart lxneng')
 
 
 def restart_nginx():
     sudo('/etc/init.d/nginx restart')
-
-
-def install_requirements():
-    with cd(CODE_DIR):
-        run('/root/env/bin/pip install -r requirements.txt')
-
-
-def db_migrate():
-    with cd(CODE_DIR):
-        run('/root/env/bin/upgrade --scan lxneng\
-                --db-uri mysql://root@localhost/lxneng')

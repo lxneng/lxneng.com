@@ -1,19 +1,15 @@
 #关于我
 <table>
 	<tr>
-        <th>姓名:</th>
+        <th width="65">姓名:</th>
         <td>罗小能</td>
     </tr>
     <tr>
         <th>主页:</th>
         <td><a href="http://lxneng.com/">lxneng.com</a></td>
     </tr>
-    <tr valign="top">
-        <th>工作:</th>
-        <td>互联网工程师</td>
-    </tr>
 	<tr>
-        <th>Gmail/Gtalk:</th>
+        <th>Email:</th>
         <td><a href="mailto:lxneng@gmail.com">lxneng@gmail.com</a></td>
     </tr>
     <tr>
@@ -29,6 +25,9 @@
 - 2008年毕业于[苏州大学](http://www.suda.edu.cn/)-[计算机科学与技术学院](http://scst.suda.edu.cn/)-软件工程专业本科
 
 ###工作经历:
+- **上海亲巢网络科技有限公司**
+*2012年03月 - 现在： 平台研发经理*
+
 - **2Style4You.com**  
 *2010年12月 - 2012年03月： 高级软件工程师*
 

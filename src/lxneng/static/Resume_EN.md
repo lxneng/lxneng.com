@@ -1,19 +1,15 @@
 #About Me
 <table>
 	<tr>
-        <th>Name:</th>
+        <th width="65">Name:</th>
         <td>Eric Lo</td>
     </tr>
     <tr>
-        <th>HomePage:</th>
+        <th>Blog:</th>
         <td><a href="http://lxneng.com/">lxneng.com</a></td>
     </tr>
-    <tr>
-        <th>Professional Bio:</th>
-        <td>Web Developer</td>
-    </tr>
 	<tr>
-        <th>Gmail/Gtalk:</th>
+        <th>Email:</th>
         <td><a href="mailto:lxneng@gmail.com">lxneng@gmail.com</a></td>
     </tr>
     <tr>
@@ -22,7 +18,7 @@
     </tr>
     <tr>
         <th>Location:</th>
-        <td>Shanghai</td>
+        <td>Shanghai, China</td>
     </tr>
 </table>
 ###Education:
@@ -30,6 +26,9 @@
 [School of Computer Science & Technology](http://scst.suda.edu.cn/), [Soochow University](http://eng.suda.edu.cn/)
 
 ###Work Experience:
+- **Shanghai Qinchao Internet Technology Co., Ltd.**
+*Platform R&D Manager, March 2012 - Now*
+
 - **2Style4You.com**  
 *Senior Software Engineer, December 2010 - March 2012*
 
