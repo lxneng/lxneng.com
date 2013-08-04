@@ -3,7 +3,7 @@
 {% block body %}
 <article>
 <div id="content">
-	<img class="right" id="avatar" src="http://lxneng.b0.upaiyun.com/images/avatar-238x240.jpg" alt="Eric Lo">
+	<img class="right" id="avatar" src="{{request.static_url('lxneng:static/images/avatar-238x240.jpg')}}" alt="Eric Lo">
 	{{ tools.markdown_content(resume) | safe }}
 </div>
 <h3>{% trans %}Find Me On The Web{% endtrans %}:</h3>

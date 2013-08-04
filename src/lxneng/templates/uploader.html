@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block body %}
 {% if req.session.get('last_upload') %}
-<img src="http://lxneng.b0.upaiyun.com/{{ req.session['last_upload'] }}!medium" />
+<img src="{{ req.static_url(req.session['last_upload']) }}" />
 {% endif %}
 <form method="POST" enctype='multipart/form-data'>
   {{html.input(name='_csrf', type='hidden', value=request.session.get_csrf_token())}}

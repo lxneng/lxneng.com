@@ -7,7 +7,7 @@
 {% for photo in album.photos.limit(3) %}
     <div class="shadow photo">
         <a href="{{request.route_url('photos_album', id=photo.album.id)}}">
-            <img src="http://lxneng.b0.upaiyun.com/photos/{{ photo.path }}!medium" />
+            <img src="{{ req.static_url(photo.filesystem_path) }}!medium" />
         </a>
         <span class="caption">{{photo.description}}</span>
     </div>

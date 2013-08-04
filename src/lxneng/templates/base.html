@@ -13,7 +13,7 @@
         {% block javascript_top %}{% endblock %}
     </head> 
     <body>
-        <canvas class='blur' src="http://lxneng.b0.upaiyun.com/images/bg.jpg"></canvas>
+        <canvas class='blur' src="{{request.static_url('lxneng:static/images/bg.jpg')}}"></canvas>
         <header>
             <ul class="nav">
                 <li><a href="{{request.application_url}}" class="{{'active' if request.path=='/' else ''}}" title="Home" id="Home">{{gettext('Home')}}</a></li>

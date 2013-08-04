@@ -31,15 +31,33 @@ class ApplicationFactory(object):
         config.add_translation_dirs('lxneng:locale')
         config.add_renderer('.html', renderer_factory)
 
-    def setup_routes(self, config, settings):
-        from lxneng import factories
+    def setup_static_files(self, config, settings):
+        from lxneng.models.photo import Photo
+        Photo.root_path = settings['photos_dir']
 
-        if settings.get('static_file_url', 0):
+        if settings.get('asset_url', 0):
             config.add_static_view(
-                settings['static_file_url'], 'lxneng:static')
+                settings['asset_url'], 'lxneng:static')
         else:
             config.add_static_view(
                 'static', 'lxneng:static', cache_max_age=3600)
+
+        if settings.get('photos_url', 0):
+            config.add_static_view(
+                settings['photos_url'], settings['photos_dir'])
+        else:
+            config.add_static_view(
+                'photos', settings['photos_dir'], cache_max_age=3600)
+
+        if settings.get('images_url', 0):
+            config.add_static_view(
+                settings['images_url'], settings['images_dir'])
+        else:
+            config.add_static_view(
+                'images', settings['images_dir'], cache_max_age=3600)
+
+    def setup_routes(self, config, settings):
+        from lxneng import factories
 
         config.add_route('home', '/')
         config.add_route('login', '/login')
@@ -76,22 +94,11 @@ class ApplicationFactory(object):
 
         config.add_route('cse', '/search')
 
-    def setup_assetviews(self, config):
-        config.include('pyramid_assetviews')
-        config.add_asset_views('lxneng:static', filenames=['robots.txt',
-                                                           'favicon.ico'], http_cache=5000)
-
-    def setup_upyun(self, config, settings):
-        from lxneng.lib.upyun import UpYun
-        config.registry['upyun'] = UpYun(username=settings['upyun.username'],
-                                         password=settings['upyun.password'])
-
     def configure(self, settings):
         config = self.create_configuration(settings)
         self.setup_jinja2(config)
+        self.setup_static_files(config, settings)
         self.setup_routes(config, settings)
-        self.setup_assetviews(config)
-        self.setup_upyun(config, settings)
         config.scan()
         return config
 

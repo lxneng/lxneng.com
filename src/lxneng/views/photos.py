@@ -62,11 +62,6 @@ class AlbumView(BasicFormView):
 
 class AlbumPhotoView(BasicView):
 
-    def __init__(self, context, request):
-        super(AlbumPhotoView, self).__init__(context, request)
-        self.upyun = request.registry['upyun']
-        self.upyun.set_bucket('lxneng')
-
     @view_config(route_name='photos_album_upload',
                  permission='auth',
                  renderer='photos/upload_to_album.html')
@@ -74,12 +69,9 @@ class AlbumPhotoView(BasicView):
         if self.request.method == 'POST':
             data = self.request.POST
             image = data['image']
+            entry = Photo(album_id=self.context.id, description=data['description'])
             if image != u'':
-                path = '%s/%s' % (self.context.id, image.filename)
-            rt = self.upyun.writeFile('/photos/%s' % path, image.file, True)
-            if rt:
-                entry = Photo(album_id=self.context.id,
-                              path=path, description=data['description'])
-                meta.Session.add(entry)
-                return HTTPFound(self.request.route_url('photos_album', id=self.context.id))
+                entry.set_image(image.file.read(), image.filename)
+            meta.Session.add(entry)
+            return HTTPFound(self.request.route_url('photos_album', id=self.context.id))
         return {'title': 'upload photos'}

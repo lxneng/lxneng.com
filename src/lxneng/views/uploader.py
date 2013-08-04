@@ -1,3 +1,4 @@
+import os
 from pyramid.view import view_config
 from lxneng.views import BasicView
 
@@ -7,19 +8,15 @@ from lxneng.views import BasicView
              renderer='uploader.html')
 class Upyun(BasicView):
 
-    def __init__(self, context, request):
-        super(Upyun, self).__init__(context, request)
-        self.upyun = request.registry['upyun']
-        self.upyun.set_bucket('lxneng')
-
     def do_post(self):
         data = self.request.POST
         image = data['image']
+        images_dir = self.request.registry.settings.get('images_dir', '/tmp')
         if image != u'':
-            path = '/images/%s' % image.filename
-            rt = self.upyun.writeFile(path, image.file)
-            if rt:
-                self.request.session['last_upload'] = path
+            path = os.path.join(images_dir, image.filename)
+            with open(path, 'wb') as f:
+                f.write(image.file.read())
+            self.request.session['last_upload'] = path
 
     def __call__(self):
         if self.request.method == 'POST':

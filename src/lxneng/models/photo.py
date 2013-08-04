@@ -1,3 +1,4 @@
+import os
 from sqlalchemy import schema
 from sqlalchemy import types
 from sqlalchemy import orm
@@ -5,6 +6,7 @@ from easy_sqlalchemy.meta import BaseObject
 from sqlalchemy.sql import functions
 from pyramid.security import Authenticated
 from pyramid.security import Allow
+from repoze.filesafe import create_file
 
 
 class Album(BaseObject):
@@ -43,3 +45,22 @@ class Photo(BaseObject):
                                nullable=False, default=functions.now())
     updated_at = schema.Column(types.DateTime(),
                                nullable=False, default=functions.now(), index=True)
+
+    def set_image(self, data=None, filename=None):
+        if data is None:
+            self.path = filename or '/dev/null'
+            return
+        if not os.path.isdir(os.path.join(self.root_path, self.album_id)):
+            os.mkdir(os.path.join(self.root_path, self.album_id))
+        self.path = os.path.join(self, filename)
+        img = create_file(self.filesystem_path, 'wb')
+        if hasattr(img, 'fileno'):
+            os.fchmod(img.fileno(), 0644)
+        img.write(data)
+        img.close()
+
+    @property
+    def filesystem_path(self):
+        if self.root_path is None:
+            raise AttributeError('root_path not set')
+        return os.path.join(self.root_path, self.path)

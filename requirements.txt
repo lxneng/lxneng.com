@@ -3,7 +3,6 @@ pyramid_jinja2
 easy_sqlalchemy
 psycopg2
 py-bcrypt
-pyramid_assetviews
 pyramid_debugtoolbar
 Babel
 lingua
@@ -13,3 +12,4 @@ flatland
 flickrapi
 webhelpers
 pyramid_tm
+repoze.filesafe
