@@ -5,7 +5,7 @@
         {%- for photo in photos %}
         <li>
         <a href="{{request.route_url('photos_album', id=photo.album_id)}}">
-            <img src="{{ req.static_url(photo.filesystem_path) }}!medium" />
+            <img src="{{ req.static_url(photo.filesystem_path) }}!640px" />
         </a>
         </li>
         {%- endfor %}
