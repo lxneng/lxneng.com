@@ -50,9 +50,10 @@ class Photo(BaseObject):
         if data is None:
             self.path = filename or '/dev/null'
             return
-        if not os.path.isdir(os.path.join(self.root_path, self.album_id)):
-            os.mkdir(os.path.join(self.root_path, self.album_id))
-        self.path = os.path.join(self, filename)
+        img_dir = os.path.join(self.root_path, str(self.album_id))
+        if not os.path.isdir(img_dir):
+            os.mkdir(img_dir)
+        self.path = os.path.join(str(self.album_id), filename)
         img = create_file(self.filesystem_path, 'wb')
         if hasattr(img, 'fileno'):
             os.fchmod(img.fileno(), 0644)
